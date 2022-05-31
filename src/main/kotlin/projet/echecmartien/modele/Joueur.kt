@@ -60,8 +60,11 @@ class Joueur(pseudo : String) {
         return res
     }
 
-
-
+    override fun equals(other: Any?): Boolean {
+        if (other !is Joueur)
+            return false
+        return pseudo==other.pseudo
+    }
 
 
 

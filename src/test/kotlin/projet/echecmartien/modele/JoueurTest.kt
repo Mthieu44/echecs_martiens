@@ -18,13 +18,28 @@ internal class JoueurTest {
         j.ajouterPionCaptures(PetitPion())
         j.ajouterPionCaptures(GrandPion())
         j.ajouterPionCaptures(MoyenPion())
-        assertEquals(setOf<Pion>(PetitPion(),GrandPion(),MoyenPion()), j.getPionsCaptures())
+        assertEquals(setOf<Pion>(PetitPion(),GrandPion(),MoyenPion()).toList(), j.getPionsCaptures().toList())
     }
 
     @Test
-    fun ajouterPionCaptures() {
+    fun ajouterPetitPionCaptures() {
         val j = Joueur("zzz")
         j.ajouterPionCaptures(PetitPion())
+        assertEquals(listOf(PetitPion()), j.getPionsCaptures().toList())
+    }
+
+    @Test
+    fun ajouterMoyenPionCaptures() {
+        val j = Joueur("zzz")
+        j.ajouterPionCaptures(MoyenPion())
+        assertEquals(listOf(MoyenPion()), j.getPionsCaptures().toList())
+    }
+
+    @Test
+    fun ajouterGrandPionCaptures() {
+        val j = Joueur("zzz")
+        j.ajouterPionCaptures(GrandPion())
+        assertEquals(listOf(GrandPion()), j.getPionsCaptures().toList())
     }
 
     @Test
