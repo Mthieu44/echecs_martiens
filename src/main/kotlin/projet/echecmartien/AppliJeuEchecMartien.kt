@@ -11,9 +11,6 @@ import projet.echecmartien.modele.Plateau
 class AppliJeuEchecMartien: Application() {
     override fun start(primaryStage: Stage) {
 
-       TODO()
-      
-
     }
 
 }
