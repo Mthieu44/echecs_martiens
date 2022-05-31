@@ -3,7 +3,7 @@ package projet.echecmartien.modele
 import projet.echecmartien.exeptions.DeplacementExeption
 
 
-class Jeu() : InterfaceJeu{
+class Jeu : InterfaceJeu{
     private var nombreCoupsSansPrise : Int = 0
     private var nombreCoupsSansPriseMax : Int = 0
     private var coordOrigine : Coordonnee? = null
@@ -64,10 +64,10 @@ class Jeu() : InterfaceJeu{
         for (i in 0 until plateau.getTailleVerticale()){
             for (j in 0 until plateau.getTailleHorizontale()){
                 if (i<4){
-                    plateau.getCases()[i][j].setJoueur(joueur2)
+                    plateau.getCases()[j][i].setJoueur(joueur2)
                 }
                 else{
-                    plateau.getCases()[i][j].setJoueur(joueur1)
+                    plateau.getCases()[j][i].setJoueur(joueur1)
                 }
             }
         }
@@ -112,6 +112,7 @@ class Jeu() : InterfaceJeu{
         initialiserJoueur(joueur1,joueur2)
         joueurs= arrayOf(joueur1,joueur2)
         joueurCourant=joueur1
+        plateau.initialiser()
         this.nombreCoupsSansPriseMax=nombreCoupsSansPriseMax
     }
 
@@ -227,18 +228,22 @@ class Jeu() : InterfaceJeu{
         val co = plateau.getCases()[coordOrigineX][coordOrigineY]
         val cd = plateau.getCases()[coordDestinationX][coordDestinationY]
         if (deplacementPossible(coordOrigineX,coordOrigineY,coordDestinationX,coordDestinationY,joueurCourant)){
+            nombreCoupsSansPrise += 1
             if (!cd.estLibre() && cd.getJoueur()!=joueurCourant) {
                 joueurCourant!!.ajouterPionCaptures(cd.getPion()!!)
+                nombreCoupsSansPrise = 0
             }
             if (cd.getJoueur() != co.getJoueur()){
                 pionArriveDeZone=co.getPion()
             }
-            cd.setPion(co.getPion())
-            co.setPion(null)
+            plateau.getCases()[coordDestinationX][coordDestinationY].setPion(co.getPion())
+            plateau.getCases()[coordOrigineX][coordOrigineY].setPion(null)
         }
     }
 
-
+    override fun toString(): String {
+        return plateau.toString()
+    }
 
 
 
