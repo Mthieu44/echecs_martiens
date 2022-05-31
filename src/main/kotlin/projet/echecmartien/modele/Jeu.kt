@@ -82,10 +82,10 @@ class Jeu : InterfaceJeu{
         var cptj2 = 0
         for (i in 0 until plateau.getTailleVerticale()){
             for (j in 0 until plateau.getTailleHorizontale()){
-                if (i<4 && plateau.getCases()[i][j].getPion()!=null){
+                if (i<4 && plateau.getCases()[j][i].getPion()!=null){
                     cptj2++
                 }
-                if (i>=4 && plateau.getCases()[i][j].getPion()!=null) {
+                if (i>=4 && plateau.getCases()[j][i].getPion()!=null) {
                     cptj1++
                 }
             }
@@ -200,7 +200,7 @@ class Jeu : InterfaceJeu{
             return false
         if (joueur!=joueurCourant)
             return false
-        val d = Deplacement(Coordonnee(coordDestinationX,coordDestinationY),
+        val d = Deplacement(Coordonnee(coordOrigineX,coordOrigineY),
             Coordonnee(coordDestinationX,coordDestinationY)
         )
         val co = plateau.getCases()[coordOrigineX][coordOrigineY]
@@ -210,10 +210,12 @@ class Jeu : InterfaceJeu{
         val chemin : List<Coordonnee>
         try {
             chemin = co.getPion()!!.getDeplacement(d)
+            println(chemin)
         }
         catch (e : DeplacementExeption){
             return false
         }
+        println(chemin)
         for (i in 0 until chemin.size-1){
             if (!plateau.getCases()[chemin[i].getX()][chemin[i].getY()].estLibre())
                 return false

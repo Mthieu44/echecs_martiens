@@ -21,10 +21,8 @@ fun main(){
     val j = Jeu()
     j.initialiserPartie(j1, j2, 3)
     println(j)
-    j.deplacer(3, 5, 2, 4)
-    j.deplacer(3, 6, 3, 0)
-    println(j.deplacementPossible(3, 7, 3, 1, j1))
-    j.deplacer(3, 7, 3, 1)
+    println(j.deplacementPossible(1, 5, 0, 4, j1))
+    j.deplacer(1, 5, 0, 4)
     println(j)
 
     //Application.launch(AppliJeuEchecMartien::class.java)
