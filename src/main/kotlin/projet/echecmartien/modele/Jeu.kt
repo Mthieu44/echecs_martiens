@@ -212,7 +212,7 @@ class Jeu : InterfaceJeu{
         )
         val co = plateau.getCases()[coordOrigineX][coordOrigineY]
         val cd = plateau.getCases()[coordDestinationX][coordDestinationY]
-        if (co.getJoueur()!=cd.getJoueur() && co.getPion()==pionArriveDeZone)
+        if (co.getJoueur()!=cd.getJoueur() && co.getPion()===pionArriveDeZone)
             return false
         val chemin : List<Coordonnee>
         try {
