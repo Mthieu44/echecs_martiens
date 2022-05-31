@@ -125,12 +125,10 @@ class Jeu : InterfaceJeu{
 
 
     override fun joueurVainqueur(): Joueur? {
-        if (arretPartie()){
-            if (joueurs[0].calculerScore()>joueurs[1].calculerScore())
-                return joueurs[0]
-            if (joueurs[0].calculerScore()<joueurs[1].calculerScore())
-                return joueurs[1]
-        }
+        if (joueurs[0].calculerScore()>joueurs[1].calculerScore())
+            return joueurs[0]
+        if (joueurs[0].calculerScore()<joueurs[1].calculerScore())
+            return joueurs[1]
         return null
     }
 
@@ -217,12 +215,10 @@ class Jeu : InterfaceJeu{
         val chemin : List<Coordonnee>
         try {
             chemin = co.getPion()!!.getDeplacement(d)
-            println(chemin)
         }
         catch (e : DeplacementExeption){
             return false
         }
-        println(chemin)
         for (i in 0 until chemin.size-1){
             if (!plateau.getCases()[chemin[i].getX()][chemin[i].getY()].estLibre())
                 return false
@@ -247,6 +243,7 @@ class Jeu : InterfaceJeu{
             }
             plateau.getCases()[coordDestinationX][coordDestinationY].setPion(co.getPion())
             plateau.getCases()[coordOrigineX][coordOrigineY].setPion(null)
+            changeJoueurCourant()
         }
     }
 
