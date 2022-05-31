@@ -104,11 +104,93 @@ internal class JeuTest {
     }
 
     @Test
-    fun deplacementPossible() {
+    fun deplacementPossibleOrigineOnlyPossible() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        assertTrue(j.deplacementPossible(1,6))
     }
 
     @Test
-    fun testDeplacementPossible() {
+    fun deplacementPossibleOrigineOnlyPasPossibleJoueur() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        assertFalse(j.deplacementPossible(2,2))
+    }
+
+    @Test
+    fun deplacementPossibleOrigineOnlyPasPossiblePionBloque() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        assertFalse(j.deplacementPossible(3,7))
+    }
+
+    @Test
+    fun deplacementPossibleOrigineOnlyPasPossiblePasPion() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        assertFalse(j.deplacementPossible(2,4))
+    }
+
+    @Test
+    fun deplacementPossible5ParamsPossible() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        assertTrue(j.deplacementPossible(3,5,3,3,joueur1))
+    }
+
+    @Test
+    fun deplacementPossible5ParamsPasPossiblePasJoueurCourant() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        assertFalse(j.deplacementPossible(0,2,0,3,joueur2))
+    }
+
+    @Test
+    fun deplacementPossible5ParamsPasPossibleMauvaisCote() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        assertFalse(j.deplacementPossible(2,2,3,3,joueur1))
+    }
+
+    @Test
+    fun deplacementPossible5ParamsPasPossiblePionBloque() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        assertFalse(j.deplacementPossible(3,7,3,6,joueur1))
+    }
+
+    @Test
+    fun deplacementPossible5ParamsPasPossibleLongueurPetitPion() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        assertFalse(j.deplacementPossible(2,5,0,3,joueur1))
+    }
+
+    @Test
+    fun deplacementPossible5ParamsPasPossibleLongueurMoyenPion() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        assertFalse(j.deplacementPossible(3,5,3,1,joueur1))
     }
 
     @Test

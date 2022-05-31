@@ -217,12 +217,10 @@ class Jeu : InterfaceJeu{
         val chemin : List<Coordonnee>
         try {
             chemin = co.getPion()!!.getDeplacement(d)
-            println(chemin)
         }
         catch (e : DeplacementExeption){
             return false
         }
-        println(chemin)
         for (i in 0 until chemin.size-1){
             if (!plateau.getCases()[chemin[i].getX()][chemin[i].getY()].estLibre())
                 return false
