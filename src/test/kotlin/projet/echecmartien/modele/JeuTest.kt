@@ -82,7 +82,21 @@ internal class JeuTest {
     }
 
     @Test
-    fun initialiserPartie() {
+    fun initialiserPartieAppartenanceCaseJoueur() {
+        val jeu = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        jeu.initialiserPartie(joueur1, joueur2, 2)
+        for (i in 0 until 4){
+            for (j in 0 until 8){
+                if (j<4) {
+                    assertEquals(joueur2, jeu.getPlateau().getCases()[i][j].getJoueur())
+                }else{
+                    assertEquals(joueur1, jeu.getPlateau().getCases()[i][j].getJoueur())
+                }
+            }
+        }
+
     }
 
     @Test

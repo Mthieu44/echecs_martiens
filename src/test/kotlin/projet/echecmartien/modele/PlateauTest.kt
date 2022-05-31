@@ -33,7 +33,7 @@ internal class PlateauTest {
     fun testInitialiserPlateau() {
         val p = Plateau()
         p.initialiser()
-        // Test des Pions du joueur 1 (celui du haut)
+        // Test des Pions du joueur 2 (celui du haut)
         assertEquals(GrandPion(), p.getCases()[0][0].getPion())
         assertEquals(GrandPion(), p.getCases()[1][0].getPion())
         assertEquals(GrandPion(), p.getCases()[0][1].getPion())
@@ -46,13 +46,13 @@ internal class PlateauTest {
 
         //Test de toutes les cases vides du plateau
         for (i in 0 until 4) {
-            assertNull(p.getCases()[3][i].getPion()) // Test des cases vides du coté du joueur 1 à droite
-            assertNull(p.getCases()[0][4+i].getPion()) // Test des cases vides du coté du joueur 2 à gauche
-            assertNull(p.getCases()[i][3].getPion()) // Test des cases vides du coté du joueur 1 devant ces pions
-            assertNull(p.getCases()[i][4].getPion())  // Test des cases vides du coté du joueur 2 devant ces pions
+            assertNull(p.getCases()[3][i].getPion()) // Test des cases vides du coté du joueur 2 à droite
+            assertNull(p.getCases()[0][4+i].getPion()) // Test des cases vides du coté du joueur 1 à gauche
+            assertNull(p.getCases()[i][3].getPion()) // Test des cases vides du coté du joueur 2 devant ces pions
+            assertNull(p.getCases()[i][4].getPion())  // Test des cases vides du coté du joueur 1 devant ces pions
         }
 
-        //Test des Pions du joueurs 2 (celui du bas)
+        //Test des Pions du joueurs 1 (celui du bas)
         assertEquals(GrandPion(), p.getCases()[3][7].getPion())
         assertEquals(GrandPion(), p.getCases()[3][6].getPion())
         assertEquals(GrandPion(), p.getCases()[2][7].getPion())

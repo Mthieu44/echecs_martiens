@@ -14,6 +14,13 @@ class Jeu : InterfaceJeu{
     private var pionArriveDeZone : Pion? = null
 
     /**
+    * getter
+    * @return le plateau
+    * */
+    fun getPlateau() = plateau
+
+
+    /**
      * getter
      * @return la coordonnée origine du déplacement
      */
