@@ -24,4 +24,13 @@ package projet.echecmartien.modele
 	 */
 	abstract fun getDeplacement(deplacement: Deplacement):List<Coordonnee>
 
+	override fun toString(): String {
+		return getScore().toString()
+	}
+
+	override fun equals(other: Any?): Boolean {
+		if (other !is Pion)
+			return false
+		return getScore().equals(other.getScore())
+	}
    }

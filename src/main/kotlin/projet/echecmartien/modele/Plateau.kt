@@ -56,5 +56,20 @@ class Plateau {
         return cases
     }
 
+    override fun toString(): String {
+        var s = ""
+        for (colonne in cases[0].indices){
+            for (c in cases.indices){
+                if (cases[c][colonne].getPion() == null) {
+                    s += "0|"
+                }
+                else {
+                    s += cases[c][colonne].getPion().toString() + "|"
+                }
+            }
+            s += "\n"
+        }
+        return s
+    }
 
 }
