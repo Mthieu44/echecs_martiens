@@ -125,12 +125,10 @@ class Jeu : InterfaceJeu{
 
 
     override fun joueurVainqueur(): Joueur? {
-        if (arretPartie()){
-            if (joueurs[0].calculerScore()>joueurs[1].calculerScore())
-                return joueurs[0]
-            if (joueurs[0].calculerScore()<joueurs[1].calculerScore())
-                return joueurs[1]
-        }
+        if (joueurs[0].calculerScore()>joueurs[1].calculerScore())
+            return joueurs[0]
+        if (joueurs[0].calculerScore()<joueurs[1].calculerScore())
+            return joueurs[1]
         return null
     }
 
@@ -245,6 +243,7 @@ class Jeu : InterfaceJeu{
             }
             plateau.getCases()[coordDestinationX][coordDestinationY].setPion(co.getPion())
             plateau.getCases()[coordOrigineX][coordOrigineY].setPion(null)
+            changeJoueurCourant()
         }
     }
 
