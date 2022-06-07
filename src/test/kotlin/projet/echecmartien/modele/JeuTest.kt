@@ -258,6 +258,41 @@ internal class JeuTest {
     }
 
     @Test
-    fun deplacer() {
+    fun deplacementPossible5ParamsPasPossibleHorizontalPetitPion() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        assertFalse(j.deplacementPossible(1,5,0,5,joueur1))
     }
+
+    @Test
+    fun deplacementPossible5ParamsPasPossibleVerticalPetitPion() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        assertFalse(j.deplacementPossible(1,5,1,4,joueur1))
+    }
+
+    @Test
+    fun deplacementPossible5ParamsPasPossiblePionSurLeChemin() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        j.getPlateau().getCases()[3][6].setPion(null)
+        assertFalse(j.deplacementPossible(3,7,3,3,joueur1))
+    }
+
+    @Test
+    fun deplacementPossible5ParamsPasPossiblePionArriveDeZone() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        j.deplacer(3,5,3,3)
+        assertFalse(j.deplacementPossible(3,3,3,5,joueur2))
+    }
+
 }

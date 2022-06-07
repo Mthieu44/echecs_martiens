@@ -201,9 +201,9 @@ class Jeu : InterfaceJeu{
         coordDestinationY: Int,
         joueur: Joueur?
     ): Boolean {
-        if (!deplacementPossible(coordOrigineX,coordOrigineY))
-            return false
         if (joueur!=joueurCourant)
+            return false
+        if (!deplacementPossible(coordOrigineX,coordOrigineY))
             return false
         val d = Deplacement(Coordonnee(coordOrigineX,coordOrigineY),
             Coordonnee(coordDestinationX,coordDestinationY)
