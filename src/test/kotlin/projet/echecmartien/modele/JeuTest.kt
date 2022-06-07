@@ -295,4 +295,65 @@ internal class JeuTest {
         assertFalse(j.deplacementPossible(3,3,3,5,joueur2))
     }
 
+
+    @Test
+    fun deplacerSurUnPion() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        j.deplacer(3,5,2,5)
+        assertFalse(j.getPlateau().getCases()[3][5].estLibre())
+        assertEquals(PetitPion(),j.getPlateau().getCases()[2][5].getPion())
+    }
+
+    @Test
+    fun deplacerMauvaisJoueur() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        println(j)
+        j.deplacer(0,2,0,3)
+        assertTrue(j.getPlateau().getCases()[0][3].estLibre())
+        assertEquals(MoyenPion(),j.getPlateau().getCases()[0][2].getPion())
+    }
+
+    @Test
+    fun deplacerVraiCaseLibre() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        j.deplacer(1,5,0,4)
+        assertTrue(j.getPlateau().getCases()[1][5].estLibre())
+        assertEquals(PetitPion(),j.getPlateau().getCases()[0][4].getPion())
+    }
+
+
+    @Test
+    fun deplacerVraiCoupAvecPrise() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        j.deplacer(1,5,0,4)
+        j.deplacer(0,2,0,4)
+        assertTrue(j.getPlateau().getCases()[0][2].estLibre())
+        assertEquals(MoyenPion(),j.getPlateau().getCases()[0][4].getPion())
+    }
+
+    @Test
+    fun deplacerImpossiblePionArriveDeZone() {
+        val j = Jeu()
+        val joueur1 = Joueur("zzz")
+        val joueur2 = Joueur("kkk")
+        j.initialiserPartie(joueur1, joueur2, 5)
+        j.deplacer(1,5,0,4)
+        j.deplacer(0,2,0,4)
+        j.deplacer(0,4,0,3)
+        assertTrue(j.getPlateau().getCases()[0][3].estLibre())
+        assertEquals(MoyenPion(),j.getPlateau().getCases()[0][4].getPion())
+    }
+
 }
