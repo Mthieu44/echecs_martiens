@@ -70,4 +70,8 @@ class CasePlateau(
         } else
             throw IllegalArgumentException()
     }
+
+    fun accesBouton(): Button{
+        return bouton
+    }
 }
