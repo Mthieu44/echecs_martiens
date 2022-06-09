@@ -8,9 +8,10 @@ import javafx.scene.layout.VBox
 import projet.echecmartien.controleur.ControleurClicCase
 import projet.echecmartien.modele.Jeu
 
-class VuePlateau(modele : Jeu): VBox() {
+class VuePlateau(): VBox() {
     val plateauHaut = GridPane()
     val plateauBas = GridPane()
+    val tableauCase = Array<MutableList<CasePlateau>>(8) { i -> mutableListOf() }
 
 
     init {
@@ -43,7 +44,7 @@ class VuePlateau(modele : Jeu): VBox() {
                 //val bouton = Button("$lettreColonne$numligne")
                 //bouton.setPrefSize(bx,by)
                 val casePlateau = CasePlateau(bx, by, borderSize, num_colonne, num_ligne)
-                casePlateau.clic(ControleurClicCase(modele, casePlateau))
+                tableauCase[num_ligne].add(casePlateau)
                 //plateauHaut.add(bouton,num_colonne,num_ligne)
                 if (num_ligne + num_colonne < nbr_buttons_y/4)
                     casePlateau.placerPion("grand")
@@ -69,7 +70,7 @@ class VuePlateau(modele : Jeu): VBox() {
                 //val bouton = Button("$lettreColonne$numligne")
                 //bouton.setPrefSize(bx,by)
                 val casePlateau = CasePlateau(bx, by, borderSize, num_colonne, num_ligne)
-                casePlateau.clic(ControleurClicCase(modele, casePlateau))
+                tableauCase[num_ligne].add(casePlateau)
                 //plateauHaut.add(bouton,num_colonne,num_ligne)
                 if (num_ligne + num_colonne > 3*nbr_buttons_y/4 +2)
                     casePlateau.placerPion("grand")

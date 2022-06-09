@@ -5,6 +5,7 @@ import javafx.scene.Scene
 import javafx.scene.layout.*
 
 import javafx.stage.Stage
+import projet.echecmartien.controleur.ControleurClicCase
 import projet.echecmartien.modele.Jeu
 import projet.echecmartien.modele.Joueur
 import projet.echecmartien.vue.CasePlateau
@@ -14,8 +15,8 @@ import projet.echecmartien.vue.VuePlateau
 class AppliJeuEchecMartien: Application() {
 
     private val modele = Jeu()
-    private val plateau = VuePlateau(modele)
-    override fun start(primaryStage: Stage) {/*
+    private val plateau = VuePlateau()
+    override fun start(primaryStage: Stage) {
         val root = BorderPane()
         val tailleFenetreX = 1280.0
         val tailleFenetreY = 720.0
@@ -32,11 +33,16 @@ class AppliJeuEchecMartien: Application() {
 
         root.center = plateau
 
-*/
-        val vue = VueAccueil()
+        for (l in plateau.tableauCase){
+            for (c in l){
+                c.clic(ControleurClicCase(modele, c))
+            }
+        }
+        /*val vue = VueAccueil()
+
         val scene = Scene(vue,1280.0,720.0)
-       primaryStage.title="Page d'accueil"
-       primaryStage.scene=scene
+        primaryStage.title="Page d'accueil"
+        primaryStage.scene=scene*/
         primaryStage.show()
 
     }
