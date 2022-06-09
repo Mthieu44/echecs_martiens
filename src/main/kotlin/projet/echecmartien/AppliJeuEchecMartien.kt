@@ -29,9 +29,6 @@ class AppliJeuEchecMartien: Application() {
 
         root.center = vuePlateau
 
-
-
-
         primaryStage.show()
     }
 }

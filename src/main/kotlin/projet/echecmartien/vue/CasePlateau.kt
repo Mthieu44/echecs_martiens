@@ -1,5 +1,6 @@
 package projet.echecmartien.vue
 
+import javafx.scene.layout.BackgroundPosition
 import javafx.scene.layout.Pane
 import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
@@ -8,7 +9,9 @@ import kotlin.math.absoluteValue
 class CasePlateau(
     tailleBoutonX: Double,
     tailleBoutonY: Double,
-    borderSize: Int
+    borderSize: Int,
+    private val positionX: Int,
+    private val positionY: Int
 ) : Pane() {
     private val isGrandPion: Boolean = false
     private val isMoyenPion: Boolean = false
@@ -62,5 +65,13 @@ class CasePlateau(
             cercle.fill = Paint.valueOf(couleurPetitPion)
         } else
             throw IllegalArgumentException()
+    }
+
+    fun getPositionX(): Int {
+        return positionX
+    }
+
+    fun getPositionY(): Int {
+        return positionY
     }
 }
