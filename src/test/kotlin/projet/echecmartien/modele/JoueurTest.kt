@@ -18,7 +18,7 @@ internal class JoueurTest {
         j.ajouterPionCaptures(PetitPion())
         j.ajouterPionCaptures(GrandPion())
         j.ajouterPionCaptures(MoyenPion())
-        assertEquals(setOf<Pion>(PetitPion(),GrandPion(),MoyenPion()).toList(), j.getPionsCaptures().toList())
+        assertEquals(setOf(PetitPion(), GrandPion(), MoyenPion()).toList(), j.getPionsCaptures().toList())
     }
 
     @Test

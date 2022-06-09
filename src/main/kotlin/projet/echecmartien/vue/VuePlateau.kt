@@ -81,8 +81,5 @@ class VuePlateau(modele : Jeu): VBox() {
             }
         }
         this.children.add(plateauBas)
-
     }
-
-
 }

@@ -1,8 +1,5 @@
 package projet.echecmartien.vue
 
-import javafx.event.EventHandler
-import javafx.scene.control.Button
-import javafx.scene.input.MouseEvent
 import javafx.scene.layout.Pane
 import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
@@ -15,9 +12,9 @@ class CasePlateau(
     x : Int,
     y : Int
 ) : Pane() {
-    val isGrandPion: Boolean = false
-    val isMoyenPion: Boolean = false
-    val isPetitPion: Boolean = false
+    private val isGrandPion: Boolean = false
+    private val isMoyenPion: Boolean = false
+    private val isPetitPion: Boolean = false
 
     private val minTailleBouton: Double
 
