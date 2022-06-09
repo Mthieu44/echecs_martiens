@@ -4,7 +4,7 @@ import javafx.scene.layout.GridPane
 import javafx.scene.layout.Pane
 import javafx.scene.layout.VBox
 
-class Plateau: VBox() {
+class VuePlateau: VBox() {
     val plateauHaut = GridPane()
     val plateauBas = GridPane()
 

@@ -27,16 +27,16 @@ class CasePlateau(
     private val cercle = Circle(tailleBoutonX / 2 + borderSize, tailleBoutonY / 2 + borderSize, 0.0)
 
     init {
-        this.setPrefSize(tailleBoutonX,tailleBoutonY)
+        this.setPrefSize(tailleBoutonX, tailleBoutonY)
 
         minTailleBouton = if (tailleBoutonX <= tailleBoutonY)
             tailleBoutonX
         else
             tailleBoutonY
 
-        tailleGrandPion = (18.0 / 20.0)/2.0 * minTailleBouton
-        tailleMoyenPion = (6.0 / 8.0)/2.0 * minTailleBouton
-        taillePetitPion = (1.0 / 2.0)/2.0 * minTailleBouton
+        tailleGrandPion = (18.0 / 20.0) / 2.0 * minTailleBouton
+        tailleMoyenPion = (6.0 / 8.0) / 2.0 * minTailleBouton
+        taillePetitPion = (1.0 / 2.0) / 2.0 * minTailleBouton
 
 
 
@@ -45,7 +45,7 @@ class CasePlateau(
         this.style = "-fx-border-color: #000000; -fx-border-width: ${borderSize}px;"
     }
 
-    fun retirerPion() {
+    fun reLtirerPion() {
         cercle.radius = 0.0
     }
 
