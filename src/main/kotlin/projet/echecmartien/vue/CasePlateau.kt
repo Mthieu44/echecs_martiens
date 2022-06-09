@@ -6,44 +6,47 @@ import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
 import kotlin.math.absoluteValue
 
-class CasePlateau(private val tailleBoutonX: Double, private val tailleBoutonY: Double, lettreColonne: String, numLigne: String, private val borderSize: Int) : Pane() {
-    val bouton = Button("$lettreColonne$numLigne")
+class CasePlateau(
+    tailleBoutonX: Double,
+    tailleBoutonY: Double,
+    borderSize: Int
+) : Pane() {
     val isGrandPion: Boolean = false
     val isMoyenPion: Boolean = false
     val isPetitPion: Boolean = false
 
-    val minTailleBouton: Double
+    private val minTailleBouton: Double
 
-    val tailleGrandPion: Double
-    val couleurGrandPion = "#BDA8A8"
-    val tailleMoyenPion: Double
-    val couleurMoyenPion = "#9C8165"
-    val taillePetitPion: Double
-    val couleurPetitPion = "#6E4404"
+    private val tailleGrandPion: Double
+    private val couleurGrandPion = "#BDA8A8"
+    private val tailleMoyenPion: Double
+    private val couleurMoyenPion = "#9C8165"
+    private val taillePetitPion: Double
+    private val couleurPetitPion = "#6E4404"
 
 
-    val cercle = Circle(tailleBoutonX / 2 + borderSize, tailleBoutonY / 2 + borderSize, 0.0)
+    private val cercle = Circle(tailleBoutonX / 2 + borderSize, tailleBoutonY / 2 + borderSize, 0.0)
 
     init {
-        if (tailleBoutonX <= tailleBoutonY)
-            minTailleBouton = tailleBoutonX
+        this.setPrefSize(tailleBoutonX, tailleBoutonY)
+
+        minTailleBouton = if (tailleBoutonX <= tailleBoutonY)
+            tailleBoutonX
         else
-            minTailleBouton = tailleBoutonY
+            tailleBoutonY
 
-        tailleGrandPion = (18.0 / 20.0)/2.0 * minTailleBouton
-        tailleMoyenPion = (6.0 / 8.0)/2.0 * minTailleBouton
-        taillePetitPion = (1.0 / 2.0)/2.0 * minTailleBouton
+        tailleGrandPion = (18.0 / 20.0) / 2.0 * minTailleBouton
+        tailleMoyenPion = (6.0 / 8.0) / 2.0 * minTailleBouton
+        taillePetitPion = (1.0 / 2.0) / 2.0 * minTailleBouton
 
 
-        bouton.isVisible = true
-        bouton.setPrefSize(tailleBoutonX, tailleBoutonY)
+
         this.children.add(cercle)
-        this.children.add(bouton)
         cercle.fill = Paint.valueOf("#FFD000")
         this.style = "-fx-border-color: #000000; -fx-border-width: ${borderSize}px;"
     }
 
-    fun retirerPion() {
+    fun reLtirerPion() {
         cercle.radius = 0.0
     }
 
@@ -62,10 +65,4 @@ class CasePlateau(private val tailleBoutonX: Double, private val tailleBoutonY: 
         } else
             throw IllegalArgumentException()
     }
-
-    fun accesBouton(): Button{
-        return bouton
-    }
-
-
 }
