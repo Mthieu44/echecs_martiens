@@ -1,0 +1,54 @@
+<changelist name="Uncommitted_changes_before_Update_at_09_06_2022_09_08_[Changes]" date="1654758497533" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_06_2022_09_08_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 09/06/2022 09:08 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionLongeur$$inlined$assertThrows$1.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/projet/echecmartien/modele/Jeu.class" />
+    <option name="AFTER_PATH" value="target/classes/projet/echecmartien/modele/Jeu.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_06_2022_09_08_[Changes]/Jeu.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/projet/echecmartien/AppliJeuEchecMartien.class" />
+    <option name="AFTER_PATH" value="target/classes/projet/echecmartien/AppliJeuEchecMartien.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_06_2022_09_08_[Changes]/AppliJeuEchecMartien.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/projet/echecmartien/modele/MoyenPionTest$getDeplacementExeptionLongeur$$inlined$assertThrows$1.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/projet/echecmartien/modele/Plateau.class" />
+    <option name="AFTER_PATH" value="target/classes/projet/echecmartien/modele/Plateau.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_06_2022_09_08_[Changes]/Plateau.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/projet/echecmartien/modele/Deplacement.class" />
+    <option name="AFTER_PATH" value="target/classes/projet/echecmartien/modele/Deplacement.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_06_2022_09_08_[Changes]/Deplacement.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/projet/echecmartien/modele/GrandPionTest$getDeplacementExeptionDeplacement$$inlined$assertThrows$1.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/module-info.class" />
+    <option name="AFTER_PATH" value="target/classes/module-info.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_06_2022_09_08_[Changes]/module-info.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionDiagonale$$inlined$assertThrows$1.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionDeplacement$$inlined$assertThrows$1.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+</changelist>
