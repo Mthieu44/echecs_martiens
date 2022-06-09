@@ -30,6 +30,8 @@ class AppliJeuEchecMartien: Application() {
 
         root.center = plateau
 
+        
+
 
         primaryStage.show()
     }

@@ -1,6 +1,5 @@
 package projet.echecmartien.vue
 
-import javafx.scene.control.Button
 import javafx.scene.layout.Pane
 import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
@@ -9,11 +8,8 @@ import kotlin.math.absoluteValue
 class CasePlateau(
     tailleBoutonX: Double,
     tailleBoutonY: Double,
-    lettreColonne: String,
-    numLigne: String,
     borderSize: Int
 ) : Pane() {
-    private val bouton = Button("$lettreColonne$numLigne")
     private val isGrandPion: Boolean = false
     private val isMoyenPion: Boolean = false
     private val isPetitPion: Boolean = false
@@ -31,22 +27,19 @@ class CasePlateau(
     private val cercle = Circle(tailleBoutonX / 2 + borderSize, tailleBoutonY / 2 + borderSize, 0.0)
 
     init {
+        this.setPrefSize(tailleBoutonX,tailleBoutonY)
+
         minTailleBouton = if (tailleBoutonX <= tailleBoutonY)
             tailleBoutonX
         else
             tailleBoutonY
 
-        tailleGrandPion = (18.0 / 20.0) / 2.0 * minTailleBouton
-        tailleMoyenPion = (6.0 / 8.0) / 2.0 * minTailleBouton
-        taillePetitPion = (1.0 / 2.0) / 2.0 * minTailleBouton
+        tailleGrandPion = (18.0 / 20.0)/2.0 * minTailleBouton
+        tailleMoyenPion = (6.0 / 8.0)/2.0 * minTailleBouton
+        taillePetitPion = (1.0 / 2.0)/2.0 * minTailleBouton
 
-        println(minTailleBouton)
-        println(tailleGrandPion)
 
-        bouton.isVisible = false
-        bouton.setPrefSize(tailleBoutonX, tailleBoutonY)
         this.children.add(cercle)
-        this.children.add(bouton)
         cercle.fill = Paint.valueOf("#FFD000")
         this.style = "-fx-border-color: #000000; -fx-border-width: ${borderSize}px;"
     }
@@ -69,9 +62,5 @@ class CasePlateau(
             cercle.fill = Paint.valueOf(couleurPetitPion)
         } else
             throw IllegalArgumentException()
-    }
-
-    fun accesBouton(): Button{
-        return bouton
     }
 }
