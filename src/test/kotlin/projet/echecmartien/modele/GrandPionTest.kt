@@ -3,6 +3,7 @@ package projet.echecmartien.modele
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import projet.echecmartien.exeptions.DeplacementExeption
+import org.junit.jupiter.api.assertThrows
 
 internal class GrandPionTest{
 
@@ -16,7 +17,7 @@ internal class GrandPionTest{
     fun getDeplacementExeptionDeplacement() {
         val p = GrandPion()
         val d = Deplacement(Coordonnee(0,0), Coordonnee(4,2))
-        org.junit.jupiter.api.assertThrows<DeplacementExeption> { p.getDeplacement(d) }
+        assertThrows<DeplacementExeption> { p.getDeplacement(d) }
     }
 
     @Test

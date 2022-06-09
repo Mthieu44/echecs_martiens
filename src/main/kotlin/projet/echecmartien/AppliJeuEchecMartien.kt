@@ -8,11 +8,12 @@ import javafx.stage.Stage
 import projet.echecmartien.modele.Jeu
 import projet.echecmartien.modele.Joueur
 import projet.echecmartien.vue.CasePlateau
+import projet.echecmartien.vue.VueAccueil
 
 class AppliJeuEchecMartien: Application() {
 
     private val plateau = VBox()
-    override fun start(primaryStage: Stage) {
+    override fun start(primaryStage: Stage) {/*
         val root = BorderPane()
         val tailleFenetreX = 1280.0
         val tailleFenetreY = 720.0
@@ -97,21 +98,20 @@ class AppliJeuEchecMartien: Application() {
                 plateauBas.add(casePlateau, num_colonne, num_ligne)
             }
         }
-        plateau.children.add(plateauBas)
+        plateau.children.add(plateauBas)*/
 
+
+        val vue = VueAccueil()
+
+        val scene = Scene(vue,1280.0,720.0)
+       primaryStage.title="Page d'accueil"
+       primaryStage.scene=scene
         primaryStage.show()
+
     }
 }
 
 fun main(){
-    val j1 = Joueur("a")
-    val j2 = Joueur("b")
-    val j = Jeu()
-    j.initialiserPartie(j1, j2, 3)
-    println(j)
-    println(j.deplacementPossible(1, 5, 0, 4, j1))
-    j.deplacer(1, 5, 0, 4)
-    println(j)
 
     Application.launch(AppliJeuEchecMartien::class.java)
 }

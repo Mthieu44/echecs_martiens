@@ -313,7 +313,6 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        println(j)
         j.deplacer(0,2,0,3)
         assertTrue(j.getPlateau().getCases()[0][3].estLibre())
         assertEquals(MoyenPion(),j.getPlateau().getCases()[0][2].getPion())
