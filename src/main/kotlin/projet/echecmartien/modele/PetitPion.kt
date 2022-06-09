@@ -9,7 +9,7 @@ class PetitPion : Pion() {
     }
 
     override fun getDeplacement(deplacement: Deplacement): List<Coordonnee> {
-        if (!deplacement.estDiagonal() || deplacement.longueur()!=1)
+        if (!deplacement.estDiagonal() || deplacement.longueur() != 1)
             throw DeplacementExeption("Déplacement illégal")
         return deplacement.getCheminDiagonal()
     }

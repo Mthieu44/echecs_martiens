@@ -4,12 +4,12 @@ package projet.echecmartien.modele
 /**
  * Classe Pion
  */
- abstract class Pion {
-	/**
-	 * récupère la valeur du score d'un pion
-	 * @return la valeur du score
-	 */
-	abstract fun getScore():Int
+abstract class Pion {
+    /**
+     * récupère la valeur du score d'un pion
+     * @return la valeur du score
+     */
+    abstract fun getScore(): Int
 
 
 	/**
@@ -24,13 +24,13 @@ package projet.echecmartien.modele
 	 */
 	abstract fun getDeplacement(deplacement: Deplacement):List<Coordonnee>
 
-	override fun toString(): String {
-		return getScore().toString()
-	}
+    override fun toString(): String {
+        return getScore().toString()
+    }
 
-	override fun equals(other: Any?): Boolean {
-		if (other !is Pion)
-			return false
-		return getScore().equals(other.getScore())
-	}
-   }
+    override fun equals(other: Any?): Boolean {
+        if (other !is Pion)
+            return false
+        return getScore().equals(other.getScore())
+    }
+}
