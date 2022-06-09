@@ -1,6 +1,7 @@
 package projet.echecmartien.vue
 
-import javafx.scene.control.Button
+import javafx.event.EventHandler
+import javafx.scene.input.MouseEvent
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Pane
 import javafx.scene.layout.VBox
@@ -76,5 +77,10 @@ class Plateau: VBox() {
             }
         }
         this.children.add(plateauBas)
+
+    }
+
+    fun clic(controleur : EventHandler<MouseEvent?>){
+        this.plateauBas.onMouseClicked = controleur
     }
 }

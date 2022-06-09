@@ -6,13 +6,7 @@ import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
 import kotlin.math.absoluteValue
 
-class CasePlateau(
-    private val tailleBoutonX: Double,
-    private val tailleBoutonY: Double,
-    lettreColonne: String,
-    numLigne: String,
-    private val borderSize: Int
-) : Pane() {
+class CasePlateau(private val tailleBoutonX: Double, private val tailleBoutonY: Double, lettreColonne: String, numLigne: String, private val borderSize: Int) : Pane() {
     val bouton = Button("$lettreColonne$numLigne")
     val isGrandPion: Boolean = false
     val isMoyenPion: Boolean = false
@@ -40,10 +34,8 @@ class CasePlateau(
         tailleMoyenPion = (6.0 / 8.0)/2.0 * minTailleBouton
         taillePetitPion = (1.0 / 2.0)/2.0 * minTailleBouton
 
-        println(minTailleBouton)
-        println(tailleGrandPion)
 
-        bouton.isVisible = false
+        bouton.isVisible = true
         bouton.setPrefSize(tailleBoutonX, tailleBoutonY)
         this.children.add(cercle)
         this.children.add(bouton)
@@ -74,4 +66,6 @@ class CasePlateau(
     fun accesBouton(): Button{
         return bouton
     }
+
+
 }
