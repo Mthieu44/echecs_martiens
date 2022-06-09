@@ -3,6 +3,8 @@ package projet.echecmartien.modele
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.assertThrows
+import projet.echecmartien.exeptions.DeplacementExeption
 
 internal class DeplacementTest {
 
@@ -357,6 +359,22 @@ internal class DeplacementTest {
     }
 
     @Test
+    fun getCheminVerticalExeption(){
+        val origine = Coordonnee(0,1)
+        val destination = Coordonnee(3,6)
+        val d = Deplacement(origine, destination)
+        assertThrows<DeplacementExeption> { d.getCheminVertical() }
+    }
+
+    @Test
+    fun getCheminHorizontalExeption(){
+        val origine = Coordonnee(0,1)
+        val destination = Coordonnee(3,6)
+        val d = Deplacement(origine, destination)
+        assertThrows<DeplacementExeption> { d.getCheminHorizontal() }
+    }
+
+    @Test
     fun getCheminHorizontalPositif() {
         val origine = Coordonnee(0,0)
         val destination = Coordonnee(3,0)
@@ -408,5 +426,13 @@ internal class DeplacementTest {
         val d = Deplacement(origine, destination)
         val l = d.getCheminDiagonal()
         assertEquals(listOf(Coordonnee(2,2),Coordonnee(1,1),Coordonnee(0,0)),l)
+    }
+
+    @Test
+    fun getCheminDiagonalExeption(){
+        val origine = Coordonnee(0,1)
+        val destination = Coordonnee(3,6)
+        val d = Deplacement(origine, destination)
+        assertThrows<DeplacementExeption> { d.getCheminDiagonal() }
     }
 }
