@@ -36,9 +36,9 @@ class CasePlateau(
         else
             minTailleBouton = tailleBoutonY
 
-        tailleGrandPion = (9.0 / 20.0) * minTailleBouton
-        tailleMoyenPion = (3.0 / 8.0) * minTailleBouton
-        taillePetitPion = (3.0 / 10.0) * minTailleBouton
+        tailleGrandPion = (18.0 / 20.0)/2.0 * minTailleBouton
+        tailleMoyenPion = (6.0 / 8.0)/2.0 * minTailleBouton
+        taillePetitPion = (1.0 / 2.0)/2.0 * minTailleBouton
 
         println(minTailleBouton)
         println(tailleGrandPion)
