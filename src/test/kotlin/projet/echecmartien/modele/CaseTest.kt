@@ -50,7 +50,7 @@ internal class CaseTest {
     fun setPionNull() {
         val c = Case()
         c.setPion(null)
-        assertEquals(null, c.getPion())
+        assertEquals(null , c.getPion())
     }
 
     @Test

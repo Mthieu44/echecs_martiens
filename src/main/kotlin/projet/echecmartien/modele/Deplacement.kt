@@ -9,10 +9,10 @@ import kotlin.math.abs
  *
  */
 
-class Deplacement(origine: Coordonnee, destination: Coordonnee) {
+class Deplacement(origine : Coordonnee, destination : Coordonnee) {
 
-    private val origine: Coordonnee
-    private val destination: Coordonnee
+    private val origine : Coordonnee
+    private val destination : Coordonnee
 
 
     /**
@@ -21,8 +21,8 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
      * les autres cas lèvent une IllegalArgumentException (peut être mis en place avec "require")
      */
     init {
-        this.origine = origine
-        this.destination = destination
+        this.origine=origine
+        this.destination=destination
     }
 
 
@@ -30,7 +30,7 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
      * getter
      * @return la destination de ce déplacement
      */
-    fun getDestination(): Coordonnee {
+    fun getDestination():Coordonnee{
         return destination
     }
 
@@ -39,7 +39,7 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
      * getter
      * @return l'origine de ce déplacement
      */
-    fun getOrigine(): Coordonnee {
+    fun getOrigine():Coordonnee{
         return origine
     }
 
@@ -47,8 +47,8 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
      *méthode qui permet de tester si le déplacement est horizontal
      * @return true si le déplacement est horizontal, false sinon
      */
-    fun estHorizontal(): Boolean {
-        return origine.getY() == destination.getY()
+    fun estHorizontal() : Boolean {
+        return origine.getY()==destination.getY()
     }
 
     /**
@@ -56,15 +56,15 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
      * @return true si le déplacement est vertical, false sinon
      */
     fun estVertical(): Boolean {
-        return origine.getX() == destination.getX()
+       return origine.getX()==destination.getX()
     }
 
     /**
      * méthode qui permet de tester si le déplacement est diagonal
      * @return true si le déplacement est diagonal, false sinon
      */
-    fun estDiagonal(): Boolean {
-        return abs(origine.getX() - destination.getX()) == abs(origine.getY() - destination.getY())
+    fun estDiagonal():Boolean {
+        return abs(origine.getX()-destination.getX())==abs(origine.getY()-destination.getY())
     }
 
     /**
@@ -73,8 +73,8 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
      */
     fun longueur(): Int {
         if (estHorizontal())
-            return abs(origine.getX() - destination.getX())
-        return abs(origine.getY() - destination.getY())
+            return abs(origine.getX()-destination.getX())
+        return abs(origine.getY()-destination.getY())
     }
 
 
@@ -83,8 +83,8 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
      *
      *@return true si le déplacement est positif, false sinon
      */
-    fun estVerticalPositif(): Boolean {
-        return origine.getY() - destination.getY() < 0 && estVertical()
+    fun estVerticalPositif():Boolean{
+        return origine.getY()-destination.getY()<0&&estVertical()
     }
 
     /**
@@ -92,8 +92,8 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
      *
      * @return true si le déplacement est positif, false sinon
      */
-    fun estHorizontalPositif(): Boolean {
-        return origine.getX() - destination.getX() < 0 && estHorizontal()
+    fun estHorizontalPositif():Boolean{
+        return origine.getX()-destination.getX()<0&&estHorizontal()
     }
 
     /**
@@ -101,17 +101,16 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
      *
      * @return true si le déplacement est positif en X et Y, false sinon
      */
-    fun estDiagonalPositifXPositifY(): Boolean {
-        return origine.getX() - destination.getX() < 0 && origine.getY() - destination.getY() < 0 && estDiagonal()
+    fun estDiagonalPositifXPositifY(): Boolean{
+        return origine.getX()-destination.getX()<0&&origine.getY()-destination.getY()<0&&estDiagonal()
     }
-
     /**
      * méthode qui permet de déterminer si le sens d'un déplacement diagonal est négatif en X et positif en Y
      *
      * @return true si le déplacement est négatif en X et positif en Y, false sinon
      */
-    fun estDiagonalNegatifXPositifY(): Boolean {
-        return origine.getX() - destination.getX() >= 0 && origine.getY() - destination.getY() < 0 && estDiagonal()
+    fun estDiagonalNegatifXPositifY(): Boolean{
+        return origine.getX()-destination.getX()>=0&&origine.getY()-destination.getY()<0&&estDiagonal()
     }
 
     /**
@@ -120,8 +119,8 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
      *
      * @return true si le déplacement est positif en X et négatif en Y, false sinon
      */
-    fun estDiagonalPositifXNegatifY(): Boolean {
-        return origine.getX() - destination.getX() < 0 && origine.getY() - destination.getY() >= 0 && estDiagonal()
+    fun estDiagonalPositifXNegatifY(): Boolean{
+        return origine.getX()-destination.getX()<0&&origine.getY()-destination.getY()>=0&&estDiagonal()
     }
 
     /**
@@ -129,8 +128,8 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
      *
      * @return true si le déplacement est négatif en X et négatif en Y, false sinon
      */
-    fun estDiagonalNegatifXNegatifY(): Boolean {
-        return origine.getX() - destination.getX() >= 0 && origine.getY() - destination.getY() >= 0 && estDiagonal()
+    fun estDiagonalNegatifXNegatifY(): Boolean{
+        return origine.getX()-destination.getX()>=0&&origine.getY()-destination.getY()>=0&&estDiagonal()
     }
 
     /**
@@ -145,14 +144,14 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
         if (!estVertical())
             throw DeplacementExeption("Le chemin n'est pas vertical")
         var res = listOf<Coordonnee>()
-        if (estVerticalPositif()) {
-            for (i in origine.getY() + 1 until destination.getY() + 1) {
-                res = res.plus(Coordonnee(origine.getX(), i))
+        if (estVerticalPositif()){
+            for (i in origine.getY()+1 until destination.getY()+1){
+                res = res.plus(Coordonnee(origine.getX(),i))
             }
             return res
         }
-        for (i in origine.getY() - 1 downTo destination.getY()) {
-            res = res.plus(Coordonnee(origine.getX(), i))
+        for (i in origine.getY()-1 downTo destination.getY()){
+            res = res.plus(Coordonnee(origine.getX(),i))
         }
         return res
     }
@@ -168,17 +167,17 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
      * @throws DeplacementException est levée si le déplacement n'est pas horizontal
      */
     fun getCheminHorizontal(): List<Coordonnee> {
-        if (!estHorizontal())
-            throw DeplacementExeption("Le chemin n'est pas horizontal")
+       if (!estHorizontal())
+           throw DeplacementExeption("Le chemin n'est pas horizontal")
         var res = listOf<Coordonnee>()
-        if (estHorizontalPositif()) {
-            for (i in origine.getX() + 1 until destination.getX() + 1) {
-                res = res.plus(Coordonnee(i, origine.getY()))
+        if (estHorizontalPositif()){
+            for (i in origine.getX()+1 until destination.getX()+1){
+                res = res.plus(Coordonnee(i,origine.getY()))
             }
             return res
         }
-        for (i in origine.getX() - 1 downTo destination.getX()) {
-            res = res.plus(Coordonnee(i, origine.getY()))
+        for (i in origine.getX()-1 downTo destination.getX()){
+            res = res.plus(Coordonnee(i,origine.getY()))
         }
         return res
     }
@@ -199,24 +198,24 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
         var res = listOf<Coordonnee>()
         if (estDiagonalPositifXPositifY()) {
             for (i in 0 until longueur()) {
-                res = res.plus(Coordonnee(origine.getX() + i + 1, origine.getY() + i + 1))
+                res = res.plus(Coordonnee(origine.getX() + i+1, origine.getY() + i+1))
             }
             return res
         }
         if (estDiagonalNegatifXNegatifY()) {
             for (i in 0 until longueur()) {
-                res = res.plus(Coordonnee(origine.getX() - 1 - i, origine.getY() - i - 1))
+                res = res.plus(Coordonnee(origine.getX() -1-i, origine.getY() -i-1))
             }
             return res
         }
         if (estDiagonalPositifXNegatifY()) {
             for (i in 0 until longueur()) {
-                res = res.plus(Coordonnee(origine.getX() + 1 + i, origine.getY() - i - 1))
+                res = res.plus(Coordonnee(origine.getX() +1+i, origine.getY() -i-1))
             }
             return res
         }
         for (i in 0 until longueur()) {
-            res = res.plus(Coordonnee(origine.getX() - 1 - i, origine.getY() + i + 1))
+            res = res.plus(Coordonnee(origine.getX() -1-i, origine.getY() +i+1))
         }
         return res
     }
@@ -224,8 +223,10 @@ class Deplacement(origine: Coordonnee, destination: Coordonnee) {
     override fun equals(other: Any?): Boolean {
         if (other !is Deplacement)
             return false
-        return origine == other.origine && destination == other.destination
+        return origine==other.origine && destination==other.destination
     }
+
+
 
 
 }

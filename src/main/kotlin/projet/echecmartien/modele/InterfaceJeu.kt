@@ -1,6 +1,7 @@
 package projet.echecmartien.modele
 
 
+
 interface InterfaceJeu {
     /**
      * initialise la partie
@@ -16,10 +17,9 @@ interface InterfaceJeu {
      * @param coordOrigineY la coordonnee y du pion
      *@return true si le pion peut se déplacer, false sinon
      */
-    fun deplacementPossible(
-        coordOrigineX: Int,
-        coordOrigineY: Int
-    ): Boolean
+    fun deplacementPossible(coordOrigineX: Int,
+                            coordOrigineY: Int    ): Boolean
+
 
 
     /**
@@ -60,7 +60,6 @@ interface InterfaceJeu {
         coordOrigineX: Int, coordOrigineY: Int,
         coordDestinationX: Int, coordDestinationY: Int
     )
-
     /**
      * donne le joueur gagnant
      *

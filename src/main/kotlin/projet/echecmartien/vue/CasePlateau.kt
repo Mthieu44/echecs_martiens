@@ -54,7 +54,7 @@ class CasePlateau(
         this.style = "-fx-border-color: #000000; -fx-border-width: ${borderSize}px;"
     }
 
-    fun reLtirerPion() {
+    fun retirerPion() {
         cercle.radius = 0.0
     }
 

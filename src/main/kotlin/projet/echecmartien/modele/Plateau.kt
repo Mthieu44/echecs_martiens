@@ -6,9 +6,10 @@ import projet.echecmartien.librairie.TAILLEVERTICALE
 
 
 class Plateau {
-    private val tailleHorizontale: Int = TAILLEHORIZONTALE
-    private val tailleVerticale: Int = TAILLEVERTICALE
-    private val cases: Array<Array<Case>> = Array(tailleHorizontale) { Array(tailleVerticale) { Case() } }
+    private val tailleHorizontale : Int = TAILLEHORIZONTALE
+    private val tailleVerticale : Int = TAILLEVERTICALE
+    private val cases : Array<Array<Case>> = Array(tailleHorizontale){ Array(tailleVerticale){Case()}}
+
 
 
     /**
@@ -16,8 +17,8 @@ class Plateau {
      */
     fun initialiser() {
         val t = GeneralData().tableau
-        for (i in t.indices) {
-            for (j in t[i].indices) {
+        for (i in t.indices){
+            for (j in t[i].indices){
                 when (t[i][j].valeur) {
                     "G" -> cases[i][j].setPion(GrandPion())
                     "M" -> cases[i][j].setPion(MoyenPion())
@@ -26,6 +27,7 @@ class Plateau {
             }
         }
     }
+
 
 
     /**
@@ -42,7 +44,7 @@ class Plateau {
      * @return la taille verticale du plateau
      */
     fun getTailleVerticale(): Int {
-        return tailleVerticale
+       return tailleVerticale
     }
 
 
@@ -56,11 +58,12 @@ class Plateau {
 
     override fun toString(): String {
         var s = ""
-        for (colonne in cases[0].indices) {
-            for (c in cases.indices) {
+        for (colonne in cases[0].indices){
+            for (c in cases.indices){
                 if (cases[c][colonne].getPion() == null) {
                     s += "0|"
-                } else {
+                }
+                else {
                     s += cases[c][colonne].getPion().toString() + "|"
                 }
             }

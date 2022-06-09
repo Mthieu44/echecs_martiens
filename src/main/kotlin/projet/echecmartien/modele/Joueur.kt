@@ -1,13 +1,14 @@
 package projet.echecmartien.modele
 
-class Joueur(pseudo: String) {
-    private val pseudo: String
-    private var pionsCaptures: Set<Pion>
+class Joueur(pseudo : String) {
+    private val pseudo:String
+    private var pionsCaptures:Set<Pion>
 
     init {
-        this.pseudo = pseudo
-        this.pionsCaptures = setOf()
+        this.pseudo=pseudo
+        this.pionsCaptures= setOf()
     }
+
 
 
     /**
@@ -46,14 +47,15 @@ class Joueur(pseudo: String) {
     }
 
 
+
     /**
      * calcule le score du joueur
      * @return le score du joueur
      */
     fun calculerScore(): Int {
         var res = 0
-        for (e in pionsCaptures) {
-            res += e.getScore()
+        for (e in pionsCaptures){
+            res+=e.getScore()
         }
         return res
     }
@@ -61,6 +63,9 @@ class Joueur(pseudo: String) {
     override fun equals(other: Any?): Boolean {
         if (other !is Joueur)
             return false
-        return pseudo == other.pseudo
+        return pseudo==other.pseudo
     }
+
+
+
 }

@@ -9,20 +9,20 @@ internal class PlateauTest {
     @Test
     fun getTailleHorizontale() {
         val p = Plateau()
-        assertEquals(4, p.getTailleHorizontale())
+        assertEquals(4,p.getTailleHorizontale())
     }
 
     @Test
     fun getTailleVerticale() {
         val p = Plateau()
-        assertEquals(8, p.getTailleVerticale())
+        assertEquals(8,p.getTailleVerticale())
     }
 
     @Test
     fun getCases() {
         val p = Plateau()
-        for (e in p.getCases()) {
-            for (el in e) {
+        for (e in p.getCases()){
+            for (el in e){
                 assertNull(el.getPion())
                 assertNull(el.getJoueur())
             }
@@ -47,7 +47,7 @@ internal class PlateauTest {
         //Test de toutes les cases vides du plateau
         for (i in 0 until 4) {
             assertNull(p.getCases()[3][i].getPion()) // Test des cases vides du coté du joueur 2 à droite
-            assertNull(p.getCases()[0][4 + i].getPion()) // Test des cases vides du coté du joueur 1 à gauche
+            assertNull(p.getCases()[0][4+i].getPion()) // Test des cases vides du coté du joueur 1 à gauche
             assertNull(p.getCases()[i][3].getPion()) // Test des cases vides du coté du joueur 2 devant ces pions
             assertNull(p.getCases()[i][4].getPion())  // Test des cases vides du coté du joueur 1 devant ces pions
         }

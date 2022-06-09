@@ -3,6 +3,7 @@ package projet.echecmartien.modele
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.BeforeEach
 
 internal class JeuTest {
 
@@ -72,8 +73,8 @@ internal class JeuTest {
         j.deplacer(2, 2, 3, 3)
 
         // On supprimer tous les pions du plateau sauf 2 petits pions, un de chaque côté
-        for (colonne in j.getPlateau().getCases().indices) {
-            for (ligne in j.getPlateau().getCases()[0].indices) {
+        for (colonne in j.getPlateau().getCases().indices){
+            for (ligne in j.getPlateau().getCases()[0].indices){
                 if (ligne != 3 && ligne != 4)
                     j.getPlateau().getCases()[colonne][ligne].setPion(null)
             }
@@ -93,8 +94,8 @@ internal class JeuTest {
         j.deplacer(2, 2, 3, 3)
 
         // On supprimer tous les pions du plateau sauf 2 petits pions, un de chaque côté
-        for (colonne in j.getPlateau().getCases().indices) {
-            for (ligne in j.getPlateau().getCases()[0].indices) {
+        for (colonne in j.getPlateau().getCases().indices){
+            for (ligne in j.getPlateau().getCases()[0].indices){
                 if (ligne != 3 && ligne != 4)
                     j.getPlateau().getCases()[colonne][ligne].setPion(null)
             }
@@ -123,11 +124,11 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         jeu.initialiserPartie(joueur1, joueur2, 2)
-        for (i in 0 until 4) {
-            for (j in 0 until 8) {
-                if (j < 4) {
+        for (i in 0 until 4){
+            for (j in 0 until 8){
+                if (j<4) {
                     assertEquals(joueur2, jeu.getPlateau().getCases()[i][j].getJoueur())
-                } else {
+                }else{
                     assertEquals(joueur1, jeu.getPlateau().getCases()[i][j].getJoueur())
                 }
             }
@@ -154,7 +155,6 @@ internal class JeuTest {
         joueur2.ajouterPionCaptures(GrandPion())
         assertEquals(joueur2, j.joueurVainqueur())
     }
-
     @Test
     fun joueurVainqueurEgal() {
         val j = Jeu()
@@ -173,7 +173,7 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        assertTrue(j.deplacementPossible(1, 6))
+        assertTrue(j.deplacementPossible(1,6))
     }
 
     @Test
@@ -182,7 +182,7 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        assertFalse(j.deplacementPossible(2, 2))
+        assertFalse(j.deplacementPossible(2,2))
     }
 
     @Test
@@ -191,7 +191,7 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        assertFalse(j.deplacementPossible(3, 7))
+        assertFalse(j.deplacementPossible(3,7))
     }
 
     @Test
@@ -200,7 +200,7 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        assertFalse(j.deplacementPossible(2, 4))
+        assertFalse(j.deplacementPossible(2,4))
     }
 
     @Test
@@ -209,7 +209,7 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        assertTrue(j.deplacementPossible(3, 5, 3, 3, joueur1))
+        assertTrue(j.deplacementPossible(3,5,3,3,joueur1))
     }
 
     @Test
@@ -218,7 +218,7 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        assertFalse(j.deplacementPossible(0, 2, 0, 3, joueur2))
+        assertFalse(j.deplacementPossible(0,2,0,3,joueur2))
     }
 
     @Test
@@ -227,7 +227,7 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        assertFalse(j.deplacementPossible(2, 2, 3, 3, joueur1))
+        assertFalse(j.deplacementPossible(2,2,3,3,joueur1))
     }
 
     @Test
@@ -236,7 +236,7 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        assertFalse(j.deplacementPossible(3, 7, 3, 6, joueur1))
+        assertFalse(j.deplacementPossible(3,7,3,6,joueur1))
     }
 
     @Test
@@ -245,7 +245,7 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        assertFalse(j.deplacementPossible(2, 5, 0, 3, joueur1))
+        assertFalse(j.deplacementPossible(2,5,0,3,joueur1))
     }
 
     @Test
@@ -254,7 +254,7 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        assertFalse(j.deplacementPossible(3, 5, 3, 1, joueur1))
+        assertFalse(j.deplacementPossible(3,5,3,1,joueur1))
     }
 
     @Test
@@ -263,7 +263,7 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        assertFalse(j.deplacementPossible(1, 5, 0, 5, joueur1))
+        assertFalse(j.deplacementPossible(1,5,0,5,joueur1))
     }
 
     @Test
@@ -272,7 +272,7 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        assertFalse(j.deplacementPossible(1, 5, 1, 4, joueur1))
+        assertFalse(j.deplacementPossible(1,5,1,4,joueur1))
     }
 
     @Test
@@ -282,7 +282,7 @@ internal class JeuTest {
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
         j.getPlateau().getCases()[3][6].setPion(null)
-        assertFalse(j.deplacementPossible(3, 7, 3, 3, joueur1))
+        assertFalse(j.deplacementPossible(3,7,3,3,joueur1))
     }
 
     @Test
@@ -291,8 +291,8 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        j.deplacer(3, 5, 3, 3)
-        assertFalse(j.deplacementPossible(3, 3, 3, 5, joueur2))
+        j.deplacer(3,5,3,3)
+        assertFalse(j.deplacementPossible(3,3,3,5,joueur2))
     }
 
 
@@ -302,9 +302,9 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        j.deplacer(3, 5, 2, 5)
+        j.deplacer(3,5,2,5)
         assertFalse(j.getPlateau().getCases()[3][5].estLibre())
-        assertEquals(PetitPion(), j.getPlateau().getCases()[2][5].getPion())
+        assertEquals(PetitPion(),j.getPlateau().getCases()[2][5].getPion())
     }
 
     @Test
@@ -313,10 +313,9 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        println(j)
-        j.deplacer(0, 2, 0, 3)
+        j.deplacer(0,2,0,3)
         assertTrue(j.getPlateau().getCases()[0][3].estLibre())
-        assertEquals(MoyenPion(), j.getPlateau().getCases()[0][2].getPion())
+        assertEquals(MoyenPion(),j.getPlateau().getCases()[0][2].getPion())
     }
 
     @Test
@@ -325,9 +324,9 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        j.deplacer(1, 5, 0, 4)
+        j.deplacer(1,5,0,4)
         assertTrue(j.getPlateau().getCases()[1][5].estLibre())
-        assertEquals(PetitPion(), j.getPlateau().getCases()[0][4].getPion())
+        assertEquals(PetitPion(),j.getPlateau().getCases()[0][4].getPion())
     }
 
 
@@ -337,10 +336,10 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        j.deplacer(1, 5, 0, 4)
-        j.deplacer(0, 2, 0, 4)
+        j.deplacer(1,5,0,4)
+        j.deplacer(0,2,0,4)
         assertTrue(j.getPlateau().getCases()[0][2].estLibre())
-        assertEquals(MoyenPion(), j.getPlateau().getCases()[0][4].getPion())
+        assertEquals(MoyenPion(),j.getPlateau().getCases()[0][4].getPion())
     }
 
     @Test
@@ -349,11 +348,11 @@ internal class JeuTest {
         val joueur1 = Joueur("zzz")
         val joueur2 = Joueur("kkk")
         j.initialiserPartie(joueur1, joueur2, 5)
-        j.deplacer(1, 5, 0, 4)
-        j.deplacer(0, 2, 0, 4)
-        j.deplacer(0, 4, 0, 3)
+        j.deplacer(1,5,0,4)
+        j.deplacer(0,2,0,4)
+        j.deplacer(0,4,0,3)
         assertTrue(j.getPlateau().getCases()[0][3].estLibre())
-        assertEquals(MoyenPion(), j.getPlateau().getCases()[0][4].getPion())
+        assertEquals(MoyenPion(),j.getPlateau().getCases()[0][4].getPion())
     }
 
 }
