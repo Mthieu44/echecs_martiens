@@ -48,7 +48,7 @@ class VueAccueil : BorderPane() {
 
         regles.isDisable=true
         regles.isWrapText=true
-        regles.style = "-fx-text-fill : red; -fx-background-color:blue;"
+        regles.style = "-fx-text-fill : red; -fx-background-color:blue"
         borderPaneHaut.padding = Insets(10.0)
         vboxJoueur1.spacing=5.0
         vboxJoueur2.spacing=5.0
