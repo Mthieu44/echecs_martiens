@@ -1,10 +1,14 @@
 package projet.echecmartien.vue
 
+import javafx.event.EventHandler
+import javafx.scene.input.MouseEvent
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Pane
 import javafx.scene.layout.VBox
+import projet.echecmartien.controleur.ControleurClicCase
+import projet.echecmartien.modele.Jeu
 
-class VuePlateau: VBox() {
+class VuePlateau(modele : Jeu): VBox() {
     val plateauHaut = GridPane()
     val plateauBas = GridPane()
 
@@ -38,7 +42,8 @@ class VuePlateau: VBox() {
                 lettreColonne = lettresColonnes[num_colonne]
                 //val bouton = Button("$lettreColonne$numligne")
                 //bouton.setPrefSize(bx,by)
-                val casePlateau = CasePlateau(bx, by, borderSize, num_ligne, num_colonne)
+                val casePlateau = CasePlateau(bx, by, borderSize, num_colonne, num_ligne)
+                casePlateau.clic(ControleurClicCase(modele, casePlateau))
                 //plateauHaut.add(bouton,num_colonne,num_ligne)
                 if (num_ligne + num_colonne < nbr_buttons_y/4)
                     casePlateau.placerPion("grand")
@@ -63,7 +68,8 @@ class VuePlateau: VBox() {
                 lettreColonne = lettresColonnes[num_colonne]
                 //val bouton = Button("$lettreColonne$numligne")
                 //bouton.setPrefSize(bx,by)
-                val casePlateau = CasePlateau(bx, by, borderSize, num_ligne, num_colonne)
+                val casePlateau = CasePlateau(bx, by, borderSize, num_colonne, num_ligne)
+                casePlateau.clic(ControleurClicCase(modele, casePlateau))
                 //plateauHaut.add(bouton,num_colonne,num_ligne)
                 if (num_ligne + num_colonne > 3*nbr_buttons_y/4 +2)
                     casePlateau.placerPion("grand")

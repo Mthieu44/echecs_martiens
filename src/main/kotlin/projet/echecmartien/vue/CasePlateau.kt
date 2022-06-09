@@ -1,6 +1,5 @@
 package projet.echecmartien.vue
 
-import javafx.scene.layout.BackgroundPosition
 import javafx.scene.layout.Pane
 import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
@@ -10,8 +9,8 @@ class CasePlateau(
     tailleBoutonX: Double,
     tailleBoutonY: Double,
     borderSize: Int,
-    private val positionX: Int,
-    private val positionY: Int
+    x : Int,
+    y : Int
 ) : Pane() {
     private val isGrandPion: Boolean = false
     private val isMoyenPion: Boolean = false
@@ -25,6 +24,9 @@ class CasePlateau(
     private val couleurMoyenPion = "#9C8165"
     private val taillePetitPion: Double
     private val couleurPetitPion = "#6E4404"
+
+    private val x : Int
+    private val y : Int
 
 
     private val cercle = Circle(tailleBoutonX / 2 + borderSize, tailleBoutonY / 2 + borderSize, 0.0)
@@ -41,6 +43,8 @@ class CasePlateau(
         tailleMoyenPion = (6.0 / 8.0) / 2.0 * minTailleBouton
         taillePetitPion = (1.0 / 2.0) / 2.0 * minTailleBouton
 
+        this.x = x
+        this.y = y
 
         this.children.add(cercle)
         cercle.fill = Paint.valueOf("#FFD000")
@@ -67,11 +71,10 @@ class CasePlateau(
             throw IllegalArgumentException()
     }
 
-    fun getPositionX(): Int {
-        return positionX
-    }
+    fun getX() = x
+    fun getY() = y
 
-    fun getPositionY(): Int {
-        return positionY
+    fun clic(controleur : EventHandler<MouseEvent>){
+        this.onMouseClicked = controleur
     }
 }

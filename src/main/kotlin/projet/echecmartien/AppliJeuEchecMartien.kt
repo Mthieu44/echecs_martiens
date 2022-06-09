@@ -5,13 +5,16 @@ import javafx.scene.Scene
 import javafx.scene.layout.*
 
 import javafx.stage.Stage
+import projet.echecmartien.controleur.ControleurClicCase
 import projet.echecmartien.modele.Jeu
 import projet.echecmartien.modele.Joueur
+import projet.echecmartien.vue.CasePlateau
 import projet.echecmartien.vue.VuePlateau
 
 class AppliJeuEchecMartien: Application() {
 
-    private val vuePlateau = VuePlateau()
+    private val modele = Jeu()
+    private val vuePlateau = VuePlateau(modele)
     override fun start(primaryStage: Stage) {
         val root = BorderPane()
         val tailleFenetreX = 1280.0

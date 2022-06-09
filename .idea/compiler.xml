@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="echecMartien" />
+        <module name="eq_4_05_bergeron-mathieu_cailleteau-pacome_chusseau-nicolas_hardy-clement" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="echecMartien" target="14" />
+      <module name="eq_4_05_bergeron-mathieu_cailleteau-pacome_chusseau-nicolas_hardy-clement" target="14" />
     </bytecodeTargetLevel>
   </component>
 </project>
