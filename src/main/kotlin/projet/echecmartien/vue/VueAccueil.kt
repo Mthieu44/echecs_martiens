@@ -15,7 +15,7 @@ class VueAccueil : BorderPane() {
     val labelPseudoj2 : Label
     val boutonValide : Button
     val checkBoxIA : CheckBox
-    val regles : TextArea
+    val regles : Label
 
     init {
         borderPaneHaut = BorderPane()
@@ -27,7 +27,7 @@ class VueAccueil : BorderPane() {
         labelPseudoj2 = Label("Entrer le pseudo du joueur 2")
         boutonValide = Button("Valider")
         checkBoxIA = CheckBox("Jouer contre l'IA")
-        regles = TextArea("RÈGLES DU JEU :" +
+        regles = Label("RÈGLES DU JEU :" +
                 "\nPREPARATION" +
                 "\nDisposez les 18 pions comme sur la figure ci-contre."+
                 "\nUn joueur identifie ses pièces par leur position à un instant donné."+
