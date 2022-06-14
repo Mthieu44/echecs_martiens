@@ -1,12 +1,8 @@
 package projet.echecmartien.vue
 
-import javafx.event.EventHandler
-import javafx.scene.input.MouseEvent
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Pane
 import javafx.scene.layout.VBox
-import projet.echecmartien.controleur.ControleurClicCase
-import projet.echecmartien.modele.Jeu
 
 class VuePlateau(): VBox() {
     val plateauHaut = GridPane()

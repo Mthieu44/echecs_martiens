@@ -2,10 +2,9 @@ package projet.echecmartien
 
 import javafx.application.Application
 import javafx.scene.Scene
-import javafx.scene.layout.*
 
 import javafx.stage.Stage
-import projet.echecmartien.controleur.ControleurClicCase
+import projet.echecmartien.controleur.ControleurCheckboxIA
 import projet.echecmartien.modele.Jeu
 import projet.echecmartien.modele.Joueur
 import projet.echecmartien.vue.CasePlateau
@@ -14,9 +13,8 @@ import projet.echecmartien.vue.VuePlateau
 
 class AppliJeuEchecMartien: Application() {
 
-    private val modele = Jeu()
-    private val plateau = VuePlateau()
-    override fun start(primaryStage: Stage) {
+
+    override fun start(primaryStage: Stage) {/*
         val root = BorderPane()
         val tailleFenetreX = 1280.0
         val tailleFenetreY = 720.0
@@ -37,12 +35,15 @@ class AppliJeuEchecMartien: Application() {
             for (c in l){
                 c.clic(ControleurClicCase(modele, c))
             }
-        }
-        /*val vue = VueAccueil()
+        }*/
+        val vue = VueAccueil()
+        val modele = Jeu()
 
-        val scene = Scene(vue,1280.0,720.0)
+        vue.checkBox(ControleurCheckboxIA(vue, modele))
+
+        val scene = Scene(vue,1090.0,550.0)
         primaryStage.title="Page d'accueil"
-        primaryStage.scene=scene*/
+        primaryStage.scene=scene
         primaryStage.show()
 
     }
