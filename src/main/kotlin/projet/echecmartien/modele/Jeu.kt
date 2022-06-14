@@ -230,6 +230,9 @@ class Jeu : InterfaceJeu{
 
 
     override fun deplacer(coordOrigineX: Int, coordOrigineY: Int, coordDestinationX: Int, coordDestinationY: Int) {
+        if (arretPartie()){
+            println(joueurVainqueur())
+        }
         val co = plateau.getCases()[coordOrigineX][coordOrigineY]
         val cd = plateau.getCases()[coordDestinationX][coordDestinationY]
         if (deplacementPossible(coordOrigineX,coordOrigineY,coordDestinationX,coordDestinationY,joueurCourant)){
@@ -243,6 +246,7 @@ class Jeu : InterfaceJeu{
             if (cd.getJoueur() != co.getJoueur()){
                 pionArriveDeZone=co.getPion()
             }
+
             plateau.getCases()[coordDestinationX][coordDestinationY].setPion(co.getPion())
             plateau.getCases()[coordOrigineX][coordOrigineY].setPion(null)
             changeJoueurCourant()

@@ -12,7 +12,6 @@ import kotlin.math.absoluteValue
 class CasePlateau(
     tailleBoutonX: Double,
     tailleBoutonY: Double,
-    borderSize: Int,
     x : Int,
     y : Int
 ) : Pane() {
@@ -25,7 +24,7 @@ class CasePlateau(
     private val taillePetitPion: Double
     private val couleurPetitPion = "#6E4404"
 
-    private val cercle = Circle(tailleBoutonX / 2 + borderSize, tailleBoutonY / 2 + borderSize, 0.0)
+    private val cercle = Circle(tailleBoutonX / 2 + 1, tailleBoutonY / 2 + 1, 0.0)
 
     init {
         this.setPrefSize(tailleBoutonX, tailleBoutonY)
@@ -42,7 +41,7 @@ class CasePlateau(
 
         this.children.add(cercle)
         cercle.fill = Paint.valueOf("#FFD000")
-        this.style = "-fx-border-color: #000000; -fx-border-width: ${borderSize}px;"
+        this.style = "-fx-border-color: #000000; -fx-border-width: 1px;"
     }
 
     fun retirerPion() {
@@ -63,4 +62,7 @@ class CasePlateau(
             throw IllegalArgumentException()
     }
 
+    fun changeCouleur(couleur : String){
+        this.style = "-fx-background-color: $couleur; -fx-border-color: #000000; -fx-border-width: 1px;"
+    }
 }

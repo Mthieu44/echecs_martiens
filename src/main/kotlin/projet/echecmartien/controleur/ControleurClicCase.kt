@@ -19,12 +19,17 @@ class ControleurClicCase(modele : Jeu, vue : VuePlateau) : EventHandler<MouseEve
     }
 
     override fun handle(event: MouseEvent) {
-        val x = convertX(event.x, vue)
-        val y = convertY(event.y, vue)
-        println(modele.getJoueurCourant()?.getPseudo())
+        val x = (event.x/vue.bx).toInt()
+        val y : Int
+        if (event.y > 4*vue.by) {
+            y = ((event.y - vue.pane.minHeight) / vue.by).toInt()
+        }else {
+            y = (event.y / vue.by).toInt()
+        }
 
-        if (modele.getCoordOrigineDeplacement() == null){
+        if (modele.getCoordOrigineDeplacement() == null || (modele.getPlateau().getCases()[x][y].getJoueur() == modele.getJoueurCourant() && !modele.getPlateau().getCases()[x][y].estLibre())){
             modele.setCoordOrigineDeplacement(Coordonnee(x, y))
+            deplPossible(x, y, modele, vue)
             return
         }
         if (modele.getCoordOrigineDeplacement() != Coordonnee(x, y)){
@@ -37,18 +42,23 @@ class ControleurClicCase(modele : Jeu, vue : VuePlateau) : EventHandler<MouseEve
             }
         }
         modele.setCoordOrigineDeplacement(null)
-
+        deplPossible(-1, -1, modele, vue)
 
 
     }
 }
 
-fun convertX(x : Double, vue : VuePlateau) : Int{
-    return (x/vue.bx).toInt()
-}
-
-fun convertY(y : Double, vue : VuePlateau) : Int{
-    if (y > 4*vue.by)
-        return((y-vue.pane.minHeight)/vue.by).toInt()
-    return (y/vue.by).toInt()
+fun deplPossible(x : Int, y : Int, modele: Jeu, vue: VuePlateau){
+    for (i in 0 until 4) {
+        for (j in 0 until 8){
+            vue.tableauCase[j][i].changeCouleur("None")
+            if (modele.deplacementPossible(x, y, i, j, modele.getJoueurCourant())){
+                if (modele.getPlateau().getCases()[i][j].estLibre()){
+                    vue.tableauCase[j][i].changeCouleur("#0000FF")
+                }else{
+                    vue.tableauCase[j][i].changeCouleur("#FF0000")
+                }
+            }
+        }
+    }
 }
