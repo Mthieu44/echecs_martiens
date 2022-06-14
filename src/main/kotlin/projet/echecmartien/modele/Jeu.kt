@@ -1,24 +1,36 @@
 package projet.echecmartien.modele
 
 import projet.echecmartien.exeptions.DeplacementExeption
+import java.io.FileWriter
+import com.google.gson.Gson as Gson1
 
 
-class Jeu : InterfaceJeu{
-    private var nombreCoupsSansPrise : Int = 0
-    private var nombreCoupsSansPriseMax : Int = 0
-    private var coordOrigine : Coordonnee? = null
-    private var coordDest : Coordonnee? = null
+class Jeu(nombreCoupsSansPrise : Int = 0,nombreCoupsSansPriseMax : Int = 0,coordOrigine : Coordonnee? = null,coordDest : Coordonnee? = null,joueurs : Array<Joueur> = arrayOf()
+,joueurCourant : Joueur? = null,plateau : Plateau = Plateau(),pionArriveDeZone : Pion? = null) : InterfaceJeu{
+     var nombreCoupsSansPrise : Int
+     var nombreCoupsSansPriseMax : Int = 0
+     var coordOrigine : Coordonnee? = null
+     var coordDest : Coordonnee? = null
     private var joueurs : Array<Joueur> = arrayOf()
     private var joueurCourant : Joueur? = null
     private var plateau : Plateau = Plateau()
     private var pionArriveDeZone : Pion? = null
 
+    init {
+        this.nombreCoupsSansPrise = nombreCoupsSansPrise
+        this.nombreCoupsSansPriseMax = nombreCoupsSansPriseMax
+        this.coordOrigine = coordOrigine
+        this.coordDest = coordDest
+        this.joueurs = joueurs
+        this.joueurCourant = joueurCourant
+        this.plateau = plateau
+        this.pionArriveDeZone = pionArriveDeZone
+    }
     /**
     * getter
     * @return le plateau
     * */
     fun getPlateau() = plateau
-
 
     /**
      * getter
@@ -254,6 +266,11 @@ class Jeu : InterfaceJeu{
     }
 
 
-
+    fun serialiser(nomFichier : String){
+        val writer = FileWriter(nomFichier)
+        Gson1().toJson(this.toString(), writer)
+        writer.flush()
+        writer.close()
+    }
 
 }
