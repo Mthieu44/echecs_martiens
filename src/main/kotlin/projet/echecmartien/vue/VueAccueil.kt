@@ -81,5 +81,9 @@ class VueAccueil : BorderPane() {
         this.checkBoxIA.onMouseClicked = controleur
     }
 
+    fun valider(controleur: EventHandler<MouseEvent>){
+        this.boutonValide.onMouseClicked = controleur
+    }
+
 
 }
