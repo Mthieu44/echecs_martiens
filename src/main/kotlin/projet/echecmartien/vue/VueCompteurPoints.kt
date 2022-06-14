@@ -8,7 +8,7 @@ import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
 import javafx.scene.text.Text
 
-class CompteurPoints(
+class VueCompteurPoints(
     private val nomJoueur1: String,
     private val nomJoueur2: String,
     tailleFenetreX: Double,

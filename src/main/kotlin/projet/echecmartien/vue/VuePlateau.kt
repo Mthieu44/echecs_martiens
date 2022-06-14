@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox
 class VuePlateau : VBox() {
     val plateauHaut = GridPane()
     val plateauBas = GridPane()
-    val tableauCase = Array<MutableList<CasePlateau>>(8) { i -> mutableListOf() }
+    val tableauCase = Array<MutableList<VueCasePlateau>>(8) { i -> mutableListOf() }
 
     val bx = 80.0 //taille Bouton x
     val by = 80.0 //taille Bouton y
@@ -42,7 +42,7 @@ class VuePlateau : VBox() {
                 lettreColonne = lettresColonnes[num_colonne]
                 //val bouton = Button("$lettreColonne$numligne")
                 //bouton.setPrefSize(bx,by)
-                val casePlateau = CasePlateau(bx, by, borderSize, num_colonne, num_ligne)
+                val casePlateau = VueCasePlateau(bx, by, borderSize, num_colonne, num_ligne)
                 tableauCase[num_ligne].add(casePlateau)
                 //plateauHaut.add(bouton,num_colonne,num_ligne)
                 if (num_ligne + num_colonne < nbr_buttons_y / 4)
@@ -67,7 +67,7 @@ class VuePlateau : VBox() {
                 lettreColonne = lettresColonnes[num_colonne]
                 //val bouton = Button("$lettreColonne$numligne")
                 //bouton.setPrefSize(bx,by)
-                val casePlateau = CasePlateau(bx, by, borderSize, num_colonne, num_ligne)
+                val casePlateau = VueCasePlateau(bx, by, borderSize, num_colonne, num_ligne)
                 tableauCase[num_ligne].add(casePlateau)
                 //plateauHaut.add(bouton,num_colonne,num_ligne)
                 if (num_ligne + num_colonne > 3 * nbr_buttons_y / 4 + 2)

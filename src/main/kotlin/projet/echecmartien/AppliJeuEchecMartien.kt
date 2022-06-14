@@ -1,18 +1,14 @@
 package projet.echecmartien
 
 import javafx.application.Application
-import javafx.geometry.Insets
 import javafx.scene.Scene
 
 import javafx.stage.Stage
 import projet.echecmartien.controleur.ControleurBoutonValider
 import projet.echecmartien.controleur.ControleurCheckboxIA
 import projet.echecmartien.modele.Jeu
-import projet.echecmartien.modele.Joueur
-import projet.echecmartien.vue.CasePlateau
-import projet.echecmartien.vue.CompteurPoints
 import projet.echecmartien.vue.VueAccueil
-import projet.echecmartien.vue.VuePlateau
+import projet.echecmartien.vue.VueCompteurPoints
 
 class AppliJeuEchecMartien: Application() {
 

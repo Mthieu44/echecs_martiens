@@ -6,7 +6,7 @@ import javafx.scene.input.MouseEvent
 import javafx.scene.layout.GridPane
 import projet.echecmartien.modele.Coordonnee
 import projet.echecmartien.modele.Jeu
-import projet.echecmartien.vue.CasePlateau
+import projet.echecmartien.vue.VueCasePlateau
 import projet.echecmartien.vue.VuePlateau
 
 class ControleurClicCase(modele : Jeu, vue : VuePlateau) : EventHandler<MouseEvent> {
