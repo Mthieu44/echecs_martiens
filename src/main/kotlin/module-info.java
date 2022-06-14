@@ -4,6 +4,7 @@ module projet.echecmartien {
     requires kotlin.stdlib;
 
     requires org.controlsfx.controls;
+    requires javafx.graphics;
 
     opens projet.echecmartien to javafx.fxml;
     exports projet.echecmartien;
