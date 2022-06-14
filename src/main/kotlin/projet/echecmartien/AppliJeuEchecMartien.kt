@@ -1,16 +1,20 @@
 package projet.echecmartien
 
+import com.google.gson.Gson
 import javafx.application.Application
 import javafx.scene.Scene
-import javafx.scene.layout.*
-
+import javafx.scene.layout.BorderPane
+import javafx.scene.layout.Pane
+import javafx.stage.FileChooser
 import javafx.stage.Stage
+import projet.echecmartien.controleur.ControleurBoutonSave
 import projet.echecmartien.controleur.ControleurClicCase
 import projet.echecmartien.modele.Jeu
 import projet.echecmartien.modele.Joueur
-import projet.echecmartien.vue.CasePlateau
-import projet.echecmartien.vue.VueAccueil
 import projet.echecmartien.vue.VuePlateau
+import java.io.File
+import java.io.FileWriter
+
 
 class AppliJeuEchecMartien: Application() {
 
@@ -38,13 +42,14 @@ class AppliJeuEchecMartien: Application() {
                 c.clic(ControleurClicCase(modele, c))
             }
         }
+        plateau.sauvegarde(ControleurBoutonSave(modele,plateau))
+
         /*val vue = VueAccueil()
 
-        val scene = Scene(vue,1280.0,720.0)
+        val scene = Scene(vue,1280.0,720.0)œ
         primaryStage.title="Page d'accueil"
         primaryStage.scene=scene*/
         primaryStage.show()
-
     }
 }
 

@@ -4,14 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa5208b6-755b-40a2-90e6-ff32c5d59451" name="Changes" comment="">
+    <list default="true" id="fa5208b6-755b-40a2-90e6-ff32c5d59451" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/save" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/controleur/ControleurBoutonSave.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/echecMartien.iml" beforeDir="false" afterPath="$PROJECT_DIR$/echecMartien.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/AppliJeuEchecMartien.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/AppliJeuEchecMartien.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/modele/Jeu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/modele/Jeu.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/vue/VuePlateau.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/vue/VuePlateau.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/AppliJeuEchecMartien.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/AppliJeuEchecMartien.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/AppliJeuEchecMartienKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/AppliJeuEchecMartienKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/librairie/EnumPion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/librairie/EnumPion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/modele/Coordonnee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/modele/Coordonnee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/modele/Jeu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/modele/Jeu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/modele/Plateau.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/modele/Plateau.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/vue/CasePlateau.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/vue/CasePlateau.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/vue/VuePlateau.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/vue/VuePlateau.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/JeuTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/JeuTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/MoyenPionTest$getDeplacementExeptionLongeur$$inlined$assertThrows$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/MoyenPionTest$getDeplacementExeptionLongeur$$inlined$assertThrows$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionDeplacement$$inlined$assertThrows$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionDeplacement$$inlined$assertThrows$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionDiagonale$$inlined$assertThrows$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionDiagonale$$inlined$assertThrows$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionLongeur$$inlined$assertThrows$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionLongeur$$inlined$assertThrows$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PlateauTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PlateauTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -20,18 +50,27 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2AKda7Uj4Iz3dnBgknk6AnqgWRb" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SAEihm3/eq_4_05_bergeron-mathieu_cailleteau-pacome_chusseau-nicolas_hardy-clement" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RunManager">
     <configuration name="AppliJeuEchecMartienKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
@@ -74,8 +113,19 @@
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="getPositionX &amp; getPositionY" />
     <MESSAGE value="commit" />
     <option name="LAST_COMMIT_MESSAGE" value="commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.reflect.InaccessibleObjectException" package="java.lang.reflect" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

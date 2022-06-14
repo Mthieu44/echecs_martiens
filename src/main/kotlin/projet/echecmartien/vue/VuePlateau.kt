@@ -5,8 +5,8 @@ import javafx.scene.input.MouseEvent
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Pane
 import javafx.scene.layout.VBox
-import projet.echecmartien.controleur.ControleurClicCase
-import projet.echecmartien.modele.Jeu
+import javafx.stage.DirectoryChooser
+
 
 class VuePlateau(): VBox() {
     val plateauHaut = GridPane()
@@ -82,10 +82,14 @@ class VuePlateau(): VBox() {
             }
         }
         this.children.add(plateauBas)
+
+
     }
 
 
-
+    fun sauvegarde(controleur : EventHandler<MouseEvent>) {
+        this.onMouseClicked = controleur
+    }
 
 
 }
