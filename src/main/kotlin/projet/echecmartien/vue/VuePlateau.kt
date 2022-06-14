@@ -1,5 +1,7 @@
 package projet.echecmartien.vue
 
+import javafx.event.EventHandler
+import javafx.scene.input.MouseEvent
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Pane
 import javafx.scene.layout.VBox
@@ -45,11 +47,11 @@ class VuePlateau(): VBox() {
                 tableauCase[num_ligne].add(casePlateau)
                 //plateauHaut.add(bouton,num_colonne,num_ligne)
                 if (num_ligne + num_colonne < nbr_buttons_y/4)
-                    casePlateau.placerPion("grand")
+                    casePlateau.placerPion("3")
                 else if (num_ligne + num_colonne < nbr_buttons_y/4 +1)
-                    casePlateau.placerPion("moyen")
+                    casePlateau.placerPion("2")
                 else if ((num_ligne < nbr_buttons_y/4 +1) and(num_colonne < nbr_buttons_y/4 +1))
-                    casePlateau.placerPion(("petit"))
+                    casePlateau.placerPion(("1"))
                 plateauHaut.add(casePlateau, num_colonne, num_ligne)
             }
         }
@@ -70,11 +72,11 @@ class VuePlateau(): VBox() {
                 tableauCase[num_ligne].add(casePlateau)
                 //plateauHaut.add(bouton,num_colonne,num_ligne)
                 if (num_ligne + num_colonne > 3*nbr_buttons_y/4 +2)
-                    casePlateau.placerPion("grand")
+                    casePlateau.placerPion("3")
                 else if (num_ligne + num_colonne > 3*nbr_buttons_y/4 +1)
-                    casePlateau.placerPion("moyen")
+                    casePlateau.placerPion("2")
                 else if ((num_ligne > 3*nbr_buttons_y/4 -2) and (num_colonne > nbr_buttons_y/4 -2))
-                    casePlateau.placerPion(("petit"))
+                    casePlateau.placerPion(("1"))
                 plateauBas.add(casePlateau, num_colonne, num_ligne)
             }
         }

@@ -15,33 +15,11 @@ import projet.echecmartien.vue.VuePlateau
 class AppliJeuEchecMartien: Application() {
 
 
-    override fun start(primaryStage: Stage) {/*
-        val root = BorderPane()
-        val tailleFenetreX = 1280.0
-        val tailleFenetreY = 720.0
-        val scene = Scene(root, tailleFenetreX, tailleFenetreY)
-        primaryStage.scene = scene
+    override fun start(primaryStage: Stage) {
 
-        val partieDroite = Pane()
-        val partieGauche = Pane()
-        root.right = partieDroite
-        root.left = partieGauche
-
-        partieDroite.setPrefSize(3.0 * tailleFenetreX / 8.0, tailleFenetreY)
-        partieGauche.setPrefSize(3.0 * tailleFenetreX / 8.0, tailleFenetreY)
-
-        root.center = plateau
-
-
-        for (l in plateau.tableauCase){
-            for (c in l){
-                c.clic(ControleurClicCase(modele, plateau))
-            }
-        }*/
         val vue = VueAccueil()
         val modele = Jeu()
-
-        plateau.clic(ControleurClicCase(modele, plateau))
+        
         vue.checkBox(ControleurCheckboxIA(vue, modele))
         vue.valider(ControleurBoutonValider(primaryStage, vue, modele))
 

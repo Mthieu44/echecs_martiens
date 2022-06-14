@@ -238,6 +238,8 @@ class Jeu : InterfaceJeu{
                 joueurCourant!!.ajouterPionCaptures(cd.getPion()!!)
                 nombreCoupsSansPrise = 0
             }
+
+            pionArriveDeZone=null
             if (cd.getJoueur() != co.getJoueur()){
                 pionArriveDeZone=co.getPion()
             }

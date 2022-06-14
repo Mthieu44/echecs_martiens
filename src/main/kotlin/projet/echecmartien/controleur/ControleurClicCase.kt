@@ -21,23 +21,25 @@ class ControleurClicCase(modele : Jeu, vue : VuePlateau) : EventHandler<MouseEve
     override fun handle(event: MouseEvent) {
         val x = convertX(event.x, vue)
         val y = convertY(event.y, vue)
+        println(modele.getJoueurCourant()?.getPseudo())
 
         if (modele.getCoordOrigineDeplacement() == null){
             modele.setCoordOrigineDeplacement(Coordonnee(x, y))
             return
         }
-        modele.setCoordDestinationDeplacement(Coordonnee(x, y))
-        if (modele.getCoordOrigineDeplacement() != modele.getCoordDestinationDeplacement()){
+        if (modele.getCoordOrigineDeplacement() != Coordonnee(x, y)){
             val xO = modele.getCoordOrigineDeplacement()!!.getX()
             val yO = modele.getCoordOrigineDeplacement()!!.getY()
-            val xD = modele.getCoordDestinationDeplacement()!!.getX()
-            val yD = modele.getCoordDestinationDeplacement()!!.getY()
-            modele.deplacer(xO, yO, xD, yD)
-            vue.tableauCase[y][x].placerPion("petit")
-            vue.tableauCase[yO][xO].retirerPion()
+            if (modele.deplacementPossible(xO, yO, x, y, modele.getJoueurCourant())){
+                vue.tableauCase[y][x].placerPion(modele.getPlateau().getCases()[xO][yO].getPion().toString())
+                vue.tableauCase[yO][xO].retirerPion()
+                modele.deplacer(xO, yO, x, y)
+            }
         }
-        modele.setCoordDestinationDeplacement(null)
         modele.setCoordOrigineDeplacement(null)
+
+
+
     }
 }
 

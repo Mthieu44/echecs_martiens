@@ -6,6 +6,7 @@ import javafx.scene.control.Alert
 import javafx.scene.input.MouseEvent
 import javafx.stage.Stage
 import projet.echecmartien.modele.Jeu
+import projet.echecmartien.modele.Joueur
 import projet.echecmartien.vue.VueAccueil
 import projet.echecmartien.vue.VuePlateau
 
@@ -29,7 +30,10 @@ class ControleurBoutonValider (primary : Stage, vue : VueAccueil, modele : Jeu) 
             dialog.showAndWait()
             return
         }
-        val scene = Scene(VuePlateau(),1280.0,720.0)
+        val plateau = VuePlateau()
+        val scene = Scene(plateau,1280.0,720.0)
+        plateau.clic(ControleurClicCase(modele, plateau))
+        modele.initialiserPartie(Joueur(vue.textFieldPseudoj1.text), Joueur(vue.textFieldPseudoj2.text), 10)
         primary.title="Echec Martien"
         primary.scene=scene
         primary.show()
