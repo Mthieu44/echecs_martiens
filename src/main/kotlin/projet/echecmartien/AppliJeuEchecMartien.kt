@@ -19,7 +19,7 @@ import java.io.File
 import java.io.FileWriter
 
 
-class AppliJeuEchecMartien: Application() {
+class AppliJeuEchecMartien : Application() {
 
 
     override fun start(primaryStage: Stage) {
@@ -30,9 +30,9 @@ class AppliJeuEchecMartien: Application() {
         vue.checkBox(ControleurCheckboxIA(vue, modele))
         vue.valider(ControleurBoutonValider(primaryStage, vue, modele))
 
-        val scene = Scene(vue,1090.0,550.0)
-        primaryStage.title="Page d'accueil"
-        primaryStage.scene=scene
+        val scene = Scene(vue, 1090.0, 550.0)
+        primaryStage.title = "Page d'accueil"
+        primaryStage.scene = scene
         primaryStage.show()
     }
 }

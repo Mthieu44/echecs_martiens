@@ -14,8 +14,8 @@ class VueCasePlateau(
     tailleBoutonX: Double,
     tailleBoutonY: Double,
     borderSize: Int,
-    x : Int,
-    y : Int
+    x: Int,
+    y: Int
 ) : Pane() {
     private val minTailleBouton: Double
 

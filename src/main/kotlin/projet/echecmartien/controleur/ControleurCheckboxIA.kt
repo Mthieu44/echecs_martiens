@@ -6,9 +6,9 @@ import javafx.scene.input.MouseEvent
 import projet.echecmartien.modele.Jeu
 import projet.echecmartien.vue.VueAccueil
 
-class ControleurCheckboxIA(vue : VueAccueil, modele : Jeu) : EventHandler<MouseEvent>{
-    val vue : VueAccueil
-    val modele : Jeu
+class ControleurCheckboxIA(vue: VueAccueil, modele: Jeu) : EventHandler<MouseEvent> {
+    val vue: VueAccueil
+    val modele: Jeu
 
     init {
         this.vue = vue

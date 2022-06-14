@@ -87,7 +87,7 @@ class VuePlateau : VBox() {
     }
 
 
-    fun sauvegarde(controleur : EventHandler<MouseEvent>) {
+    fun sauvegarde(controleur: EventHandler<MouseEvent>) {
         this.onMouseClicked = controleur
     }
 

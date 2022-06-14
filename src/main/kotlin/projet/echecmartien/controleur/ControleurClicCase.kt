@@ -9,9 +9,9 @@ import projet.echecmartien.modele.Jeu
 import projet.echecmartien.vue.VueCasePlateau
 import projet.echecmartien.vue.VuePlateau
 
-class ControleurClicCase(modele : Jeu, vue : VuePlateau) : EventHandler<MouseEvent> {
-    val modele : Jeu
-    val vue : VuePlateau
+class ControleurClicCase(modele: Jeu, vue: VuePlateau) : EventHandler<MouseEvent> {
+    val modele: Jeu
+    val vue: VuePlateau
 
     init {
         this.modele = modele
@@ -23,14 +23,14 @@ class ControleurClicCase(modele : Jeu, vue : VuePlateau) : EventHandler<MouseEve
         val y = convertY(event.y, vue)
         println(modele.getJoueurCourant()?.getPseudo())
 
-        if (modele.getCoordOrigineDeplacement() == null){
+        if (modele.getCoordOrigineDeplacement() == null) {
             modele.setCoordOrigineDeplacement(Coordonnee(x, y))
             return
         }
-        if (modele.getCoordOrigineDeplacement() != Coordonnee(x, y)){
+        if (modele.getCoordOrigineDeplacement() != Coordonnee(x, y)) {
             val xO = modele.getCoordOrigineDeplacement()!!.getX()
             val yO = modele.getCoordOrigineDeplacement()!!.getY()
-            if (modele.deplacementPossible(xO, yO, x, y, modele.getJoueurCourant())){
+            if (modele.deplacementPossible(xO, yO, x, y, modele.getJoueurCourant())) {
                 vue.tableauCase[y][x].placerPion(modele.getPlateau().getCases()[xO][yO].getPion().toString())
                 vue.tableauCase[yO][xO].retirerPion()
                 modele.deplacer(xO, yO, x, y)
@@ -39,16 +39,15 @@ class ControleurClicCase(modele : Jeu, vue : VuePlateau) : EventHandler<MouseEve
         modele.setCoordOrigineDeplacement(null)
 
 
-
     }
 }
 
-fun convertX(x : Double, vue : VuePlateau) : Int{
-    return (x/vue.bx).toInt()
+fun convertX(x: Double, vue: VuePlateau): Int {
+    return (x / vue.bx).toInt()
 }
 
-fun convertY(y : Double, vue : VuePlateau) : Int{
-    if (y > 4*vue.by)
-        return((y-vue.pane.minHeight)/vue.by).toInt()
-    return (y/vue.by).toInt()
+fun convertY(y: Double, vue: VuePlateau): Int {
+    if (y > 4 * vue.by)
+        return ((y - vue.pane.minHeight) / vue.by).toInt()
+    return (y / vue.by).toInt()
 }

@@ -11,31 +11,32 @@ import projet.echecmartien.vue.VueAccueil
 import projet.echecmartien.vue.VueJeu
 import projet.echecmartien.vue.VuePlateau
 
-class ControleurBoutonValider (primary : Stage, vue : VueAccueil, modele : Jeu) : EventHandler<MouseEvent> {
-    val vue : VueAccueil
-    val modele : Jeu
-    val primary : Stage
+class ControleurBoutonValider(primary: Stage, vue: VueAccueil, modele: Jeu) : EventHandler<MouseEvent> {
+    val vue: VueAccueil
+    val modele: Jeu
+    val primary: Stage
 
     init {
         this.vue = vue
         this.modele = modele
-        this.primary=primary
+        this.primary = primary
     }
 
     override fun handle(p0: MouseEvent?) {
-        if (vue.textFieldPseudoj1.text.isBlank() || (vue.textFieldPseudoj2.text.isBlank() && !vue.checkBoxIA.isSelected) || vue.textFieldPseudoj1.text==vue.textFieldPseudoj2.text){
+        if (vue.textFieldPseudoj1.text.isBlank() || (vue.textFieldPseudoj2.text.isBlank() && !vue.checkBoxIA.isSelected) || vue.textFieldPseudoj1.text == vue.textFieldPseudoj2.text) {
             val dialog = Alert(Alert.AlertType.INFORMATION)
             dialog.title = "ERREUR"
             dialog.headerText = "CHAMPS NON VALIDE"
-            dialog.contentText = "Merci de remplir correctement les pseudos des joueurs, les pseudos doivent être renseignés et différents"
+            dialog.contentText =
+                "Merci de remplir correctement les pseudos des joueurs, les pseudos doivent être renseignés et différents"
             dialog.showAndWait()
             return
         }
-        val scene = Scene(VueJeu(),1280.0,720.0)
+        val scene = Scene(VueJeu(), 1280.0, 720.0)
         VuePlateau().clic(ControleurClicCase(modele, VuePlateau()))
         modele.initialiserPartie(Joueur(vue.textFieldPseudoj1.text), Joueur(vue.textFieldPseudoj2.text), 10)
-        primary.title="Echec Martien"
-        primary.scene=scene
+        primary.title = "Echec Martien"
+        primary.scene = scene
         primary.show()
     }
 }
