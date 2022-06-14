@@ -1,6 +1,7 @@
 package projet.echecmartien.vue
 
 import javafx.event.EventHandler
+import javafx.scene.Cursor
 import javafx.scene.input.DragEvent
 import javafx.scene.input.MouseEvent
 import javafx.scene.layout.BackgroundPosition
@@ -27,6 +28,8 @@ class CasePlateau(
     private val cercle = Circle(tailleBoutonX / 2 + 1, tailleBoutonY / 2 + 1, 0.0)
 
     init {
+        this.cursor = Cursor.cursor("HAND")
+
         this.setPrefSize(tailleBoutonX, tailleBoutonY)
 
         minTailleBouton = if (tailleBoutonX <= tailleBoutonY)
