@@ -33,11 +33,14 @@ class AppliJeuEchecMartien: Application() {
 
         root.center = plateau
 
+        /*
         for (l in plateau.tableauCase){
             for (c in l){
-                c.clic(ControleurClicCase(modele, c))
+                c.clic(ControleurClicCase(modele, plateau))
             }
-        }
+        }*/
+
+        plateau.clic(ControleurClicCase(modele, plateau))
         /*val vue = VueAccueil()
 
         val scene = Scene(vue,1280.0,720.0)

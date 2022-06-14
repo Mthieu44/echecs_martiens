@@ -40,7 +40,7 @@ class Jeu : InterfaceJeu{
      * setter
      * @param origine la coordonnée origine du déplacement
      */
-    fun setCoordOrigineDeplacement(origine: Coordonnee){
+    fun setCoordOrigineDeplacement(origine: Coordonnee?){
        coordOrigine=origine
     }
 
@@ -49,7 +49,7 @@ class Jeu : InterfaceJeu{
      * setter
      * @param destination la coordonnée destination du déplacement
      */
-    fun setCoordDestinationDeplacement(destination: Coordonnee){
+    fun setCoordDestinationDeplacement(destination: Coordonnee?){
         coordDest=destination
     }
 

@@ -5,7 +5,6 @@ import javafx.scene.input.MouseEvent
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Pane
 import javafx.scene.layout.VBox
-import projet.echecmartien.controleur.ControleurClicCase
 import projet.echecmartien.modele.Jeu
 
 class VuePlateau(): VBox() {
@@ -13,10 +12,11 @@ class VuePlateau(): VBox() {
     val plateauBas = GridPane()
     val tableauCase = Array<MutableList<CasePlateau>>(8) { i -> mutableListOf() }
 
+    val bx = 80.0 //taille Bouton x
+    val by = 80.0 //taille Bouton y
+    val pane = Pane()
 
     init {
-        val bx = 80.0 //taille Bouton x
-        val by = 80.0 //taille Bouton y
         val nbr_buttons_x = 4
         val nbr_buttons_y = 8
         //val cy: Double = nbr_buttons_y * bx //taille Colonne y
@@ -57,7 +57,6 @@ class VuePlateau(): VBox() {
         }
         this.children.add(plateauHaut)
 
-        val pane = Pane()
         pane.maxWidth = nbr_buttons_x * (bx + 2*borderSize)
         pane.minHeight = pane.maxWidth / 32.8
         pane.style = "-fx-background-color: #000000;"
@@ -84,8 +83,7 @@ class VuePlateau(): VBox() {
         this.children.add(plateauBas)
     }
 
-
-
-
-
+    fun clic(controleur : EventHandler<MouseEvent>){
+        this.onMouseClicked = controleur
+    }
 }
