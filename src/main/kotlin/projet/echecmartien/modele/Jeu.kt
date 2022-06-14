@@ -52,7 +52,7 @@ class Jeu(nombreCoupsSansPrise : Int = 0,nombreCoupsSansPriseMax : Int = 0,coord
      * setter
      * @param origine la coordonnée origine du déplacement
      */
-    fun setCoordOrigineDeplacement(origine: Coordonnee){
+    fun setCoordOrigineDeplacement(origine: Coordonnee?){
        coordOrigine=origine
     }
 
@@ -61,7 +61,7 @@ class Jeu(nombreCoupsSansPrise : Int = 0,nombreCoupsSansPriseMax : Int = 0,coord
      * setter
      * @param destination la coordonnée destination du déplacement
      */
-    fun setCoordDestinationDeplacement(destination: Coordonnee){
+    fun setCoordDestinationDeplacement(destination: Coordonnee?){
         coordDest=destination
     }
 
@@ -250,6 +250,8 @@ class Jeu(nombreCoupsSansPrise : Int = 0,nombreCoupsSansPriseMax : Int = 0,coord
                 joueurCourant!!.ajouterPionCaptures(cd.getPion()!!)
                 nombreCoupsSansPrise = 0
             }
+
+            pionArriveDeZone=null
             if (cd.getJoueur() != co.getJoueur()){
                 pionArriveDeZone=co.getPion()
             }
