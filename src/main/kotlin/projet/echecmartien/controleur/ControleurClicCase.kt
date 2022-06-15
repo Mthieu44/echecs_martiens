@@ -43,8 +43,6 @@ class ControleurClicCase(modele: Jeu, vue: VuePlateau) : EventHandler<MouseEvent
         }
         modele.setCoordOrigineDeplacement(null)
         deplPossible(-1, -1, modele, vue)
-
-
     }
 }
 
