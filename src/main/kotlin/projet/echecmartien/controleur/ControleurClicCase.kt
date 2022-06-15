@@ -57,6 +57,7 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
                 vueDeGauche.compteMoyenPionJoueur2 = comptePionCapture(modele.getJoueurs()[1], MoyenPion())
                 vueDeGauche.comptePetitPionJoueur2 = comptePionCapture(modele.getJoueurs()[1], PetitPion())
                 vueDeGauche.updateScore()
+                vueDeGauche.texteAQuiDeJouer.text = "C'est au tour de\n@${modele.getJoueurCourant()!!.getPseudo()}\nde jouer !"
                 if (modele.arretPartie()){
                     vueDeGauche.texteAQuiDeJouer.text = texteDeFin()
                     stop = true

@@ -168,7 +168,7 @@ class VueCompteurPoints(
 
 
         val paneAQuiDeJouer = Pane()
-        texteAQuiDeJouer = Text(15.0, 15.0, "C'est au tour de\n$nomJoueur1\nde jouer !")
+        texteAQuiDeJouer = Text(15.0, 15.0, "C'est au tour de\n@$nomJoueur1\nde jouer !")
         texteAQuiDeJouer.style = "-fx-font-family: Lobster; -fx-font-size: ${fontSizeNomJoueur + 5}px;"
         texteAQuiDeJouer.textAlignment = TextAlignment.CENTER
         paneAQuiDeJouer.children.add(texteAQuiDeJouer)
