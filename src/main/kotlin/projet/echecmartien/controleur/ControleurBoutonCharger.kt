@@ -3,11 +3,12 @@ package projet.echecmartien.controleur
 import javafx.event.ActionEvent
 import javafx.event.EventHandler
 import javafx.scene.transform.Scale
+import javafx.stage.Stage
 import projet.echecmartien.modele.Jeu
 import projet.echecmartien.vue.VueJeu
 
-class ControleurBoutonCharger(primary : Scale, vue : VueJeu, modele : Jeu) : EventHandler<ActionEvent> {
-    val primary : Scale
+class ControleurBoutonCharger(primary : Stage, vue : VueJeu, modele : Jeu) : EventHandler<ActionEvent> {
+    val primary : Stage
     val vue : VueJeu
     val modele : Jeu
 
