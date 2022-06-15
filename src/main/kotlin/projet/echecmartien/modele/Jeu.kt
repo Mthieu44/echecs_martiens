@@ -120,6 +120,8 @@ class Jeu(
         }
         if (cptj1 == 0 || cptj2 == 0)
             return true
+        println(nombreCoupsSansPrise)
+        println(nombreCoupsSansPriseMax)
         return nombreCoupsSansPriseMax == nombreCoupsSansPrise
     }
 
@@ -250,9 +252,6 @@ class Jeu(
 
 
     override fun deplacer(coordOrigineX: Int, coordOrigineY: Int, coordDestinationX: Int, coordDestinationY: Int) {
-        if (arretPartie()){
-            println(joueurVainqueur())
-        }
         val co = plateau.getCases()[coordOrigineX][coordOrigineY]
         val cd = plateau.getCases()[coordDestinationX][coordDestinationY]
         if (deplacementPossible(coordOrigineX, coordOrigineY, coordDestinationX, coordDestinationY, joueurCourant)) {

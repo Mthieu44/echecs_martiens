@@ -1,12 +1,13 @@
 package projet.echecmartien.controleur
 
+import javafx.event.ActionEvent
 import javafx.event.EventHandler
 import javafx.scene.input.MouseEvent
 import javafx.stage.FileChooser
 import projet.echecmartien.modele.Jeu
 import projet.echecmartien.vue.VuePlateau
 
-class ControleurBoutonSave(modele: Jeu, vue: VuePlateau) : EventHandler<MouseEvent> {
+class ControleurBoutonSave(modele: Jeu, vue: VuePlateau) : EventHandler<ActionEvent> {
     private val modele: Jeu
     private val vue: VuePlateau
 
@@ -15,7 +16,7 @@ class ControleurBoutonSave(modele: Jeu, vue: VuePlateau) : EventHandler<MouseEve
         this.vue = vue
     }
 
-    override fun handle(p0: MouseEvent?) {
+    override fun handle(p0: ActionEvent?) {
         modele.serialiser("save")
     }
 

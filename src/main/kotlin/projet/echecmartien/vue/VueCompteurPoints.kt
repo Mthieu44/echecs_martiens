@@ -17,6 +17,7 @@ class VueCompteurPoints(
     private val bx: Double,
     private val by: Double
 ) : VBox() {
+    val texteAQuiDeJouer : Text
 
     init {
         this.setPrefSize((3/8)*tailleFenetreX, tailleFenetreY)
@@ -136,7 +137,7 @@ class VueCompteurPoints(
         partieJoueur2.children.add(jetonsEtCompteurJoueur2)
 
         val paneAQuiDeJouer = Pane()
-        val texteAQuiDeJouer = Text(15.0, 15.0, "C'est au tour de\n$nomJoueur1\nde jouer !")
+        texteAQuiDeJouer = Text(15.0, 15.0, "C'est au tour de\n$nomJoueur1\nde jouer !")
         texteAQuiDeJouer.style = styleNomJoueur
         texteAQuiDeJouer.textAlignment = TextAlignment.CENTER
         paneAQuiDeJouer.children.add(texteAQuiDeJouer)
