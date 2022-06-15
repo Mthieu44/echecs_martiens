@@ -13,8 +13,6 @@ import kotlin.math.absoluteValue
 class CasePlateau(
     tailleBoutonX: Double,
     tailleBoutonY: Double,
-    x : Int,
-    y : Int
 ) : Pane() {
     private val minTailleBouton: Double
 
