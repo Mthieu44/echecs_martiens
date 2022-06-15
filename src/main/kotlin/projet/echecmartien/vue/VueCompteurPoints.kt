@@ -4,11 +4,10 @@ import javafx.geometry.Insets
 import javafx.scene.layout.BorderPane
 import javafx.scene.layout.Pane
 import javafx.scene.layout.VBox
-import javafx.scene.paint.Paint
+import javafx.scene.paint.*
 import javafx.scene.shape.Circle
 import javafx.scene.text.Text
 import javafx.scene.text.TextAlignment
-import projet.echecmartien.modele.GrandPion
 
 class VueCompteurPoints(
     val nomJoueur1: String,
@@ -17,19 +16,30 @@ class VueCompteurPoints(
     tailleFenetreY: Double,
     private val bx: Double,
     private val by: Double,
-    private val compteJoueur1: Int = 0,
-    private val compteJoueur2: Int = 0,
-    private val compteGrandPionJoueur1: Int = 0,
-    private val compteMoyenPionJoueur1: Int = 0,
-    private val comptePetitPionJoueur1: Int = 0,
-    private val compteGrandPionJoueur2: Int = 0,
-    private val compteMoyenPionJoueur2: Int = 0,
-    private val comptePetitPionJoueur2: Int = 0
 ) : VBox() {
     val texteAQuiDeJouer : Text
 
+    var compteJoueur1 = 0
+    var compteJoueur2 = 0
+    var compteGrandPionJoueur1 = 0
+    var compteMoyenPionJoueur1 = 0
+    var comptePetitPionJoueur1 = 0
+    var compteGrandPionJoueur2 = 0
+    var compteMoyenPionJoueur2 = 0
+    var comptePetitPionJoueur2 = 0
+
+    private val compte11 : Text
+    private val compte12 : Text
+    private val compte13 : Text
+    private val compte21 : Text
+    private val compte22 : Text
+    private val compte23 : Text
+    private val score1 : Text
+    private val score2 : Text
+
+
     init {
-        this.setPrefSize((3/8)*tailleFenetreX, tailleFenetreY)
+        this.setPrefSize((3 / 8) * tailleFenetreX, tailleFenetreY)
         //this.style = "-fx-background-color: #00000050"
 
         val tailleGrandPion: Double
@@ -52,18 +62,18 @@ class VueCompteurPoints(
         val constX = 6.5
         val constY = -3.0
 
-        val compte11 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleGrandPion + fontSizeCompteur / 2.0 + constY, "$compteGrandPionJoueur1")
-        val compte12 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleMoyenPion + fontSizeCompteur / 2.0 + constY, "$compteMoyenPionJoueur1")
-        val compte13 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, taillePetitPion + fontSizeCompteur / 2.0 + constY, "$comptePetitPionJoueur1")
-        val compte21 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleGrandPion + fontSizeCompteur / 2.0 + constY, "$compteGrandPionJoueur2")
-        val compte22 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleMoyenPion + fontSizeCompteur / 2.0 + constY, "$compteMoyenPionJoueur2")
-        val compte23 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, taillePetitPion + fontSizeCompteur / 2.0 + constY, "$comptePetitPionJoueur2")
+        compte11 =
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleGrandPion + fontSizeCompteur / 2.0 + constY, "${compteGrandPionJoueur1}")
+        compte12 =
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleMoyenPion + fontSizeCompteur / 2.0 + constY, "${compteMoyenPionJoueur1}")
+        compte13 =
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, taillePetitPion + fontSizeCompteur / 2.0 + constY, "${comptePetitPionJoueur1}")
+        compte21 =
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleGrandPion + fontSizeCompteur / 2.0 + constY, "${compteGrandPionJoueur2}")
+        compte22 =
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleMoyenPion + fontSizeCompteur / 2.0 + constY, "${compteMoyenPionJoueur2}")
+        compte23 =
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, taillePetitPion + fontSizeCompteur / 2.0 + constY, "${comptePetitPionJoueur2}")
 
         val styleCompteur = "-fx-font-family: Lobster; -fx-font-size: ${fontSizeCompteur}px;"
         this.stylesheets.add("https://fonts.googleapis.com/css2?family=Lobster&display=swap")
@@ -145,25 +155,46 @@ class VueCompteurPoints(
 
         val jetonsEtCompteurJoueur1 = BorderPane()
         jetonsEtCompteurJoueur1.left = jetonsJoueur1
-        jetonsEtCompteurJoueur1.center = Text("= $compteJoueur1")
+        score1 = Text("= ${compteJoueur1}")
+        jetonsEtCompteurJoueur1.center = score1
         jetonsEtCompteurJoueur1.center.style = styleCompteur
         partieJoueur1.children.add(jetonsEtCompteurJoueur1)
         val jetonsEtCompteurJoueur2 = BorderPane()
         jetonsEtCompteurJoueur2.left = jetonsJoueur2
-        jetonsEtCompteurJoueur2.center = Text("= $compteJoueur2")
+        score2 = Text("= ${compteJoueur2}")
+        jetonsEtCompteurJoueur2.center = score2
         jetonsEtCompteurJoueur2.center.style = styleCompteur
         partieJoueur2.children.add(jetonsEtCompteurJoueur2)
 
+
         val paneAQuiDeJouer = Pane()
         texteAQuiDeJouer = Text(15.0, 15.0, "C'est au tour de\n$nomJoueur1\nde jouer !")
-        texteAQuiDeJouer.style = styleNomJoueur
+        texteAQuiDeJouer.style = "-fx-font-family: Lobster; -fx-font-size: ${fontSizeNomJoueur + 5}px;"
         texteAQuiDeJouer.textAlignment = TextAlignment.CENTER
         paneAQuiDeJouer.children.add(texteAQuiDeJouer)
         paneAQuiDeJouer.padding = Insets(20.0, 20.0, 20.0, 20.0)
         //paneAQuiDeJouer.style = "-fx-background-color: #FF000030;"
 
+        val stops: MutableList<Stop> =
+            mutableListOf(Stop(0.0, Color.rgb(110, 68, 4)), Stop(1.0, Color.rgb(156, 129, 101)))
+        val linearGradient = RadialGradient(0.0, 10.0, 55.0, 40.0, 45.0, false, CycleMethod.NO_CYCLE, stops)
+        texteAQuiDeJouer.fill = linearGradient
+
+
         this.children.add(partieJoueur2)
         this.children.add(paneAQuiDeJouer)
         this.children.add(partieJoueur1)
+    }
+
+    fun updateScore() {
+        score1.text = "= $compteJoueur1"
+        score2.text = "= $compteJoueur2"
+        compte11.text = compteGrandPionJoueur1.toString()
+        compte12.text = compteMoyenPionJoueur1.toString()
+        compte13.text = comptePetitPionJoueur1.toString()
+        compte21.text = compteGrandPionJoueur2.toString()
+        compte22.text = compteMoyenPionJoueur2.toString()
+        compte23.text = comptePetitPionJoueur2.toString()
+
     }
 }

@@ -45,6 +45,8 @@ class ControleurBoutonValider(primary: Stage, vue: VueAccueil, modele: Jeu) : Ev
         root.droite.fixeBoutonListener(root.droite.boutonSauvegarder, ControleurBoutonSauvegarder(root, modele))
         root.droite.fixeBoutonListener(root.droite.boutonCharger, ControleurBoutonCharger(root, modele))
         modele.initialiserPartie(j1, j2, 10)
+
+
         primary.title = "Echec Martien"
         primary.scene = scene
         primary.show()

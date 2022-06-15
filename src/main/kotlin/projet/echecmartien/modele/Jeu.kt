@@ -83,6 +83,8 @@ class Jeu(
         return joueurCourant
     }
 
+    fun getJoueurs() = joueurs
+
 
     /**
      * affectation des joueurs aux cases
