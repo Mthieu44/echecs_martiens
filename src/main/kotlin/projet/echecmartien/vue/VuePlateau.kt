@@ -74,10 +74,6 @@ class VuePlateau : VBox() {
         this.children.add(plateauBas)
     }
 
-    fun sauvegarde(controleur: EventHandler<MouseEvent>) {
-        this.onMouseClicked = controleur
-    }
-
     fun clic(controleur: EventHandler<MouseEvent>) {
         this.onMouseClicked = controleur
     }
