@@ -142,6 +142,7 @@ class Jeu(
         joueurs = arrayOf(joueur1, joueur2)
         joueurCourant = joueur1
         plateau.initialiser()
+        nombreCoupsSansPrise = 0
         this.nombreCoupsSansPriseMax = nombreCoupsSansPriseMax
     }
 
