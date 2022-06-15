@@ -47,7 +47,7 @@ class ControleurBoutonValider(primary: Stage, vue: VueAccueil, modele: Jeu) : Ev
         root.droite.fixeBoutonListener(root.droite.boutonRecommencer, ControleurBoutonRecommencer(root, modele))
         root.droite.fixeBoutonListener(root.droite.boutonRetourAccueil, ControleurBoutonRetourAccueil(primary, root, modele))
         root.droite.fixeBoutonListener(root.droite.boutonSauvegarder, ControleurBoutonSauvegarder(primary,root.plateau, modele))
-        root.droite.fixeBoutonListener(root.droite.boutonCharger, ControleurBoutonCharger(root, modele))
+        root.droite.fixeBoutonListener(root.droite.boutonCharger, ControleurBoutonCharger(primary,root, modele))
         modele.initialiserPartie(j1, j2, 10)
 
 
