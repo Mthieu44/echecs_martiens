@@ -5,8 +5,11 @@ import javafx.event.EventHandler
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.control.Button
-import javafx.scene.layout.BorderPane
-import javafx.scene.layout.VBox
+import javafx.scene.layout.*
+import javafx.scene.paint.Paint
+import javafx.scene.shape.StrokeLineCap
+import javafx.scene.shape.StrokeLineJoin
+import javafx.scene.shape.StrokeType
 
 class VueBouton : BorderPane() {
     val centre = VBox()
@@ -29,6 +32,12 @@ class VueBouton : BorderPane() {
 
         centre.padding = Insets(25.0)
         centre.spacing = 10.0
+
+        boutonSauvegarder.style = "-fx-background-radius: 15px; -fx-padding: 1em; -fx-background-color: #bbc2fa"
+        boutonCharger.style = "-fx-background-radius: 15px; -fx-padding: 1em; -fx-background-color: #aee1f5"
+        boutonRecommencer.style = "-fx-background-radius: 15px; -fx-padding: 1em; -fx-background-color: #f79e9e"
+        boutonRetourAccueil.style = "-fx-background-radius: 15px; -fx-padding: 1em; -fx-background-color: #f5e2ae"
+        boutonAfficherRegles.style = "-fx-background-radius: 15px; -fx-padding: 1em; -fx-background-color: #aef5ae"
     }
 
     fun fixeBoutonListener(bouton : Button, controleur : EventHandler<ActionEvent>){
