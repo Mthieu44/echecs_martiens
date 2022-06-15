@@ -31,6 +31,10 @@ class ControleurBoutonValider(primary: Stage, vue: VueAccueil, modele: Jeu) : Ev
             dialog.showAndWait()
             return
         }
+        if (vue.textFieldPseudoj1.text.length>15)
+            vue.textFieldPseudoj1.text=vue.textFieldPseudoj1.text.substring(0,15)
+        if (vue.textFieldPseudoj2.text.length>15)
+            vue.textFieldPseudoj2.text=vue.textFieldPseudoj2.text.substring(0,15)
         val j1 = Joueur(vue.textFieldPseudoj1.text)
         val j2 = if (vue.checkBoxIA.isSelected)
             Joueur("[BOT]")
