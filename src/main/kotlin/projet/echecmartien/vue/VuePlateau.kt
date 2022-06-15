@@ -10,7 +10,7 @@ import javafx.stage.DirectoryChooser
 class VuePlateau : VBox() {
     val plateauHaut = GridPane()
     val plateauBas = GridPane()
-    val tableauCase = Array<MutableList<CasePlateau>>(8) { i -> mutableListOf() }
+    val tableauCase = Array<MutableList<VueCasePlateau>>(8) { i -> mutableListOf() }
 
     val bx = 80.0 //taille Bouton x
     val by = 80.0 //taille Bouton y

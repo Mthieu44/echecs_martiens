@@ -6,9 +6,9 @@ import javafx.stage.FileChooser
 import projet.echecmartien.modele.Jeu
 import projet.echecmartien.vue.VuePlateau
 
-class ControleurBoutonSave(modele : Jeu, vue : VuePlateau) : EventHandler<MouseEvent> {
-    private val modele : Jeu
-    private val vue : VuePlateau
+class ControleurBoutonSave(modele: Jeu, vue: VuePlateau) : EventHandler<MouseEvent> {
+    private val modele: Jeu
+    private val vue: VuePlateau
 
     init {
         this.modele = modele

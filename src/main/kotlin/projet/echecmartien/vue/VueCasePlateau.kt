@@ -10,7 +10,7 @@ import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
 import kotlin.math.absoluteValue
 
-class CasePlateau(
+class VueCasePlateau(
     tailleBoutonX: Double,
     tailleBoutonY: Double,
 ) : Pane() {

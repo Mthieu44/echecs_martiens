@@ -8,7 +8,7 @@ import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
 import javafx.scene.text.Text
 
-class CompteurPoints(
+class VueCompteurPoints(
     private val nomJoueur1: String,
     private val nomJoueur2: String,
     tailleFenetreX: Double,
@@ -37,12 +37,12 @@ class CompteurPoints(
         val constX = 6.5
         val constY = -3.0
 
-        val compte11 = Text(bx / 2.0 - fontSize/2.0 + constX, tailleGrandPion + fontSize/2.0 + constY, "0")
-        val compte12 = Text(bx / 2.0 - fontSize/2.0 + constX, tailleMoyenPion + fontSize/2.0 + constY, "1")
-        val compte13 = Text(bx / 2.0 - fontSize/2.0 + constX, taillePetitPion + fontSize/2.0 + constY, "2")
-        val compte21 = Text(bx / 2.0 - fontSize/2.0 + constX, tailleGrandPion + fontSize/2.0 + constY, "3")
-        val compte22 = Text(bx / 2.0 - fontSize/2.0 + constX, tailleMoyenPion + fontSize/2.0 + constY, "4")
-        val compte23 = Text(bx / 2.0 - fontSize/2.0 + constX, taillePetitPion + fontSize/2.0 + constY, "5")
+        val compte11 = Text(bx / 2.0 - fontSize / 2.0 + constX, tailleGrandPion + fontSize / 2.0 + constY, "0")
+        val compte12 = Text(bx / 2.0 - fontSize / 2.0 + constX, tailleMoyenPion + fontSize / 2.0 + constY, "1")
+        val compte13 = Text(bx / 2.0 - fontSize / 2.0 + constX, taillePetitPion + fontSize / 2.0 + constY, "2")
+        val compte21 = Text(bx / 2.0 - fontSize / 2.0 + constX, tailleGrandPion + fontSize / 2.0 + constY, "3")
+        val compte22 = Text(bx / 2.0 - fontSize / 2.0 + constX, tailleMoyenPion + fontSize / 2.0 + constY, "4")
+        val compte23 = Text(bx / 2.0 - fontSize / 2.0 + constX, taillePetitPion + fontSize / 2.0 + constY, "5")
 
         val styleCompteur = "-fx-font-family: Lobster; -fx-font-size: ${fontSize}px;"
         this.stylesheets.add("https://fonts.googleapis.com/css2?family=Lobster&display=swap")
