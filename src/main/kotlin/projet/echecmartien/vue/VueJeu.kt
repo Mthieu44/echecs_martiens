@@ -1,11 +1,11 @@
 package projet.echecmartien.vue
 
 import javafx.scene.layout.BorderPane
-import projet.echecmartien.controleur.ControleurBoutonValider
+import projet.echecmartien.modele.Joueur
 
-class VueJeu(nomJoueur1: String, nomJoueur2: String) : BorderPane() {
+class VueJeu(j1: String, j2: String) : BorderPane() {
     val plateau = VuePlateau()
-    val gauche = VueCompteurPoints(nomJoueur1, nomJoueur2, 1280.0, 720.0, 80.0, 80.0)
+    val gauche = VueCompteurPoints(j1, j2, 1280.0, 720.0, 80.0, 80.0)
 
     init {
         this.center = plateau
