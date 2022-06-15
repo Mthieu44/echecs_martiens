@@ -20,19 +20,11 @@ class ControleurBoutonSauvegarder(primary : Stage, vue: VuePlateau, modele : Jeu
     }
 
     override fun handle(p0: ActionEvent?) {
-        modele.serialiser("save.json")
         val fileChooser = FileChooser()
-        var SaveContent = modele.serialiser("save.json")
-
         fileChooser.initialFileName = "save.json"
-        File("file:eq_4_05_bergeron-mathieu_cailleteau-pacome_chusseau-nicolas_hardy-clement").writeText("$SaveContent")
-
         val extensionFilter = FileChooser.ExtensionFilter("Json file (*.json)", "*.json")
         fileChooser.extensionFilters.add(extensionFilter)
-
-        //Show save file dialog
         val file = fileChooser.showSaveDialog(primary)
-        //Its important towrite showSaveDialog!!!
-
+        modele.serialiser(file.absolutePath)
     }
 }
