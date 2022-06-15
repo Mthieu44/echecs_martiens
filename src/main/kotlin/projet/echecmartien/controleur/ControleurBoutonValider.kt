@@ -32,9 +32,12 @@ class ControleurBoutonValider(primary: Stage, vue: VueAccueil, modele: Jeu) : Ev
             dialog.showAndWait()
             return
         }
-        val scene = Scene(VueJeu(), 1280.0, 720.0)
-        VuePlateau().clic(ControleurClicCase(modele, VuePlateau()))
-        modele.initialiserPartie(Joueur(vue.textFieldPseudoj1.text), Joueur(vue.textFieldPseudoj2.text), 10)
+        val j1 = Joueur(vue.textFieldPseudoj1.text)
+        val j2 = Joueur(vue.textFieldPseudoj2.text)
+        val root = VueJeu(j1.getPseudo(), j2.getPseudo())
+        val scene = Scene(root, 1280.0, 720.0)
+        root.plateau.clic(ControleurClicCase(modele, root.plateau))
+        modele.initialiserPartie(j1, j2, 10)
         primary.title = "Echec Martien"
         primary.scene = scene
         primary.show()
