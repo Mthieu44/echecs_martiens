@@ -2,9 +2,7 @@ package projet.echecmartien.controleur
 
 import javafx.event.EventHandler
 import javafx.scene.input.MouseEvent
-import projet.echecmartien.modele.Coordonnee
-import projet.echecmartien.modele.Jeu
-import projet.echecmartien.modele.Joueur
+import projet.echecmartien.modele.*
 import projet.echecmartien.vue.VueCompteurPoints
 import projet.echecmartien.vue.VuePlateau
 
@@ -51,6 +49,15 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
                 vueDuPlateau.tableauCase[y][x].placerPion(modele.getPlateau().getCases()[xO][yO].getPion().toString())
                 vueDuPlateau.tableauCase[yO][xO].retirerPion()
                 modele.deplacer(xO, yO, x, y)
+                vueDeGauche.compteJoueur1 = modele.getJoueurs()[0].calculerScore()
+                vueDeGauche.compteJoueur2 = modele.getJoueurs()[1].calculerScore()
+                vueDeGauche.compteGrandPionJoueur1 = comptePionCapture(modele.getJoueurs()[0], GrandPion())
+                vueDeGauche.compteMoyenPionJoueur1 = comptePionCapture(modele.getJoueurs()[0], MoyenPion())
+                vueDeGauche.comptePetitPionJoueur1 = comptePionCapture(modele.getJoueurs()[0], PetitPion())
+                vueDeGauche.compteGrandPionJoueur2 = comptePionCapture(modele.getJoueurs()[1], GrandPion())
+                vueDeGauche.compteMoyenPionJoueur2 = comptePionCapture(modele.getJoueurs()[1], MoyenPion())
+                vueDeGauche.comptePetitPionJoueur2 = comptePionCapture(modele.getJoueurs()[1], PetitPion())
+                vueDeGauche.updateScore()
                 if (modele.arretPartie()){
                     vueDeGauche.texteAQuiDeJouer.text = texteDeFin()
                 }
@@ -80,6 +87,15 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
         return affichage
     }
 
+    private fun comptePionCapture(joueur: Joueur, typePion: Pion) : Int{
+        var c = 0
+        for (p in joueur.getPionsCaptures()){
+            if (p == typePion){
+                c += 1
+            }
+        }
+        return c
+    }
 }
 
 
