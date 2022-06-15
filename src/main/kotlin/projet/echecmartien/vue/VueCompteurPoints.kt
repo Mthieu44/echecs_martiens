@@ -8,6 +8,7 @@ import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
 import javafx.scene.text.Text
 import javafx.scene.text.TextAlignment
+import projet.echecmartien.modele.GrandPion
 
 class VueCompteurPoints(
     val nomJoueur1: String,
@@ -15,7 +16,15 @@ class VueCompteurPoints(
     tailleFenetreX: Double,
     tailleFenetreY: Double,
     private val bx: Double,
-    private val by: Double
+    private val by: Double,
+    private val compteJoueur1: Int = 0,
+    private val compteJoueur2: Int = 0,
+    private val compteGrandPionJoueur1: Int = 0,
+    private val compteMoyenPionJoueur1: Int = 0,
+    private val comptePetitPionJoueur1: Int = 0,
+    private val compteGrandPionJoueur2: Int = 0,
+    private val compteMoyenPionJoueur2: Int = 0,
+    private val comptePetitPionJoueur2: Int = 0
 ) : VBox() {
     val texteAQuiDeJouer : Text
 
@@ -44,17 +53,17 @@ class VueCompteurPoints(
         val constY = -3.0
 
         val compte11 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleGrandPion + fontSizeCompteur / 2.0 + constY, "0")
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleGrandPion + fontSizeCompteur / 2.0 + constY, "$compteGrandPionJoueur1")
         val compte12 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleMoyenPion + fontSizeCompteur / 2.0 + constY, "1")
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleMoyenPion + fontSizeCompteur / 2.0 + constY, "$compteMoyenPionJoueur1")
         val compte13 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, taillePetitPion + fontSizeCompteur / 2.0 + constY, "2")
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, taillePetitPion + fontSizeCompteur / 2.0 + constY, "$comptePetitPionJoueur1")
         val compte21 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleGrandPion + fontSizeCompteur / 2.0 + constY, "3")
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleGrandPion + fontSizeCompteur / 2.0 + constY, "$compteGrandPionJoueur2")
         val compte22 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleMoyenPion + fontSizeCompteur / 2.0 + constY, "4")
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleMoyenPion + fontSizeCompteur / 2.0 + constY, "$compteMoyenPionJoueur2")
         val compte23 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, taillePetitPion + fontSizeCompteur / 2.0 + constY, "5")
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, taillePetitPion + fontSizeCompteur / 2.0 + constY, "$comptePetitPionJoueur2")
 
         val styleCompteur = "-fx-font-family: Lobster; -fx-font-size: ${fontSizeCompteur}px;"
         this.stylesheets.add("https://fonts.googleapis.com/css2?family=Lobster&display=swap")
@@ -64,6 +73,12 @@ class VueCompteurPoints(
         compte21.style = styleCompteur
         compte22.style = styleCompteur
         compte23.style = styleCompteur
+        compte11.fill = Paint.valueOf("#f6e8fa")
+        compte12.fill = Paint.valueOf("#e3d5c1")
+        compte13.fill = Paint.valueOf("#c9af87")
+        compte21.fill = Paint.valueOf("#f6e8fa")
+        compte22.fill = Paint.valueOf("#e3d5c1")
+        compte23.fill = Paint.valueOf("#c9af87")
 
         val pane11 = Pane()
         val pane12 = Pane()
@@ -101,7 +116,8 @@ class VueCompteurPoints(
         partieJoueur1.setPrefSize(200.0, 300.0)
         val partieJoueur2 = VBox()
         partieJoueur2.padding = Insets(0.0, 80.0, 0.0, 30.0)
-        partieJoueur2.setPrefSize(200.0, 300.0)
+        partieJoueur2.setPrefSize(250.0, 300.0)
+        partieJoueur2.minWidth = 250.0
 
 
         val paddingJoueurX = 10.0
@@ -129,11 +145,13 @@ class VueCompteurPoints(
 
         val jetonsEtCompteurJoueur1 = BorderPane()
         jetonsEtCompteurJoueur1.left = jetonsJoueur1
-        jetonsEtCompteurJoueur1.center = Text("=23")
+        jetonsEtCompteurJoueur1.center = Text("= $compteJoueur1")
+        jetonsEtCompteurJoueur1.center.style = styleCompteur
         partieJoueur1.children.add(jetonsEtCompteurJoueur1)
         val jetonsEtCompteurJoueur2 = BorderPane()
         jetonsEtCompteurJoueur2.left = jetonsJoueur2
-        jetonsEtCompteurJoueur2.center = Text("=22")
+        jetonsEtCompteurJoueur2.center = Text("= $compteJoueur2")
+        jetonsEtCompteurJoueur2.center.style = styleCompteur
         partieJoueur2.children.add(jetonsEtCompteurJoueur2)
 
         val paneAQuiDeJouer = Pane()
@@ -144,8 +162,8 @@ class VueCompteurPoints(
         paneAQuiDeJouer.padding = Insets(20.0, 20.0, 20.0, 20.0)
         //paneAQuiDeJouer.style = "-fx-background-color: #FF000030;"
 
-        this.children.add(partieJoueur1)
-        this.children.add(paneAQuiDeJouer)
         this.children.add(partieJoueur2)
+        this.children.add(paneAQuiDeJouer)
+        this.children.add(partieJoueur1)
     }
 }
