@@ -7,7 +7,6 @@ import javafx.scene.layout.Pane
 import javafx.scene.layout.VBox
 import javafx.stage.DirectoryChooser
 
-
 class VuePlateau : VBox() {
     val plateauHaut = GridPane()
     val plateauBas = GridPane()
@@ -20,7 +19,6 @@ class VuePlateau : VBox() {
     init {
         val nbr_buttons_x = 4
         val nbr_buttons_y = 8
-        //val cy: Double = nbr_buttons_y * bx //taille Colonne y
 
 
         var lettresColonnes: Array<String> = arrayOf()
@@ -36,13 +34,11 @@ class VuePlateau : VBox() {
         var lettreColonne: String
         var numLigne: String
 
-        val borderSize = 1
-
         for (num_ligne in 0 until (nbr_buttons_y / 2)) { //pour chaque ligne...
             numLigne = numLignes[num_ligne]
             for (num_colonne in 0 until nbr_buttons_x) { //pour chaque bouton de la ligne
                 lettreColonne = lettresColonnes[num_colonne]
-                val casePlateau = VueCasePlateau(bx, by, borderSize, num_colonne, num_ligne)
+                val casePlateau = VueCasePlateau(bx, by)
                 tableauCase[num_ligne].add(casePlateau)
                 if (num_ligne + num_colonne < nbr_buttons_y / 4)
                     casePlateau.placerPion("3")
@@ -55,7 +51,7 @@ class VuePlateau : VBox() {
         }
         this.children.add(plateauHaut)
 
-        pane.maxWidth = nbr_buttons_x * (bx + 2 * borderSize)
+        pane.maxWidth = nbr_buttons_x * (bx + 2)
         pane.minHeight = pane.maxWidth / 32.8
         pane.style = "-fx-background-color: #000000;"
         this.children.add(pane)
@@ -64,7 +60,7 @@ class VuePlateau : VBox() {
             numLigne = numLignes[num_ligne]
             for (num_colonne in 0 until nbr_buttons_x) { //pour chaque bouton de la ligne
                 lettreColonne = lettresColonnes[num_colonne]
-                val casePlateau = VueCasePlateau(bx, by, borderSize, num_colonne, num_ligne)
+                val casePlateau = VueCasePlateau(bx, by)
                 tableauCase[num_ligne].add(casePlateau)
                 if (num_ligne + num_colonne > 3 * nbr_buttons_y / 4 + 2)
                     casePlateau.placerPion("3")

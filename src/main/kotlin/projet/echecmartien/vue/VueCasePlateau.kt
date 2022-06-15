@@ -13,9 +13,6 @@ import kotlin.math.absoluteValue
 class VueCasePlateau(
     tailleBoutonX: Double,
     tailleBoutonY: Double,
-    borderSize: Int,
-    x: Int,
-    y: Int
 ) : Pane() {
     private val minTailleBouton: Double
 
@@ -26,7 +23,7 @@ class VueCasePlateau(
     private val taillePetitPion: Double
     private val couleurPetitPion = "#6E4404"
 
-    private val cercle = Circle(tailleBoutonX / 2 + borderSize, tailleBoutonY / 2 + borderSize, 0.0)
+    private val cercle = Circle(tailleBoutonX / 2 + 1, tailleBoutonY / 2 + 1, 0.0)
 
     init {
         this.cursor = Cursor.cursor("HAND")
@@ -45,7 +42,7 @@ class VueCasePlateau(
 
         this.children.add(cercle)
         cercle.fill = Paint.valueOf("#FFD000")
-        this.style = "-fx-border-color: #000000; -fx-border-width: ${borderSize}px;"
+        this.style = "-fx-border-color: #000000; -fx-border-width: 1px;"
     }
 
     fun retirerPion() {
@@ -66,4 +63,7 @@ class VueCasePlateau(
             throw IllegalArgumentException()
     }
 
+    fun changeCouleur(couleur : String){
+        this.style = "-fx-background-color: $couleur; -fx-border-color: #000000; -fx-border-width: 1px;"
+    }
 }
