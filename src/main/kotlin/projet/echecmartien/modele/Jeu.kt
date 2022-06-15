@@ -83,6 +83,8 @@ class Jeu(
         return joueurCourant
     }
 
+    fun getJoueurs() = joueurs
+
 
     /**
      * affectation des joueurs aux cases
@@ -118,10 +120,8 @@ class Jeu(
                 }
             }
         }
-        if (cptj1 == 0 || cptj2 == 0)
+        if ((cptj1 == 0 && getJoueurCourant()==joueurs[0]) || (cptj2 == 0 && getJoueurCourant()==joueurs[1]))
             return true
-        println(nombreCoupsSansPrise)
-        println(nombreCoupsSansPriseMax)
         return nombreCoupsSansPriseMax == nombreCoupsSansPrise
     }
 
@@ -273,9 +273,7 @@ class Jeu(
         }
     }
 
-    override fun toString(): String {
-        return plateau.toString()
-    }
+
 
 
     fun serialiser(nomFichier: String) {
@@ -284,5 +282,10 @@ class Jeu(
         writer.flush()
         writer.close()
     }
+
+    override fun toString(): String {
+        return "$nombreCoupsSansPrise,$nombreCoupsSansPriseMax,$coordOrigine,$coordDest,${joueurs.contentToString()},$joueurCourant,$plateau,$pionArriveDeZone"
+    }
+
 
 }

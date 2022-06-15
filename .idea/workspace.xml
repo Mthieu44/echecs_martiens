@@ -4,32 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa5208b6-755b-40a2-90e6-ff32c5d59451" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/save" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/controleur/ControleurBoutonSave.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="fa5208b6-755b-40a2-90e6-ff32c5d59451" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/echecMartien.iml" beforeDir="false" afterPath="$PROJECT_DIR$/echecMartien.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/AppliJeuEchecMartien.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/AppliJeuEchecMartien.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/modele/Jeu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/modele/Jeu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/vue/VuePlateau.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/vue/VuePlateau.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/AppliJeuEchecMartien.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/AppliJeuEchecMartien.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/AppliJeuEchecMartienKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/AppliJeuEchecMartienKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/librairie/EnumPion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/librairie/EnumPion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/modele/Coordonnee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/modele/Coordonnee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/modele/Jeu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/modele/Jeu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/modele/Plateau.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/modele/Plateau.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/vue/CasePlateau.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/vue/CasePlateau.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/vue/VuePlateau.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/vue/VuePlateau.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/JeuTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/JeuTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/MoyenPionTest$getDeplacementExeptionLongeur$$inlined$assertThrows$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/MoyenPionTest$getDeplacementExeptionLongeur$$inlined$assertThrows$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionDeplacement$$inlined$assertThrows$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionDeplacement$$inlined$assertThrows$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionDiagonale$$inlined$assertThrows$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionDiagonale$$inlined$assertThrows$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionLongeur$$inlined$assertThrows$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PetitPionTest$getDeplacementExeptionLongeur$$inlined$assertThrows$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PlateauTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/projet/echecmartien/modele/PlateauTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/controleur/ControleurBoutonCharger.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/controleur/ControleurBoutonCharger.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/controleur/ControleurBoutonValider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/controleur/ControleurBoutonValider.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,14 +88,22 @@
       <option name="project" value="LOCAL" />
       <updated>1654763230824</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="save json">
+      <created>1655307491020</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1655307491020</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="getPositionX &amp; getPositionY" />
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="save json" />
+    <option name="LAST_COMMIT_MESSAGE" value="save json" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

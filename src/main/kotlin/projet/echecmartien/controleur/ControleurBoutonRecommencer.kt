@@ -27,7 +27,7 @@ class ControleurBoutonRecommencer(vue : VueJeu, modele : Jeu) : EventHandler<Act
         val res = dialog.showAndWait()
         if (res.get().buttonData== ButtonBar.ButtonData.OK_DONE) {
             modele.initialiserPartie(Joueur(vue.gauche.nomJoueur1), Joueur(vue.gauche.nomJoueur2), 10)
-            val plateau = VuePlateau()
+            val plateau = VuePlateau(vue.plateau.bot)
             val gauche = VueCompteurPoints(vue.gauche.nomJoueur1, vue.gauche.nomJoueur2, 1280.0, 640.0, 80.0, 80.0)
             plateau.clic(ControleurClicCase(modele, plateau, gauche))
             vue.center = plateau

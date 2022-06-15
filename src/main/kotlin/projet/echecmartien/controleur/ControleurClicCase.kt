@@ -2,9 +2,7 @@ package projet.echecmartien.controleur
 
 import javafx.event.EventHandler
 import javafx.scene.input.MouseEvent
-import projet.echecmartien.modele.Coordonnee
-import projet.echecmartien.modele.Jeu
-import projet.echecmartien.modele.Joueur
+import projet.echecmartien.modele.*
 import projet.echecmartien.vue.VueCompteurPoints
 import projet.echecmartien.vue.VuePlateau
 
@@ -19,7 +17,7 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
         this.vueDuPlateau = vueP
     }
 
-
+    var stop = false
 
     override fun handle(event: MouseEvent) {
         val x = (event.x / vueDuPlateau.bx).toInt()
@@ -29,8 +27,7 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
         } else {
             y = (event.y / vueDuPlateau.by).toInt()
         }
-        if (x<0 || x>3 || y<0 || y>7 || modele.arretPartie()) {
-            println(modele)
+        if (x<0 || x>3 || y<0 || y>7 || stop) {
             return
         }
 
@@ -51,35 +48,58 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
                 vueDuPlateau.tableauCase[y][x].placerPion(modele.getPlateau().getCases()[xO][yO].getPion().toString())
                 vueDuPlateau.tableauCase[yO][xO].retirerPion()
                 modele.deplacer(xO, yO, x, y)
+                vueDeGauche.compteJoueur1 = modele.getJoueurs()[0].calculerScore()
+                vueDeGauche.compteJoueur2 = modele.getJoueurs()[1].calculerScore()
+                vueDeGauche.compteGrandPionJoueur1 = comptePionCapture(modele.getJoueurs()[0], GrandPion())
+                vueDeGauche.compteMoyenPionJoueur1 = comptePionCapture(modele.getJoueurs()[0], MoyenPion())
+                vueDeGauche.comptePetitPionJoueur1 = comptePionCapture(modele.getJoueurs()[0], PetitPion())
+                vueDeGauche.compteGrandPionJoueur2 = comptePionCapture(modele.getJoueurs()[1], GrandPion())
+                vueDeGauche.compteMoyenPionJoueur2 = comptePionCapture(modele.getJoueurs()[1], MoyenPion())
+                vueDeGauche.comptePetitPionJoueur2 = comptePionCapture(modele.getJoueurs()[1], PetitPion())
+                vueDeGauche.updateScore()
+                vueDeGauche.texteAQuiDeJouer.text = "C'est au tour de\n@${modele.getJoueurCourant()!!.getPseudo()}\nde jouer !"
                 if (modele.arretPartie()){
                     vueDeGauche.texteAQuiDeJouer.text = texteDeFin()
+                    stop = true
                 }
             }
         }
         modele.setCoordOrigineDeplacement(null)
         enleveCouleur(vueDuPlateau)
+        if (vueDuPlateau.bot) {
+            println("BOT")
+        }
     }
 
     private fun texteDeFin():String{
         val vainqueur = modele.joueurVainqueur()
         val affichage : String
         if (vainqueur==null) {
-            affichage = "Il y a égalite, chauque joueur à ${modele.getJoueurCourant()!!.calculerScore()} points !"
+            affichage = "Il y a égalite, chaque\njoueur à ${modele.getJoueurCourant()!!.calculerScore()} points !"
         }
         else {
             val j1 : Joueur = modele.getJoueurCourant()!!
             modele.changeJoueurCourant()
             val j2 : Joueur = modele.getJoueurCourant()!!
             if (j1.calculerScore() > j2.calculerScore()){
-                affichage = "$j1 a gagné contre $j2 à ${j1.calculerScore()}-${j2.calculerScore()} !"
+                affichage = "@$j1\na gagné contre \n@$j2\nà ${j1.calculerScore()}-${j2.calculerScore()} !"
             }
             else{
-                affichage = "$j2 a gagné contre $j1 à ${j2.calculerScore()}-${j1.calculerScore()} !"
+                affichage = "@$j2\na gagné contre \n@$j1\nà ${j2.calculerScore()}-${j1.calculerScore()} !"
             }
         }
         return affichage
     }
 
+    private fun comptePionCapture(joueur: Joueur, typePion: Pion) : Int{
+        var c = 0
+        for (p in joueur.getPionsCaptures()){
+            if (p == typePion){
+                c += 1
+            }
+        }
+        return c
+    }
 }
 
 
