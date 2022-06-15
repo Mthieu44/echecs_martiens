@@ -22,6 +22,7 @@ class Plateau {
                     "G" -> cases[i][j].setPion(GrandPion())
                     "M" -> cases[i][j].setPion(MoyenPion())
                     "P" -> cases[i][j].setPion(PetitPion())
+                    "  " -> cases[i][j].setPion(null)
                 }
             }
         }

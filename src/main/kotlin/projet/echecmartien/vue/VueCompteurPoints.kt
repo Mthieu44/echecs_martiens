@@ -10,8 +10,8 @@ import javafx.scene.text.Text
 import javafx.scene.text.TextAlignment
 
 class VueCompteurPoints(
-    private val nomJoueur1: String,
-    private val nomJoueur2: String,
+    val nomJoueur1: String,
+    val nomJoueur2: String,
     tailleFenetreX: Double,
     tailleFenetreY: Double,
     private val bx: Double,
