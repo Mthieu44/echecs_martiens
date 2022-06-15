@@ -273,9 +273,7 @@ class Jeu(
         }
     }
 
-    override fun toString(): String {
-        return plateau.toString()
-    }
+
 
 
     fun serialiser(nomFichier: String) {
@@ -284,5 +282,10 @@ class Jeu(
         writer.flush()
         writer.close()
     }
+
+    override fun toString(): String {
+        return "$nombreCoupsSansPrise,$nombreCoupsSansPriseMax,$coordOrigine,$coordDest,${joueurs.contentToString()},$joueurCourant,$plateau,$pionArriveDeZone"
+    }
+
 
 }
