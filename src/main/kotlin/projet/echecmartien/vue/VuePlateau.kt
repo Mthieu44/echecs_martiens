@@ -7,7 +7,7 @@ import javafx.scene.layout.Pane
 import javafx.scene.layout.VBox
 import javafx.stage.DirectoryChooser
 
-class VuePlateau : VBox() {
+class VuePlateau(bot : Boolean) : VBox() {
     val plateauHaut = GridPane()
     val plateauBas = GridPane()
     val tableauCase = Array<MutableList<VueCasePlateau>>(8) { i -> mutableListOf() }
@@ -15,8 +15,10 @@ class VuePlateau : VBox() {
     val bx = 80.0 //taille Bouton x
     val by = 80.0 //taille Bouton y
     val pane = Pane()
+    val bot : Boolean
 
     init {
+        this.bot = bot
         val nbr_buttons_x = 4
         val nbr_buttons_y = 8
 
