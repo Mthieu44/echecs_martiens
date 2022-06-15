@@ -1,10 +1,10 @@
 package projet.echecmartien.vue
 
+import javafx.event.ActionEvent
 import javafx.event.EventHandler
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.control.Button
-import javafx.scene.input.MouseEvent
 import javafx.scene.layout.BorderPane
 import javafx.scene.layout.VBox
 
@@ -31,8 +31,8 @@ class VueBouton : BorderPane() {
         centre.spacing = 10.0
     }
 
-    fun fixeBoutonListener(bouton : Button, controleur : EventHandler<MouseEvent>){
-        bouton.onMouseClicked = controleur
+    fun fixeBoutonListener(bouton : Button, controleur : EventHandler<ActionEvent>){
+        bouton.onAction = controleur
     }
 
 }

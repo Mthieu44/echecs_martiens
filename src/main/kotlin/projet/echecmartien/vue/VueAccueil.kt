@@ -1,5 +1,6 @@
 package projet.echecmartien.vue
 
+import javafx.event.ActionEvent
 import javafx.event.EventHandler
 import javafx.geometry.Insets
 import javafx.geometry.Pos
@@ -82,7 +83,7 @@ class VueAccueil : BorderPane() {
         this.checkBoxIA.onMouseClicked = controleur
     }
 
-    fun valider(controleur: EventHandler<MouseEvent>) {
-        this.boutonValide.onMouseClicked = controleur
+    fun valider(controleur: EventHandler<ActionEvent>) {
+        this.boutonValide.onAction = controleur
     }
 }

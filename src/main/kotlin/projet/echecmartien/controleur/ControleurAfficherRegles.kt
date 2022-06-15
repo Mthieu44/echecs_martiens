@@ -1,12 +1,13 @@
 package projet.echecmartien.controleur
 
+import javafx.event.ActionEvent
 import javafx.event.EventHandler
 import javafx.scene.control.Alert
 import javafx.scene.input.MouseEvent
 import projet.echecmartien.modele.Jeu
 import projet.echecmartien.vue.VueJeu
 
-class ControleurAfficherRegles(vue : VueJeu, modele : Jeu) : EventHandler<MouseEvent> {
+class ControleurAfficherRegles(vue : VueJeu, modele : Jeu) : EventHandler<ActionEvent> {
     val vue : VueJeu
     val modele : Jeu
 
@@ -15,7 +16,7 @@ class ControleurAfficherRegles(vue : VueJeu, modele : Jeu) : EventHandler<MouseE
         this.modele=modele
     }
 
-    override fun handle(p0: MouseEvent?) {
+    override fun handle(p0: ActionEvent?) {
         val dialog = Alert(Alert.AlertType.INFORMATION)
         dialog.title = "INFORMATION"
         dialog.headerText = "Les règles"
