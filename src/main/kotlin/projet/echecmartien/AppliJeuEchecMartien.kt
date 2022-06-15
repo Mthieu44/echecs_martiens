@@ -32,6 +32,7 @@ class AppliJeuEchecMartien : Application() {
         val scene = Scene(vue, 1090.0, 550.0)
         primaryStage.title = "Page d'accueil"
         primaryStage.scene = scene
+        primaryStage.isResizable = false
         primaryStage.show()
     }
 }

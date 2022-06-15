@@ -72,17 +72,17 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
         val vainqueur = modele.joueurVainqueur()
         val affichage : String
         if (vainqueur==null) {
-            affichage = "Il y a égalite, chauque joueur à\n${modele.getJoueurCourant()!!.calculerScore()} points !"
+            affichage = "Il y a égalite, chaque\njoueur à${modele.getJoueurCourant()!!.calculerScore()} points !"
         }
         else {
             val j1 : Joueur = modele.getJoueurCourant()!!
             modele.changeJoueurCourant()
             val j2 : Joueur = modele.getJoueurCourant()!!
             if (j1.calculerScore() > j2.calculerScore()){
-                affichage = "@$j1\na gagné contre \n@$j2\n à ${j1.calculerScore()}-${j2.calculerScore()} !"
+                affichage = "@$j1\na gagné contre \n@$j2\nà ${j1.calculerScore()}-${j2.calculerScore()} !"
             }
             else{
-                affichage = "@$j2\na gagné contre \n@$j1 à ${j2.calculerScore()}-${j1.calculerScore()} !"
+                affichage = "@$j2\na gagné contre \n@$j1\nà ${j2.calculerScore()}-${j1.calculerScore()} !"
             }
         }
         return affichage

@@ -49,6 +49,7 @@ class ControleurBoutonValider(primary: Stage, vue: VueAccueil, modele: Jeu) : Ev
 
         primary.title = "Echec Martien"
         primary.scene = scene
+        primary.isResizable = false
         primary.show()
     }
 }
