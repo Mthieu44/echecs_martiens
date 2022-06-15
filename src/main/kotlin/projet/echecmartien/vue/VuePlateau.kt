@@ -34,7 +34,7 @@ class VuePlateau : VBox() {
         var lettreColonne: String
         var numLigne: String
 
-        for (num_ligne in 0 until (nbr_buttons_y/2)){ //pour chaque ligne...
+        for (num_ligne in 0 until (nbr_buttons_y / 2)) { //pour chaque ligne...
             numLigne = numLignes[num_ligne]
             for (num_colonne in 0 until nbr_buttons_x) { //pour chaque bouton de la ligne
                 lettreColonne = lettresColonnes[num_colonne]
@@ -72,15 +72,11 @@ class VuePlateau : VBox() {
             }
         }
         this.children.add(plateauBas)
-
-
     }
 
-
-    fun sauvegarde(controleur : EventHandler<MouseEvent>) {
+    fun sauvegarde(controleur: EventHandler<MouseEvent>) {
         this.onMouseClicked = controleur
     }
-
 
     fun clic(controleur: EventHandler<MouseEvent>) {
         this.onMouseClicked = controleur

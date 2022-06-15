@@ -1,7 +1,6 @@
 package projet.echecmartien.vue
 
 import javafx.scene.layout.BorderPane
-import javafx.scene.layout.Pane
 import projet.echecmartien.modele.Joueur
 
 class VueJeu(j1 : String, j2 : String) : BorderPane() {
