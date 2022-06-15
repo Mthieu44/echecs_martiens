@@ -38,7 +38,7 @@ class VuePlateau : VBox() {
             numLigne = numLignes[num_ligne]
             for (num_colonne in 0 until nbr_buttons_x) { //pour chaque bouton de la ligne
                 lettreColonne = lettresColonnes[num_colonne]
-                val casePlateau = CasePlateau(bx, by)
+                val casePlateau = VueCasePlateau(bx, by)
                 tableauCase[num_ligne].add(casePlateau)
                 if (num_ligne + num_colonne < nbr_buttons_y / 4)
                     casePlateau.placerPion("3")
@@ -60,7 +60,7 @@ class VuePlateau : VBox() {
             numLigne = numLignes[num_ligne]
             for (num_colonne in 0 until nbr_buttons_x) { //pour chaque bouton de la ligne
                 lettreColonne = lettresColonnes[num_colonne]
-                val casePlateau = CasePlateau(bx, by)
+                val casePlateau = VueCasePlateau(bx, by)
                 tableauCase[num_ligne].add(casePlateau)
                 if (num_ligne + num_colonne > 3 * nbr_buttons_y / 4 + 2)
                     casePlateau.placerPion("3")
