@@ -72,12 +72,12 @@ class VueCompteurPoints(
         compte21.style = styleCompteur
         compte22.style = styleCompteur
         compte23.style = styleCompteur
-        compte11.fill = Paint.valueOf("#ffe8db")
+        compte11.fill = Paint.valueOf("#f6e8fa")
         compte12.fill = Paint.valueOf("#e3d5c1")
-        compte13.fill = Paint.valueOf("#f0d4aa")
-        compte21.fill = Paint.valueOf("#f4e3ff")
-        compte22.fill = Paint.valueOf("#f4e3ff")
-        compte23.fill = Paint.valueOf("#f4e3ff")
+        compte13.fill = Paint.valueOf("#c9af87")
+        compte21.fill = Paint.valueOf("#f6e8fa")
+        compte22.fill = Paint.valueOf("#e3d5c1")
+        compte23.fill = Paint.valueOf("#c9af87")
 
         val pane11 = Pane()
         val pane12 = Pane()
