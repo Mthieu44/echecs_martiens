@@ -1,15 +1,13 @@
 package projet.echecmartien.vue
 
-import javafx.beans.property.SimpleIntegerProperty
 import javafx.geometry.Insets
 import javafx.scene.layout.BorderPane
 import javafx.scene.layout.Pane
 import javafx.scene.layout.VBox
-import javafx.scene.paint.Paint
+import javafx.scene.paint.*
 import javafx.scene.shape.Circle
 import javafx.scene.text.Text
 import javafx.scene.text.TextAlignment
-import projet.echecmartien.modele.GrandPion
 
 class VueCompteurPoints(
     val nomJoueur1: String,
@@ -41,7 +39,7 @@ class VueCompteurPoints(
 
 
     init {
-        this.setPrefSize((3/8)*tailleFenetreX, tailleFenetreY)
+        this.setPrefSize((3 / 8) * tailleFenetreX, tailleFenetreY)
         //this.style = "-fx-background-color: #00000050"
 
         val tailleGrandPion: Double
@@ -171,11 +169,17 @@ class VueCompteurPoints(
 
         val paneAQuiDeJouer = Pane()
         texteAQuiDeJouer = Text(15.0, 15.0, "C'est au tour de\n$nomJoueur1\nde jouer !")
-        texteAQuiDeJouer.style = styleNomJoueur
+        texteAQuiDeJouer.style = "-fx-font-family: Lobster; -fx-font-size: ${fontSizeNomJoueur + 5}px;"
         texteAQuiDeJouer.textAlignment = TextAlignment.CENTER
         paneAQuiDeJouer.children.add(texteAQuiDeJouer)
         paneAQuiDeJouer.padding = Insets(20.0, 20.0, 20.0, 20.0)
         //paneAQuiDeJouer.style = "-fx-background-color: #FF000030;"
+
+        val stops: MutableList<Stop> =
+            mutableListOf(Stop(0.0, Color.rgb(110, 68, 4)), Stop(1.0, Color.rgb(156, 129, 101)))
+        val linearGradient = RadialGradient(0.0, 10.0, 55.0, 40.0, 45.0, false, CycleMethod.NO_CYCLE, stops)
+        texteAQuiDeJouer.fill = linearGradient
+
 
         this.children.add(partieJoueur2)
         this.children.add(paneAQuiDeJouer)
