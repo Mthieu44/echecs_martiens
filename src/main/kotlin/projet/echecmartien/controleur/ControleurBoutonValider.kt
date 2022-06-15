@@ -32,10 +32,13 @@ class ControleurBoutonValider(primary: Stage, vue: VueAccueil, modele: Jeu) : Ev
             return
         }
         val j1 = Joueur(vue.textFieldPseudoj1.text)
-        val j2 = Joueur(vue.textFieldPseudoj2.text)
+        val j2 = if (vue.checkBoxIA.isSelected)
+            Joueur("[BOT]")
+        else
+            Joueur(vue.textFieldPseudoj2.text)
         val root = VueJeu(j1.getPseudo(), j2.getPseudo())
         val scene = Scene(root, 820.0, 650.0)
-        root.plateau.clic(ControleurClicCase(modele, root.plateau))
+        root.plateau.clic(ControleurClicCase(modele, root.plateau, root.gauche))
         root.droite.fixeBoutonListener(root.droite.boutonAfficherRegles, ControleurAfficherRegles(root, modele))
         root.droite.fixeBoutonListener(root.droite.boutonRecommencer, ControleurBoutonRecommencer(root, modele))
         root.droite.fixeBoutonListener(root.droite.boutonRetourAccueil, ControleurBoutonRetourAccueil(primary, root, modele))

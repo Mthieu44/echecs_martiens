@@ -25,9 +25,10 @@ class VueCompteurPoints(
     private val compteMoyenPionJoueur2: Int = 0,
     private val comptePetitPionJoueur2: Int = 0
 ) : VBox() {
+    val texteAQuiDeJouer: Text
 
     init {
-        this.setPrefSize((3/8)*tailleFenetreX, tailleFenetreY)
+        this.setPrefSize((3 / 8) * tailleFenetreX, tailleFenetreY)
         //this.style = "-fx-background-color: #00000050"
 
         val tailleGrandPion: Double
@@ -51,17 +52,41 @@ class VueCompteurPoints(
         val constY = -3.0
 
         val compte11 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleGrandPion + fontSizeCompteur / 2.0 + constY, "$compteGrandPionJoueur1")
+            Text(
+                bx / 2.0 - fontSizeCompteur / 2.0 + constX,
+                tailleGrandPion + fontSizeCompteur / 2.0 + constY,
+                "$compteGrandPionJoueur1"
+            )
         val compte12 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleMoyenPion + fontSizeCompteur / 2.0 + constY, "$compteMoyenPionJoueur1")
+            Text(
+                bx / 2.0 - fontSizeCompteur / 2.0 + constX,
+                tailleMoyenPion + fontSizeCompteur / 2.0 + constY,
+                "$compteMoyenPionJoueur1"
+            )
         val compte13 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, taillePetitPion + fontSizeCompteur / 2.0 + constY, "$comptePetitPionJoueur1")
+            Text(
+                bx / 2.0 - fontSizeCompteur / 2.0 + constX,
+                taillePetitPion + fontSizeCompteur / 2.0 + constY,
+                "$comptePetitPionJoueur1"
+            )
         val compte21 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleGrandPion + fontSizeCompteur / 2.0 + constY, "$compteGrandPionJoueur2")
+            Text(
+                bx / 2.0 - fontSizeCompteur / 2.0 + constX,
+                tailleGrandPion + fontSizeCompteur / 2.0 + constY,
+                "$compteGrandPionJoueur2"
+            )
         val compte22 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleMoyenPion + fontSizeCompteur / 2.0 + constY, "$compteMoyenPionJoueur2")
+            Text(
+                bx / 2.0 - fontSizeCompteur / 2.0 + constX,
+                tailleMoyenPion + fontSizeCompteur / 2.0 + constY,
+                "$compteMoyenPionJoueur2"
+            )
         val compte23 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, taillePetitPion + fontSizeCompteur / 2.0 + constY, "$comptePetitPionJoueur2")
+            Text(
+                bx / 2.0 - fontSizeCompteur / 2.0 + constX,
+                taillePetitPion + fontSizeCompteur / 2.0 + constY,
+                "$comptePetitPionJoueur2"
+            )
 
         val styleCompteur = "-fx-font-family: Lobster; -fx-font-size: ${fontSizeCompteur}px;"
         this.stylesheets.add("https://fonts.googleapis.com/css2?family=Lobster&display=swap")
@@ -153,14 +178,15 @@ class VueCompteurPoints(
         partieJoueur2.children.add(jetonsEtCompteurJoueur2)
 
         val paneAQuiDeJouer = Pane()
-        val texteAQuiDeJouer = Text(15.0, 15.0, "C'est au tour de\n$nomJoueur1\nde jouer !")
-        texteAQuiDeJouer.style = "-fx-font-family: Lobster; -fx-font-size: ${fontSizeNomJoueur+5}px;"
+        texteAQuiDeJouer = Text(15.0, 15.0, "C'est au tour de\n$nomJoueur1\nde jouer !")
+        texteAQuiDeJouer.style = "-fx-font-family: Lobster; -fx-font-size: ${fontSizeNomJoueur + 5}px;"
         texteAQuiDeJouer.textAlignment = TextAlignment.CENTER
         paneAQuiDeJouer.children.add(texteAQuiDeJouer)
         paneAQuiDeJouer.padding = Insets(20.0, 20.0, 20.0, 20.0)
         //paneAQuiDeJouer.style = "-fx-background-color: #FF000030;"
 
-        val stops: MutableList<Stop> = mutableListOf(Stop(0.0, Color.rgb(110, 68, 4)), Stop(1.0, Color.rgb(156, 129, 101)))
+        val stops: MutableList<Stop> =
+            mutableListOf(Stop(0.0, Color.rgb(110, 68, 4)), Stop(1.0, Color.rgb(156, 129, 101)))
         val linearGradient = RadialGradient(0.0, 10.0, 55.0, 40.0, 45.0, false, CycleMethod.NO_CYCLE, stops)
         texteAQuiDeJouer.fill = linearGradient
 

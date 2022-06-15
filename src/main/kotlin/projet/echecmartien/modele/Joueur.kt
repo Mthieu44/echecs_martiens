@@ -64,5 +64,8 @@ class Joueur(pseudo: String) {
         return pseudo == other.pseudo
     }
 
+    override fun toString(): String {
+        return pseudo
+    }
 
 }
