@@ -118,10 +118,8 @@ class Jeu(
                 }
             }
         }
-        if (cptj1 == 0 || cptj2 == 0)
+        if ((cptj1 == 0 && getJoueurCourant()==joueurs[0]) || (cptj2 == 0 && getJoueurCourant()==joueurs[1]))
             return true
-        println(nombreCoupsSansPrise)
-        println(nombreCoupsSansPriseMax)
         return nombreCoupsSansPriseMax == nombreCoupsSansPrise
     }
 

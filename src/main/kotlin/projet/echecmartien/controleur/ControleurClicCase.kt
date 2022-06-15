@@ -19,7 +19,7 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
         this.vueDuPlateau = vueP
     }
 
-
+    var stop = false
 
     override fun handle(event: MouseEvent) {
         val x = (event.x / vueDuPlateau.bx).toInt()
@@ -29,8 +29,7 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
         } else {
             y = (event.y / vueDuPlateau.by).toInt()
         }
-        if (x<0 || x>3 || y<0 || y>7 || modele.arretPartie()) {
-            println(modele)
+        if (x<0 || x>3 || y<0 || y>7 || stop) {
             return
         }
 
@@ -53,6 +52,7 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
                 modele.deplacer(xO, yO, x, y)
                 if (modele.arretPartie()){
                     vueDeGauche.texteAQuiDeJouer.text = texteDeFin()
+                    stop = true
                 }
             }
         }
@@ -64,17 +64,17 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
         val vainqueur = modele.joueurVainqueur()
         val affichage : String
         if (vainqueur==null) {
-            affichage = "Il y a égalite, chauque joueur à ${modele.getJoueurCourant()!!.calculerScore()} points !"
+            affichage = "Il y a égalite, chauque joueur à\n${modele.getJoueurCourant()!!.calculerScore()} points !"
         }
         else {
             val j1 : Joueur = modele.getJoueurCourant()!!
             modele.changeJoueurCourant()
             val j2 : Joueur = modele.getJoueurCourant()!!
             if (j1.calculerScore() > j2.calculerScore()){
-                affichage = "$j1 a gagné contre $j2 à ${j1.calculerScore()}-${j2.calculerScore()} !"
+                affichage = "@$j1\na gagné contre \n@$j2\n à ${j1.calculerScore()}-${j2.calculerScore()} !"
             }
             else{
-                affichage = "$j2 a gagné contre $j1 à ${j2.calculerScore()}-${j1.calculerScore()} !"
+                affichage = "@$j2\na gagné contre \n@$j1 à ${j2.calculerScore()}-${j1.calculerScore()} !"
             }
         }
         return affichage
