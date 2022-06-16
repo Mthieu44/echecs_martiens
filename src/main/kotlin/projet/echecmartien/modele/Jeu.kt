@@ -24,6 +24,7 @@ class Jeu(
     private var plateau: Plateau = Plateau()
     private var pionArriveDeZone: Pion? = null
     private var coordPionArriveDeZone : Coordonnee? = null
+    var contreBot = false
 
     init {
         this.nombreCoupsSansPrise = nombreCoupsSansPrise
@@ -298,7 +299,7 @@ class Jeu(
     }
 
     override fun toString(): String {
-        return "$nombreCoupsSansPrise;$nombreCoupsSansPriseMax;${joueurs.contentToString()};${joueurs[0].getPionsCaptures()};${joueurs[1].getPionsCaptures()};$joueurCourant;$plateau;$coordPionArriveDeZone;k"
+        return "$nombreCoupsSansPrise;$nombreCoupsSansPriseMax;${joueurs.contentToString()};${joueurs[0].getPionsCaptures()};${joueurs[1].getPionsCaptures()};$joueurCourant;$plateau;$coordPionArriveDeZone;$contreBot;"
     }
 
 

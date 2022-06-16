@@ -2,6 +2,7 @@ package projet.echecmartien.controleur
 
 import javafx.event.ActionEvent
 import javafx.event.EventHandler
+import javafx.scene.Scene
 import javafx.stage.FileChooser
 import javafx.stage.Stage
 import projet.echecmartien.modele.*
@@ -37,8 +38,6 @@ class ControleurBoutonCharger(primary : Stage, vue : VueJeu, modele : Jeu) : Eve
                 string += charCode.toChar().toString()
             }
         }
-        println(data)
-
 
         val nombreCoupsSansPrise = data[0][1].toString().toInt()
         val nombreCoupsSansPriseMax = data[1].toInt()
@@ -75,6 +74,10 @@ class ControleurBoutonCharger(primary : Stage, vue : VueJeu, modele : Jeu) : Eve
         val joueurCourant = Joueur(data[5])
 
         var nouveauJeu = Jeu(nombreCoupsSansPrise,nombreCoupsSansPriseMax,null,null,joueurs,joueurCourant)
+        nouveauJeu.initialiserPartie(j1, j2, nombreCoupsSansPriseMax)
+        if (nouveauJeu.getJoueurCourant() != joueurCourant){
+            nouveauJeu.changeJoueurCourant()
+        }
         val plateau = nouveauJeu.getPlateau()
         val plateauStr = data[6]
         var indice = 0
@@ -119,8 +122,56 @@ class ControleurBoutonCharger(primary : Stage, vue : VueJeu, modele : Jeu) : Eve
             nouveauJeu.setCoordPionArriveDeZone(Coordonnee(data[7][1].digitToInt(), data[7][3].digitToInt()))
             nouveauJeu.setPionArriveDeZone(plateau.getCases()[data[7][1].digitToInt()][data[7][3].digitToInt()].getPion())
         }
-        println(nouveauJeu)
 
+        nouveauJeu.contreBot = data[8].toBooleanStrict()
         fileReader.close()
+
+        val root = VueJeu(j1.getPseudo(), j2.getPseudo(), data[8].toBooleanStrict())
+        val scene = Scene(root, 870.0, 650.0)
+        root.plateau.clic(ControleurClicCase(nouveauJeu, root.plateau, root.gauche))
+        root.droite.fixeBoutonListener(root.droite.boutonAfficherRegles, ControleurAfficherRegles(root, nouveauJeu))
+        root.droite.fixeBoutonListener(root.droite.boutonRecommencer, ControleurBoutonRecommencer(root, nouveauJeu))
+        root.droite.fixeBoutonListener(root.droite.boutonRetourAccueil, ControleurBoutonRetourAccueil(primary, root, nouveauJeu))
+        root.droite.fixeBoutonListener(root.droite.boutonSauvegarder, ControleurBoutonSauvegarder(primary,root.plateau, nouveauJeu))
+        root.droite.fixeBoutonListener(root.droite.boutonCharger, ControleurBoutonCharger(primary,root, nouveauJeu))
+
+        for (i in 0 until 8){
+            for (j in 0 until 4){
+                if (nouveauJeu.getPlateau().getCases()[j][i].estLibre()){
+                    root.plateau.tableauCase[i][j].retirerPion()
+                }else{
+                    root.plateau.tableauCase[i][j].placerPion(nouveauJeu.getPlateau().getCases()[j][i].getPion().toString())
+                }
+            }
+        }
+        root.gauche.texteAQuiDeJouer.text = "C'est au tour de\n@${nouveauJeu.getJoueurCourant()}\nde jouer !"
+        root.gauche.compteJoueur1 = nouveauJeu.getJoueurs()[0].calculerScore()
+        root.gauche.compteJoueur2 = nouveauJeu.getJoueurs()[1].calculerScore()
+        root.gauche.compteGrandPionJoueur1 = comptePionCapture(nouveauJeu.getJoueurs()[0], GrandPion())
+        root.gauche.compteMoyenPionJoueur1 = comptePionCapture(nouveauJeu.getJoueurs()[0], MoyenPion())
+        root.gauche.comptePetitPionJoueur1 = comptePionCapture(nouveauJeu.getJoueurs()[0], PetitPion())
+        root.gauche.compteGrandPionJoueur2 = comptePionCapture(nouveauJeu.getJoueurs()[1], GrandPion())
+        root.gauche.compteMoyenPionJoueur2 = comptePionCapture(nouveauJeu.getJoueurs()[1], MoyenPion())
+        root.gauche.comptePetitPionJoueur2 = comptePionCapture(nouveauJeu.getJoueurs()[1], PetitPion())
+        root.gauche.updateScore()
+
+        primary.title = "Echec Martien"
+        primary.scene = scene
+        primary.isResizable = false
+        primary.show()
+
+
     }
+
+    private fun comptePionCapture(joueur: Joueur, typePion: Pion) : Int{
+        var c = 0
+        for (p in joueur.getPionsCaptures()){
+            if (p == typePion){
+                c += 1
+            }
+        }
+        return c
+    }
+
+
 }
