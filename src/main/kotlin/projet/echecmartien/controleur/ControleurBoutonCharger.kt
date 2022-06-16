@@ -128,7 +128,8 @@ class ControleurBoutonCharger(primary : Stage, vue : VueJeu, modele : Jeu) : Eve
 
         val root = VueJeu(j1.getPseudo(), j2.getPseudo(), data[8].toBooleanStrict())
         val scene = Scene(root, 870.0, 650.0)
-        root.plateau.clic(ControleurClicCase(nouveauJeu, root.plateau, root.gauche))
+        root.droite.boutonSauvegarder.isDisable = false
+        root.plateau.clic(ControleurClicCase(nouveauJeu, root.plateau, root.gauche, root.droite))
         root.droite.fixeBoutonListener(root.droite.boutonAfficherRegles, ControleurAfficherRegles(root, nouveauJeu))
         root.droite.fixeBoutonListener(root.droite.boutonRecommencer, ControleurBoutonRecommencer(root, nouveauJeu))
         root.droite.fixeBoutonListener(root.droite.boutonRetourAccueil, ControleurBoutonRetourAccueil(primary, root, nouveauJeu))

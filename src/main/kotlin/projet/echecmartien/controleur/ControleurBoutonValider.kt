@@ -43,7 +43,8 @@ class ControleurBoutonValider(primary: Stage, vue: VueAccueil, modele: Jeu) : Ev
         val root = VueJeu(j1.getPseudo(), j2.getPseudo(), vue.checkBoxIA.isSelected)
         modele.contreBot = vue.checkBoxIA.isSelected
         val scene = Scene(root, 870.0, 650.0)
-        root.plateau.clic(ControleurClicCase(modele, root.plateau, root.gauche))
+        root.droite.boutonSauvegarder.isDisable = false
+        root.plateau.clic(ControleurClicCase(modele, root.plateau, root.gauche, root.droite))
         root.droite.fixeBoutonListener(root.droite.boutonAfficherRegles, ControleurAfficherRegles(root, modele))
         root.droite.fixeBoutonListener(root.droite.boutonRecommencer, ControleurBoutonRecommencer(root, modele))
         root.droite.fixeBoutonListener(root.droite.boutonRetourAccueil, ControleurBoutonRetourAccueil(primary, root, modele))

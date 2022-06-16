@@ -6,6 +6,7 @@ import javafx.scene.control.Alert
 import javafx.scene.control.ButtonBar
 import projet.echecmartien.modele.Jeu
 import projet.echecmartien.modele.Joueur
+import projet.echecmartien.vue.VueBouton
 import projet.echecmartien.vue.VueCompteurPoints
 import projet.echecmartien.vue.VueJeu
 import projet.echecmartien.vue.VuePlateau
@@ -29,9 +30,10 @@ class ControleurBoutonRecommencer(vue : VueJeu, modele : Jeu) : EventHandler<Act
             modele.initialiserPartie(Joueur(vue.gauche.nomJoueur1), Joueur(vue.gauche.nomJoueur2), 10)
             val plateau = VuePlateau(vue.plateau.bot)
             val gauche = VueCompteurPoints(vue.gauche.nomJoueur1, vue.gauche.nomJoueur2, 1280.0, 640.0, 80.0, 80.0)
-            plateau.clic(ControleurClicCase(modele, plateau, gauche))
+            plateau.clic(ControleurClicCase(modele, plateau, gauche, vue.droite))
             vue.center = plateau
             vue.left = gauche
+            vue.droite.boutonSauvegarder.isDisable = false
         }
     }
 
