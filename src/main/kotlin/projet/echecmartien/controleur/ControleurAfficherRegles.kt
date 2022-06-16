@@ -4,6 +4,7 @@ import javafx.event.ActionEvent
 import javafx.event.EventHandler
 import javafx.scene.control.Alert
 import javafx.scene.input.MouseEvent
+import javafx.scene.shape.Circle
 import projet.echecmartien.modele.Jeu
 import projet.echecmartien.vue.VueJeu
 
