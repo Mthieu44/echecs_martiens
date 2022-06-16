@@ -69,8 +69,6 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
         }
         modele.setCoordOrigineDeplacement(null)
         enleveCouleur()
-
-
     }
 
     private fun texteDeFin():String{
