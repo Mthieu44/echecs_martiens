@@ -6,13 +6,7 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Cursor
 import javafx.scene.control.Button
-import javafx.scene.input.MouseEvent
 import javafx.scene.layout.*
-import javafx.scene.paint.Paint
-import javafx.scene.shape.StrokeLineCap
-import javafx.scene.shape.StrokeLineJoin
-import javafx.scene.shape.StrokeType
-import projet.echecmartien.librairie.TAILLEVERTICALE
 
 class VueBouton : BorderPane() {
     val centre = VBox()
