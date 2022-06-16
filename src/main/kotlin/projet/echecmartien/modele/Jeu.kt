@@ -228,6 +228,9 @@ class Jeu(
             return false
         if (!deplacementPossible(coordOrigineX, coordOrigineY))
             return false
+        if (coordDestinationX < 0 || coordDestinationX > 3 || coordDestinationY < 0 || coordDestinationY > 7){
+            return false
+        }
         val d = Deplacement(
             Coordonnee(coordOrigineX, coordOrigineY),
             Coordonnee(coordDestinationX, coordDestinationY)
