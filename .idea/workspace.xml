@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa5208b6-755b-40a2-90e6-ff32c5d59451" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/save" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/save.json" beforeDir="false" afterPath="$PROJECT_DIR$/save.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/AppliJeuEchecMartien.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/AppliJeuEchecMartien.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/controleur/ControleurBoutonCharger.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/controleur/ControleurBoutonCharger.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/controleur/ControleurBoutonValider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/controleur/ControleurBoutonValider.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/controleur/ControleurBoutonSave.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/modele/Jeu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/projet/echecmartien/modele/Jeu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/AppliJeuEchecMartien.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/AppliJeuEchecMartien.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/projet/echecmartien/AppliJeuEchecMartienKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/projet/echecmartien/AppliJeuEchecMartienKt.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +54,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="settings.editor.selected.configurable" value="preferences.language.Kotlin" />
   </component>
   <component name="RunManager">
     <configuration name="AppliJeuEchecMartienKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
@@ -95,7 +100,21 @@
       <option name="project" value="LOCAL" />
       <updated>1655307491020</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="download json">
+      <created>1655308338780</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1655308338780</updated>
+    </task>
+    <task id="LOCAL-00005" summary="download json">
+      <created>1655308468570</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1655308468570</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -103,7 +122,8 @@
     <MESSAGE value="getPositionX &amp; getPositionY" />
     <MESSAGE value="commit" />
     <MESSAGE value="save json" />
-    <option name="LAST_COMMIT_MESSAGE" value="save json" />
+    <MESSAGE value="download json" />
+    <option name="LAST_COMMIT_MESSAGE" value="download json" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -114,5 +134,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

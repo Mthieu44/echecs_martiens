@@ -284,7 +284,7 @@ class Jeu(
     }
 
     override fun toString(): String {
-        return "$nombreCoupsSansPrise,$nombreCoupsSansPriseMax,$coordOrigine,$coordDest,${joueurs.contentToString()},$joueurCourant,$plateau,$pionArriveDeZone"
+        return "$nombreCoupsSansPrise,$nombreCoupsSansPriseMax,$coordOrigine,$coordDest,${joueurs.contentToString()},${joueurs[0].getPionsCaptures()},${joueurs[1].getPionsCaptures()},$joueurCourant,$plateau,$pionArriveDeZone"
     }
 
 

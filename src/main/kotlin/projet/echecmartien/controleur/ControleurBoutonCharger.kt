@@ -2,10 +2,14 @@ package projet.echecmartien.controleur
 
 import javafx.event.ActionEvent
 import javafx.event.EventHandler
-import javafx.scene.transform.Scale
+import javafx.stage.FileChooser
 import javafx.stage.Stage
+import jdk.jfr.consumer.EventStream.openFile
 import projet.echecmartien.modele.Jeu
 import projet.echecmartien.vue.VueJeu
+import java.io.File
+import java.util.*
+
 
 class ControleurBoutonCharger(primary : Stage, vue : VueJeu, modele : Jeu) : EventHandler<ActionEvent> {
     val primary : Stage
@@ -19,7 +23,11 @@ class ControleurBoutonCharger(primary : Stage, vue : VueJeu, modele : Jeu) : Eve
     }
 
     override fun handle(p0: ActionEvent?) {
-        TODO("Not yet implemented")
+        val fileChooser = FileChooser()
+        val file = fileChooser.showOpenDialog(primary)
+        if (file != null) {
+            openFile(file.toPath())
+        }
     }
 
 }
