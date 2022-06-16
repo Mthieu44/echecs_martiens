@@ -15,7 +15,6 @@ import javafx.scene.paint.Paint
 import javafx.scene.shape.StrokeLineCap
 import javafx.scene.shape.StrokeLineJoin
 import javafx.scene.shape.StrokeType
-import projet.echecmartien.librairie.TAILLEVERTICALE
 
 class VueBouton : BorderPane() {
     val centre = VBox()
