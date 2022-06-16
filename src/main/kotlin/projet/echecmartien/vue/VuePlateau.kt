@@ -79,4 +79,14 @@ class VuePlateau(bot : Boolean) : VBox() {
     fun clic(controleur: EventHandler<MouseEvent>) {
         this.onMouseClicked = controleur
     }
+
+    fun enleveOmbre(){
+        for (i in 0 until 8){
+            for (j in 0 until 4){
+                if (tableauCase[i][j].hasShadow()){
+                    tableauCase[i][j].retirerPion()
+                }
+            }
+        }
+    }
 }

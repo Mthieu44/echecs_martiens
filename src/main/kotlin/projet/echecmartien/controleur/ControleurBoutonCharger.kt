@@ -72,8 +72,54 @@ class ControleurBoutonCharger(primary : Stage, vue : VueJeu, modele : Jeu) : Eve
                 j2.ajouterPionCaptures(GrandPion())
             }
         }
-        val joueurCourant = Joueur(data[5])
+
+
         var nouveauJeu = Jeu(nombreCoupsSansPrise,nombreCoupsSansPriseMax,null,null,joueurs,joueurCourant)
+        val plateau = nouveauJeu.getPlateau()
+        val plateauStr = data[6]
+        var indice = 0
+        var i = 0
+        var j = 0
+        while (indice<plateauStr.length){
+            if (plateauStr[indice]=='0'){
+                plateau.getCases()[i][j].setPion(null)
+                i+=1
+                if (i==4){
+                    i=0
+                    j++
+                }
+            }
+            else if (plateauStr[indice]=='1'){
+                plateau.getCases()[i][j].setPion(PetitPion())
+                i+=1
+                if (i==4){
+                    i=0
+                    j++
+                }
+            }
+            else if (plateauStr[indice]=='2'){
+                plateau.getCases()[i][j].setPion(MoyenPion())
+                i+=1
+                if (i==4){
+                    i=0
+                    j++
+                }
+            }
+            else if (plateauStr[indice]=='3'){
+                plateau.getCases()[i][j].setPion(GrandPion())
+                i+=1
+                if (i==4){
+                    i=0
+                    j++
+                }
+            }
+            indice ++
+        }
+        if ("null" !in data[7]){
+            nouveauJeu.setPionArriveDeZone(plateau.getCases()[data[7][1].digitToInt()][data[7][3].digitToInt()].getPion())
+        }
+        println(plateau)
+        val joueurCourant = Joueur(data[5])
         fileReader.close()
     }
 }

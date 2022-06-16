@@ -23,6 +23,7 @@ class Jeu(
     private var joueurCourant: Joueur? = null
     private var plateau: Plateau = Plateau()
     private var pionArriveDeZone: Pion? = null
+    private var coordPionArriveDeZone : Coordonnee? = null
 
     init {
         this.nombreCoupsSansPrise = nombreCoupsSansPrise
@@ -57,6 +58,10 @@ class Jeu(
         return coordDest
     }
 
+
+    fun setPionArriveDeZone(pion : Pion?){
+        pionArriveDeZone = pion
+    }
 
     /**
      * setter
@@ -266,8 +271,10 @@ class Jeu(
             }
 
             pionArriveDeZone = null
+            coordPionArriveDeZone = null
             if (cd.getJoueur() != co.getJoueur()) {
                 pionArriveDeZone = co.getPion()
+                coordPionArriveDeZone = Coordonnee(coordDestinationX, coordDestinationY)
             }
 
             plateau.getCases()[coordDestinationX][coordDestinationY].setPion(co.getPion())
@@ -287,7 +294,7 @@ class Jeu(
     }
 
     override fun toString(): String {
-        return "$nombreCoupsSansPrise;$nombreCoupsSansPriseMax;${joueurs.contentToString()};${joueurs[0].getPionsCaptures()};${joueurs[1].getPionsCaptures()};$joueurCourant;$plateau;$pionArriveDeZone;k"
+        return "$nombreCoupsSansPrise;$nombreCoupsSansPriseMax;${joueurs.contentToString()};${joueurs[0].getPionsCaptures()};${joueurs[1].getPionsCaptures()};$joueurCourant;$plateau;$coordPionArriveDeZone;k"
     }
 
 
