@@ -77,6 +77,7 @@ class VueAccueil : BorderPane() {
         vboxJoueur1.children.addAll(labelPseudoj1, textFieldPseudoj1)
         vboxJoueur2.children.addAll(checkBoxIA, labelPseudoj2, textFieldPseudoj2)
 
+        boutonValide.padding = Insets(10.0, 17.0, 10.0, 17.0)
     }
 
     fun checkBox(controleur: EventHandler<MouseEvent>) {
