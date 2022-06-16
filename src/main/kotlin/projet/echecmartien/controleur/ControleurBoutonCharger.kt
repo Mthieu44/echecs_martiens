@@ -38,6 +38,8 @@ class ControleurBoutonCharger(primary : Stage, vue : VueJeu, modele : Jeu) : Eve
                 string += charCode.toChar().toString()
             }
         }
+        fileReader.close()
+
 
         val nombreCoupsSansPrise = data[0][1].toString().toInt()
         val nombreCoupsSansPriseMax = data[1].toInt()
