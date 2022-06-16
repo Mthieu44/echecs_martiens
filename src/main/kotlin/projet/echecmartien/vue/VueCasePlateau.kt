@@ -45,6 +45,10 @@ class VueCasePlateau(
         this.style = "-fx-border-color: #000000; -fx-border-width: 1px;"
     }
 
+    fun ombrePion() {
+        cercle.fill = Paint.valueOf("#DDDDDD")
+    }
+
     fun retirerPion() {
         cercle.radius = 0.0
     }
@@ -66,4 +70,6 @@ class VueCasePlateau(
     fun changeCouleur(couleur : String){
         this.style = "-fx-background-color: $couleur; -fx-border-color: #000000; -fx-border-width: 1px;"
     }
+
+    fun hasShadow() = (cercle.fill == Paint.valueOf("#DDDDDD"))
 }
