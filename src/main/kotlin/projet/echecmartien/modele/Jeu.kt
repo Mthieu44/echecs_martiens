@@ -63,6 +63,10 @@ class Jeu(
         pionArriveDeZone = pion
     }
 
+    fun setCoordPionArriveDeZone(coord : Coordonnee?){
+        coordPionArriveDeZone = coord
+    }
+
     /**
      * setter
      * @param origine la coordonnée origine du déplacement

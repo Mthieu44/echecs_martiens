@@ -50,29 +50,29 @@ class ControleurBoutonCharger(primary : Stage, vue : VueJeu, modele : Jeu) : Eve
         val joueurs = arrayOf(j1,j2)
         val pionJ1Str = data[3]
         val pionJ2Str = data[4]
-        for (i in pionJ1Str.indices){
-            if (i == 1){
+        for (e in pionJ1Str){
+            if (e == '1'){
                 j1.ajouterPionCaptures(PetitPion())
             }
-            if (i == 2){
+            if (e == '2'){
                 j1.ajouterPionCaptures(MoyenPion())
             }
-            if (i == 3){
+            if (e == '3'){
                 j1.ajouterPionCaptures(GrandPion())
             }
         }
-        for (i in pionJ2Str.indices){
-            if (i == 1){
+        for (i in pionJ2Str){
+            if (i == '1'){
                 j2.ajouterPionCaptures(PetitPion())
             }
-            if (i == 2){
+            if (i == '2'){
                 j2.ajouterPionCaptures(MoyenPion())
             }
-            if (i == 3){
+            if (i == '3'){
                 j2.ajouterPionCaptures(GrandPion())
             }
         }
-
+        val joueurCourant = Joueur(data[5])
 
         var nouveauJeu = Jeu(nombreCoupsSansPrise,nombreCoupsSansPriseMax,null,null,joueurs,joueurCourant)
         val plateau = nouveauJeu.getPlateau()
@@ -116,10 +116,11 @@ class ControleurBoutonCharger(primary : Stage, vue : VueJeu, modele : Jeu) : Eve
             indice ++
         }
         if ("null" !in data[7]){
+            nouveauJeu.setCoordPionArriveDeZone(Coordonnee(data[7][1].digitToInt(), data[7][3].digitToInt()))
             nouveauJeu.setPionArriveDeZone(plateau.getCases()[data[7][1].digitToInt()][data[7][3].digitToInt()].getPion())
         }
-        println(plateau)
-        val joueurCourant = Joueur(data[5])
+        println(nouveauJeu)
+
         fileReader.close()
     }
 }
