@@ -36,7 +36,7 @@ class VueCasePlateau(
             tailleBoutonY
 
         tailleGrandPion = (18.0 / 20.0) / 2.0 * minTailleBouton
-        tailleMoyenPion = (6.0 / 8.0) / 2.0 * minTailleBouton
+        tailleMoyenPion = (8.0 / 11.0) / 2.0 * minTailleBouton
         taillePetitPion = (1.0 / 2.0) / 2.0 * minTailleBouton
 
 

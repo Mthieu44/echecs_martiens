@@ -49,7 +49,7 @@ class VueCompteurPoints(
 
         val minTailleBouton: Double = if (bx <= by) bx else by
         tailleGrandPion = (18.0 / 20.0) / 2.0 * minTailleBouton
-        tailleMoyenPion = (6.0 / 8.0) / 2.0 * minTailleBouton
+        tailleMoyenPion = (8.0 / 11.0) / 2.0 * minTailleBouton
         taillePetitPion = (1.0 / 2.0) / 2.0 * minTailleBouton
 
         val cercle11 = Circle(bx / 2.0, tailleGrandPion, tailleGrandPion, Paint.valueOf("#BDA8A8"))
