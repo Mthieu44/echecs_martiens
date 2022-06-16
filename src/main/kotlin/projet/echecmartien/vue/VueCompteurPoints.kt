@@ -137,10 +137,10 @@ class VueCompteurPoints(
         val paddingJoueurY = 20.0
         val fontSizeNomJoueur = 23.0
 
-        val texteNomJoueur2 = Text(paddingJoueurX + 5, (2 / 3) * paddingJoueurY + 1.9 * fontSizeNomJoueur, nomJoueur2)
+        val texteNomJoueur2 = Text(paddingJoueurX - 5, (2 / 3) * paddingJoueurY + 1.9 * fontSizeNomJoueur, nomJoueur2)
         val zoneNomJoueur2 = Pane()
         zoneNomJoueur2.children.add(texteNomJoueur2)
-        val texteNomJoueur1 = Text(paddingJoueurX + 5, (2 / 3) * paddingJoueurY + 1.9 * fontSizeNomJoueur, nomJoueur1)
+        val texteNomJoueur1 = Text(paddingJoueurX - 5, (2 / 3) * paddingJoueurY + 1.9 * fontSizeNomJoueur, nomJoueur1)
         val zoneNomJoueur1 = Pane()
         zoneNomJoueur1.children.add(texteNomJoueur1)
 
