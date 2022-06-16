@@ -39,6 +39,7 @@ class VueCompteurPoints(
 
 
     init {
+        this.padding =  Insets(12.0, 2.0, 13.0, 23.0)
         this.setPrefSize((3 / 8) * tailleFenetreX, tailleFenetreY)
         //this.style = "-fx-background-color: #00000050"
 
@@ -63,17 +64,17 @@ class VueCompteurPoints(
         val constY = -3.0
 
         compte11 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleGrandPion + fontSizeCompteur / 2.0 + constY, "${compteGrandPionJoueur1}")
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleGrandPion + fontSizeCompteur / 2.0 + constY, "$compteGrandPionJoueur1")
         compte12 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleMoyenPion + fontSizeCompteur / 2.0 + constY, "${compteMoyenPionJoueur1}")
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleMoyenPion + fontSizeCompteur / 2.0 + constY, "$compteMoyenPionJoueur1")
         compte13 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, taillePetitPion + fontSizeCompteur / 2.0 + constY, "${comptePetitPionJoueur1}")
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, taillePetitPion + fontSizeCompteur / 2.0 + constY, "$comptePetitPionJoueur1")
         compte21 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleGrandPion + fontSizeCompteur / 2.0 + constY, "${compteGrandPionJoueur2}")
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleGrandPion + fontSizeCompteur / 2.0 + constY, "$compteGrandPionJoueur2")
         compte22 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleMoyenPion + fontSizeCompteur / 2.0 + constY, "${compteMoyenPionJoueur2}")
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, tailleMoyenPion + fontSizeCompteur / 2.0 + constY, "$compteMoyenPionJoueur2")
         compte23 =
-            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, taillePetitPion + fontSizeCompteur / 2.0 + constY, "${comptePetitPionJoueur2}")
+            Text(bx / 2.0 - fontSizeCompteur / 2.0 + constX, taillePetitPion + fontSizeCompteur / 2.0 + constY, "$comptePetitPionJoueur2")
 
         val styleCompteur = "-fx-font-family: Lobster; -fx-font-size: ${fontSizeCompteur}px;"
         this.stylesheets.add("https://fonts.googleapis.com/css2?family=Lobster&display=swap")
