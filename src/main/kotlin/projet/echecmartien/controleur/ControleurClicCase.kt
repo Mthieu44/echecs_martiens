@@ -3,19 +3,22 @@ package projet.echecmartien.controleur
 import javafx.event.EventHandler
 import javafx.scene.input.MouseEvent
 import projet.echecmartien.modele.*
+import projet.echecmartien.vue.VueBouton
 import projet.echecmartien.vue.VueCompteurPoints
 import projet.echecmartien.vue.VuePlateau
 import kotlin.random.Random
 
-class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints) : EventHandler<MouseEvent> {
+class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints, vueD : VueBouton) : EventHandler<MouseEvent> {
     val modele: Jeu
     val vueDuPlateau : VuePlateau
     val vueDeGauche : VueCompteurPoints
+    val vueDeDroite : VueBouton
 
     init {
         this.vueDeGauche = vueG
         this.modele = modele
         this.vueDuPlateau = vueP
+        this.vueDeDroite = vueD
     }
 
     var stop = false
@@ -62,6 +65,7 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
                 if (modele.arretPartie()){
                     vueDeGauche.texteAQuiDeJouer.text = texteDeFin()
                     stop = true
+                    vueDeDroite.boutonSauvegarder.isDisable = true
                 }
 
 
@@ -72,6 +76,7 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
                     if (modele.arretPartie()){
                         vueDeGauche.texteAQuiDeJouer.text = texteDeFin()
                         stop = true
+                        vueDeDroite.boutonSauvegarder.isDisable = true
                     }
                 }
 
