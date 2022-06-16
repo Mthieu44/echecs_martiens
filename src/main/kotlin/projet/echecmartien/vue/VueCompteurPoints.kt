@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane
 import javafx.scene.layout.VBox
 import javafx.scene.paint.*
 import javafx.scene.shape.Circle
+import javafx.scene.shape.StrokeLineCap
 import javafx.scene.text.Text
 import javafx.scene.text.TextAlignment
 
@@ -129,18 +130,22 @@ class VueCompteurPoints(
         partieJoueur2.padding = Insets(0.0, 80.0, 0.0, 30.0)
         partieJoueur2.setPrefSize(250.0, 300.0)
         partieJoueur2.minWidth = 250.0
+        partieJoueur2.minHeight = 280.0
 
 
         val paddingJoueurX = 10.0
         val paddingJoueurY = 20.0
-        val fontSizeNomJoueur = 17.0
+        val fontSizeNomJoueur = 23.0
 
-        val texteNomJoueur2 = Text(paddingJoueurX + 5, (2 / 3) * paddingJoueurY + 1.9 * fontSizeNomJoueur, nomJoueur2)
+        val texteNomJoueur2 = Text(paddingJoueurX - 5, (2 / 3) * paddingJoueurY + 1.9 * fontSizeNomJoueur, nomJoueur2)
         val zoneNomJoueur2 = Pane()
         zoneNomJoueur2.children.add(texteNomJoueur2)
-        val texteNomJoueur1 = Text(paddingJoueurX + 5, (2 / 3) * paddingJoueurY + 1.9 * fontSizeNomJoueur, nomJoueur1)
+        val texteNomJoueur1 = Text(paddingJoueurX - 5, (2 / 3) * paddingJoueurY + 1.9 * fontSizeNomJoueur, nomJoueur1)
         val zoneNomJoueur1 = Pane()
         zoneNomJoueur1.children.add(texteNomJoueur1)
+
+        texteNomJoueur1.fill = Paint.valueOf("#acd136")
+        texteNomJoueur2.fill = Paint.valueOf("#db4678")
 
         val styleNomJoueur = "-fx-font-family: Lobster; -fx-font-size: ${fontSizeNomJoueur}px;"
         texteNomJoueur2.style = styleNomJoueur
@@ -170,7 +175,7 @@ class VueCompteurPoints(
 
         val paneAQuiDeJouer = Pane()
         texteAQuiDeJouer = Text(15.0, 15.0, "C'est au tour de\n@$nomJoueur1\nde jouer !")
-        texteAQuiDeJouer.style = "-fx-font-family: Lobster; -fx-font-size: ${fontSizeNomJoueur + 5}px;"
+        texteAQuiDeJouer.style = "-fx-font-family: Lobster; -fx-font-size: ${fontSizeNomJoueur}px;"
         texteAQuiDeJouer.textAlignment = TextAlignment.CENTER
         paneAQuiDeJouer.children.add(texteAQuiDeJouer)
         paneAQuiDeJouer.padding = Insets(20.0, 20.0, 20.0, 20.0)
