@@ -47,14 +47,18 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
             val yO = modele.getCoordOrigineDeplacement()!!.getY()
             if (modele.deplacementPossible(xO, yO, x, y, modele.getJoueurCourant())) {
                 vueDuPlateau.tableauCase[y][x].placerPion(modele.getPlateau().getCases()[xO][yO].getPion().toString())
-                vueDuPlateau.tableauCase[yO][xO].retirerPion()
+                vueDuPlateau.enleveOmbre()
+                vueDuPlateau.tableauCase[yO][xO].ombrePion()
                 modele.deplacer(xO, yO, x, y)
                 score()
                 vueDeGauche.texteAQuiDeJouer.text = "C'est au tour de\n@${modele.getJoueurCourant()!!.getPseudo()}\nde jouer !"
+
                 if (modele.arretPartie()){
                     vueDeGauche.texteAQuiDeJouer.text = texteDeFin()
                     stop = true
                 }
+
+
                 if (vueDuPlateau.bot) {
                     tourDuBot()
                     score()
@@ -212,11 +216,12 @@ class ControleurClicCase(modele: Jeu, vueP: VuePlateau, vueG : VueCompteurPoints
                 dx = ox
                 dy = oy - 1
             }else{
-                println("Y'a un problème dans la partie, mais on sait pas où")
+                return
             }
         }
         vueDuPlateau.tableauCase[dy][dx].placerPion(modele.getPlateau().getCases()[ox][oy].getPion().toString())
-        vueDuPlateau.tableauCase[oy][ox].retirerPion()
+        vueDuPlateau.enleveOmbre()
+        vueDuPlateau.tableauCase[oy][ox].ombrePion()
         modele.deplacer(ox, oy, dx, dy)
     }
 }

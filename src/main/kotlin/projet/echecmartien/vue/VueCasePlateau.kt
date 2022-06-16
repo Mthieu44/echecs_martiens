@@ -36,13 +36,17 @@ class VueCasePlateau(
             tailleBoutonY
 
         tailleGrandPion = (18.0 / 20.0) / 2.0 * minTailleBouton
-        tailleMoyenPion = (6.0 / 8.0) / 2.0 * minTailleBouton
+        tailleMoyenPion = (8.0 / 11.0) / 2.0 * minTailleBouton
         taillePetitPion = (1.0 / 2.0) / 2.0 * minTailleBouton
 
 
         this.children.add(cercle)
         cercle.fill = Paint.valueOf("#FFD000")
         this.style = "-fx-border-color: #000000; -fx-border-width: 1px;"
+    }
+
+    fun ombrePion() {
+        cercle.fill = Paint.valueOf("#DDDDDD")
     }
 
     fun retirerPion() {
@@ -66,4 +70,6 @@ class VueCasePlateau(
     fun changeCouleur(couleur : String){
         this.style = "-fx-background-color: $couleur; -fx-border-color: #000000; -fx-border-width: 1px;"
     }
+
+    fun hasShadow() = (cercle.fill == Paint.valueOf("#DDDDDD"))
 }
