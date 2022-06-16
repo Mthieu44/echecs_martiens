@@ -4,8 +4,7 @@ import javafx.event.ActionEvent
 import javafx.event.EventHandler
 import javafx.stage.FileChooser
 import javafx.stage.Stage
-import projet.echecmartien.modele.Jeu
-import projet.echecmartien.modele.Joueur
+import projet.echecmartien.modele.*
 import projet.echecmartien.vue.VueJeu
 import java.io.File
 import java.io.FileReader
@@ -39,40 +38,42 @@ class ControleurBoutonCharger(primary : Stage, vue : VueJeu, modele : Jeu) : Eve
             }
         }
         println(data)
-        var maValeur: String = apresVerif(data[0])
 
 
-        val nombreCoupsSansPrise = maValeur.toInt()
+        val nombreCoupsSansPrise = data[0][1].toString().toInt()
         val nombreCoupsSansPriseMax = data[1].toInt()
-        var stringJoueur1 = ""
-        var stringJoueur2 = ""
-        var joueur1EnCours = true
-        for (caractere in data[2]){
-            if (joueur1EnCours){
-                if (caractere != ',')
-                    if (caractere != '[')
-                        stringJoueur1 += caractere
-                else
-                    joueur1EnCours = false
+        val joueursStr = data[2]
+        var stringJoueur1 = joueursStr.substring(1, joueursStr.indexOf(','))
+        var stringJoueur2 = joueursStr.substring(joueursStr.indexOf(',')+2, joueursStr.length-1)
+        val j1 = Joueur(stringJoueur1)
+        val j2 = Joueur(stringJoueur2)
+        val joueurs = arrayOf(j1,j2)
+        val pionJ1Str = data[3]
+        val pionJ2Str = data[4]
+        for (i in pionJ1Str.indices){
+            if (i == 1){
+                j1.ajouterPionCaptures(PetitPion())
+            }
+            if (i == 2){
+                j1.ajouterPionCaptures(MoyenPion())
+            }
+            if (i == 3){
+                j1.ajouterPionCaptures(GrandPion())
             }
         }
-
-        var nouveauJeu = Jeu(nombreCoupsSansPrise,nombreCoupsSansPriseMax,null,null)
+        for (i in pionJ2Str.indices){
+            if (i == 1){
+                j2.ajouterPionCaptures(PetitPion())
+            }
+            if (i == 2){
+                j2.ajouterPionCaptures(MoyenPion())
+            }
+            if (i == 3){
+                j2.ajouterPionCaptures(GrandPion())
+            }
+        }
+        val joueurCourant = Joueur(data[5])
+        var nouveauJeu = Jeu(nombreCoupsSansPrise,nombreCoupsSansPriseMax,null,null,joueurs,joueurCourant)
         fileReader.close()
-    }
-
-    fun apresVerif(valeur: String): String{
-        var sortie = ""
-        for (caractere in valeur)
-            if (caractere in "0123456789")
-                sortie += caractere
-        return sortie
-    }
-
-    fun verif(valeur: String): Boolean{
-        for (caractere in valeur)
-            if (caractere !in "0123456789")
-                return false
-        return true
     }
 }
