@@ -39,6 +39,7 @@ class VueCompteurPoints(
 
 
     init {
+        this.padding =  Insets(12.0, 12.0, 13.0, 13.0)
         this.setPrefSize((3 / 8) * tailleFenetreX, tailleFenetreY)
         //this.style = "-fx-background-color: #00000050"
 
